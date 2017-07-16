@@ -15,6 +15,7 @@
 		BCE916871F151CBD00C4F67D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCE916851F151CBD00C4F67D /* LaunchScreen.storyboard */; };
 		BCE916921F151CBE00C4F67D /* ARRulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE916911F151CBE00C4F67D /* ARRulerTests.swift */; };
 		BCE9169D1F151CBE00C4F67D /* ARRulerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE9169C1F151CBE00C4F67D /* ARRulerUITests.swift */; };
+		BCE916AB1F152ACA00C4F67D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE916AA1F152ACA00C4F67D /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		BCE916981F151CBE00C4F67D /* ARRulerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARRulerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE9169C1F151CBE00C4F67D /* ARRulerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARRulerUITests.swift; sourceTree = "<group>"; };
 		BCE9169E1F151CBE00C4F67D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCE916AA1F152ACA00C4F67D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				BCE916831F151CBD00C4F67D /* Assets.xcassets */,
 				BCE916851F151CBD00C4F67D /* LaunchScreen.storyboard */,
 				BCE916881F151CBD00C4F67D /* Info.plist */,
+				BCE916AA1F152ACA00C4F67D /* Utilities.swift */,
 			);
 			path = ARRuler;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCE916AB1F152ACA00C4F67D /* Utilities.swift in Sources */,
 				BCE9167F1F151CBD00C4F67D /* ViewController.swift in Sources */,
 				BCE9167B1F151CBD00C4F67D /* AppDelegate.swift in Sources */,
 			);
@@ -532,6 +536,7 @@
 				BCE916A31F151CBE00C4F67D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BCE916A41F151CBE00C4F67D /* Build configuration list for PBXNativeTarget "ARRulerTests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +545,7 @@
 				BCE916A61F151CBE00C4F67D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BCE916A71F151CBE00C4F67D /* Build configuration list for PBXNativeTarget "ARRulerUITests" */ = {
 			isa = XCConfigurationList;
@@ -548,6 +554,7 @@
 				BCE916A91F151CBE00C4F67D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

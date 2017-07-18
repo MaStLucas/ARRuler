@@ -10,7 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var distanceLabel: UILabel!
@@ -25,6 +25,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var endVector: SCNVector3 = SCNVector3.init()
     var startEndNodes: [SCNNode] = []
     var cameraPosition: SCNVector3 = SCNVector3.init()
+    
+    var planes = [ARPlaneAnchor: SCNNode]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,43 +75,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     // MARK: - ARSCNViewDelegate
     
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
-    }
-*/
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        if let planeAnchor = anchor as? ARPlaneAnchor {
-            let plane = SCNBox.init(width: CGFloat(planeAnchor.extent.x), height: 0, length: CGFloat(planeAnchor.extent.x), chamferRadius: 0)
-            plane.firstMaterial?.diffuse.contents = UIColor.clear
-            
-            let planeNode = SCNNode.init(geometry: plane)
-            planeNode.position = SCNVector3.init(planeAnchor.center.x, 0, planeAnchor.center.z)
-            
-            node.addChildNode(planeNode)
-        }
-    }
-    
-    
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
-    }
-    
     @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
         let point = recognizer.location(in: self.sceneView)
         let results = self.sceneView.hitTest(point, types: .existingPlaneUsingExtent)
@@ -152,8 +117,79 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 }
 
+extension ViewController: ARSCNViewDelegate {
+    
+    /*
+     // Override to create and configure nodes for anchors added to the view's session.
+     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+     let node = SCNNode()
+     
+     return node
+     }
+     */
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        DispatchQueue.main.async {
+            if let planeAnchor = anchor as? ARPlaneAnchor {
+                let plane = SCNBox.init(width: CGFloat(planeAnchor.extent.x), height: 0, length: CGFloat(planeAnchor.extent.z), chamferRadius: 0)
+                //            plane.firstMaterial?.diffuse.contents = UIColor.red
+                plane.materials = [SCNMaterial.material(withDiffuse: UIImage(named: "art.scnassets/plane_grid.png"))]
+                
+                let planeNode = SCNNode.init(geometry: plane)
+                planeNode.position = SCNVector3.init(planeAnchor.center.x, 0, planeAnchor.center.z)
+                
+                node.addChildNode(planeNode)
+                
+                self.planes[planeAnchor] = planeNode
+            }
+        }
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        DispatchQueue.main.async {
+            if let planeAnchor = anchor as? ARPlaneAnchor {
+                if let plane = self.planes[planeAnchor] {
+                    (plane.geometry as? SCNBox)?.width = CGFloat(planeAnchor.extent.x)
+                    (plane.geometry as? SCNBox)?.length = CGFloat(planeAnchor.extent.x)
+                    plane.position = SCNVector3.init(planeAnchor.center.x, 0, planeAnchor.center.z)
+                }
+            }
+        }
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+        DispatchQueue.main.async {
+            if let planeAnchor = anchor as? ARPlaneAnchor {
+                if let plane = self.planes.removeValue(forKey: planeAnchor) {
+                    plane.removeFromParentNode()
+                }
+            }
+        }
+    }
+    
+    func session(_ session: ARSession, didFailWithError error: Error) {
+        // Present an error message to the user
+        
+    }
+    
+    func sessionWasInterrupted(_ session: ARSession) {
+        // Inform the user that the session has been interrupted, for example, by presenting an overlay
+        
+    }
+    
+    func sessionInterruptionEnded(_ session: ARSession) {
+        // Reset tracking and/or remove existing anchors if consistent tracking is required
+        
+    }
+}
+
 extension ViewController: ARSessionDelegate {
+    
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         cameraPosition = SCNVector3.init(frame.camera.transform.columns.3.x, frame.camera.transform.columns.3.y, frame.camera.transform.columns.3.z)
     }
+}
+
+extension ViewController {
+    
+    
 }

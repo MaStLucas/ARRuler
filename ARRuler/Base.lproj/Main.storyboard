@@ -33,16 +33,29 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giraffe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVZ-XS-Uws">
-                                                        <rect key="frame" x="161" y="11" width="52" height="21"/>
+                                                        <rect key="frame" x="20" y="11" width="52" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="o2Z-wI-yrV">
+                                                        <rect key="frame" x="127" y="7" width="235" height="29"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <segments>
+                                                            <segment title="Feature Point"/>
+                                                            <segment title="Estimated Horizontal Plane"/>
+                                                            <segment title="Existing Plane"/>
+                                                            <segment title="Existing Plane Using Extent "/>
+                                                            <segment title="Camera"/>
+                                                        </segments>
+                                                        <connections>
+                                                            <action selector="modeChanged:" destination="BV1-FR-VrT" eventType="valueChanged" id="RNF-sO-IPM"/>
+                                                        </connections>
+                                                    </segmentedControl>
                                                 </subviews>
                                             </view>
                                             <constraints>
                                                 <constraint firstItem="jVZ-XS-Uws" firstAttribute="centerY" secondItem="Fbk-SD-lVT" secondAttribute="centerY" id="hqp-aJ-wrv"/>
-                                                <constraint firstItem="jVZ-XS-Uws" firstAttribute="centerX" secondItem="Fbk-SD-lVT" secondAttribute="centerX" id="tJX-0A-UHH"/>
                                             </constraints>
                                             <vibrancyEffect>
                                                 <blurEffect style="extraLight"/>
@@ -56,6 +69,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Fbk-SD-lVT" secondAttribute="trailing" id="Rx3-ra-dIl"/>
                                     <constraint firstItem="Fbk-SD-lVT" firstAttribute="leading" secondItem="Rae-za-P0b" secondAttribute="leading" id="hgX-uq-APg"/>
                                     <constraint firstItem="Fbk-SD-lVT" firstAttribute="top" secondItem="Rae-za-P0b" secondAttribute="top" id="pqW-zJ-tlw"/>
+                                    <constraint firstItem="jVZ-XS-Uws" firstAttribute="leading" secondItem="Rae-za-P0b" secondAttribute="leading" constant="20" id="ur9-ce-lHj"/>
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -77,11 +91,13 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="distanceLabel" destination="jVZ-XS-Uws" id="DPm-Gm-zfp"/>
+                        <outlet property="mode" destination="o2Z-wI-yrV" id="OBu-d4-XMB"/>
                         <outlet property="sceneView" destination="HmB-J8-ADd" id="OWn-kP-ilY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="53.600000000000001" y="54.422788605697157"/>
         </scene>
     </scenes>
 </document>

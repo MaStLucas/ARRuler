@@ -14,6 +14,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var mode: UISegmentedControl!
     
     var arSession: ARSession!
     var arSessionConfiguration: ARWorldTrackingSessionConfiguration!
@@ -23,10 +24,13 @@ class ViewController: UIViewController {
     var firstTap = true
     var startVector: SCNVector3 = SCNVector3.init()
     var endVector: SCNVector3 = SCNVector3.init()
+    var localStartVector: SCNVector3 = SCNVector3.init()
+    var localEndVector: SCNVector3 = SCNVector3.init()
     var startEndNodes: [SCNNode] = []
     var cameraPosition: SCNVector3 = SCNVector3.init()
     
     var planes = [ARPlaneAnchor: SCNNode]()
+    var rulerNode = SCNNode.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +41,8 @@ class ViewController: UIViewController {
         
         // Set the view's delegate
         sceneView.delegate = self
+        
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         
         // Show statistics such as fps and timing information
 //        sceneView.showsStatistics = true
@@ -75,36 +81,73 @@ class ViewController: UIViewController {
 
     // MARK: - ARSCNViewDelegate
     
+    @IBAction func modeChanged(_ sender: UISegmentedControl) {
+        startEndNodes.forEach{ $0.removeFromParentNode() }
+        startEndNodes.removeAll()
+        rulerNode.removeFromParentNode()
+    }
+    
     @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
+        
         let point = recognizer.location(in: self.sceneView)
-        let results = self.sceneView.hitTest(point, types: .existingPlaneUsingExtent)
-        guard results.count != 0 else { return }
-        let result = results[0]
+        
         let geometry = SCNSphere.init(radius: 0.01)
         let node = SCNNode.init(geometry: geometry)
         
+        let type: ARHitTestResult.ResultType
+        switch mode.selectedSegmentIndex {
+        case 0:
+            type = .featurePoint
+        case 1:
+            type = .estimatedHorizontalPlane
+        case 2:
+            type = .existingPlane
+        case 3:
+            type = .existingPlaneUsingExtent
+        default:
+            type = .existingPlaneUsingExtent
+        }
+        let results = self.sceneView.hitTest(point, types: type)
+        guard results.count != 0 else { return }
+        let result = results[0]
+        
+        let localPosition = SCNVector3.init(result.localTransform.columns.3.x, result.localTransform.columns.3.y, result.localTransform.columns.3.z)
         let position = SCNVector3.init(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
         node.position = position
         
         self.sceneView.scene.rootNode.addChildNode(node)
+        
+//        let position = SCNVector3.init(result.localTransform.columns.3.x, result.localTransform.columns.3.y, result.localTransform.columns.3.z)
+//        node.position = position
+//
+//        if let planeAnchor = result.anchor as? ARPlaneAnchor {
+//            self.planes[planeAnchor]?.addChildNode(node)
+//        }
         
         print("distance: \(result.distance)")
         
         if startEndNodes.count == 0 || startEndNodes.count == 2 {
             startEndNodes.forEach{ $0.removeFromParentNode() }
             startEndNodes.removeAll()
+            rulerNode.removeFromParentNode()
             
             startVector = position
             print("start vector: \(startVector)")
+            localStartVector = localPosition
+            print("local start vector: \(localStartVector)")
         } else {
             endVector = position
             print("end vector: \(endVector)")
+            localEndVector = localPosition
+            print("local end vector: \(localEndVector)")
             
             let scale = Float(result.distance) / (cameraPosition-endVector).length()
             let distance = (startVector-endVector).length()*scale
             
             print(distance)
             distanceLabel.text = distance.description
+            
+//            drawRuler(startVector: startVector, endVector: endVector, distance: CGFloat(distance), planeAnchor: result.anchor as? ARPlaneAnchor)
         }
         
         startEndNodes.append(node)
@@ -165,6 +208,13 @@ extension ViewController: ARSCNViewDelegate {
             }
         }
     }
+}
+
+extension ViewController: ARSessionDelegate {
+    
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        cameraPosition = SCNVector3.init(frame.camera.transform.columns.3.x, frame.camera.transform.columns.3.y, frame.camera.transform.columns.3.z)
+    }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
@@ -182,14 +232,23 @@ extension ViewController: ARSCNViewDelegate {
     }
 }
 
-extension ViewController: ARSessionDelegate {
-    
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        cameraPosition = SCNVector3.init(frame.camera.transform.columns.3.x, frame.camera.transform.columns.3.y, frame.camera.transform.columns.3.z)
-    }
-}
-
 extension ViewController {
     
-    
+    func drawRuler(startVector: SCNVector3, endVector: SCNVector3, distance: CGFloat, planeAnchor: ARPlaneAnchor?) {
+        
+        let ruler = SCNBox.init(width: CGFloat((startVector-endVector).length()), height: 0, length: 0.05, chamferRadius: 0)
+        ruler.firstMaterial?.diffuse.contents = UIColor.gray
+        
+        if let planeAnchor = planeAnchor {
+            
+            rulerNode = SCNNode.init(geometry: ruler)
+            rulerNode.position = (localStartVector+localEndVector)/2
+            
+            let angle = atan2f(localStartVector.z-localEndVector.z, localStartVector.x-localEndVector.x)
+            rulerNode.transform = SCNMatrix4MakeRotation(-angle, 0, 1, 0)
+            
+            planes[planeAnchor]?.addChildNode(rulerNode)
+        }
+        
+    }
 }

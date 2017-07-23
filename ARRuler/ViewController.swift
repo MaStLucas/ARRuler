@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var mode: UISegmentedControl!
     
     var arSession: ARSession!
-    var arSessionConfiguration: ARWorldTrackingSessionConfiguration!
     
     var screenCenter: CGPoint?
     
@@ -54,17 +53,17 @@ class ViewController: UIViewController {
 //        sceneView.scene = scene
         
         sceneView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleTap(_:))))
+//        sceneView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleTapTest(_:))))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        setupSessionConfiguration()
         arSession = ARSession()
         arSession.delegate = self
         sceneView.session = self.arSession
         // Run the view's session
-        arSession.run(arSessionConfiguration)
+        arSession.run(ARSessionConfigUtil.planeDetectionConfig())
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,6 +84,22 @@ class ViewController: UIViewController {
         startEndNodes.forEach{ $0.removeFromParentNode() }
         startEndNodes.removeAll()
         rulerNode.removeFromParentNode()
+    }
+    
+    @objc func handleTapTest(_ recognizer: UITapGestureRecognizer) {
+        guard let currentFrame = sceneView.session.currentFrame else {
+            return
+        }
+        let imagePlane = SCNPlane.init(width: sceneView.bounds.width/6000, height: sceneView.bounds.height/6000)
+        imagePlane.firstMaterial?.diffuse.contents = sceneView.snapshot()
+        imagePlane.firstMaterial?.lightingModel = .constant
+        
+        let planeNode = SCNNode.init(geometry: imagePlane)
+        sceneView.scene.rootNode.addChildNode(planeNode)
+        
+        var translation = matrix_identity_float4x4
+        translation.columns.3.z = -0.1
+        planeNode.simdTransform = matrix_multiply(currentFrame.camera.transform, translation)
     }
     
     @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
@@ -152,12 +167,6 @@ class ViewController: UIViewController {
         
         startEndNodes.append(node)
     }
-    
-    private func setupSessionConfiguration() {
-        arSessionConfiguration = ARWorldTrackingSessionConfiguration()
-        arSessionConfiguration.isLightEstimationEnabled = true
-        arSessionConfiguration.planeDetection = .horizontal
-    }
 }
 
 extension ViewController: ARSCNViewDelegate {
@@ -174,7 +183,7 @@ extension ViewController: ARSCNViewDelegate {
         DispatchQueue.main.async {
             if let planeAnchor = anchor as? ARPlaneAnchor {
                 let plane = SCNBox.init(width: CGFloat(planeAnchor.extent.x), height: 0, length: CGFloat(planeAnchor.extent.z), chamferRadius: 0)
-                //            plane.firstMaterial?.diffuse.contents = UIColor.red
+           
                 plane.materials = [SCNMaterial.material(withDiffuse: UIImage(named: "art.scnassets/plane_grid.png"))]
                 
                 let planeNode = SCNNode.init(geometry: plane)
@@ -213,7 +222,11 @@ extension ViewController: ARSCNViewDelegate {
 extension ViewController: ARSessionDelegate {
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        cameraPosition = SCNVector3.init(frame.camera.transform.columns.3.x, frame.camera.transform.columns.3.y, frame.camera.transform.columns.3.z)
+        cameraPosition = SCNVector3.init(
+            frame.camera.transform.columns.3.x,
+            frame.camera.transform.columns.3.y,
+            frame.camera.transform.columns.3.z
+        )
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {

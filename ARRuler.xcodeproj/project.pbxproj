@@ -11,7 +11,7 @@
 		BC3250871F248BF300B4BBD0 /* ARCameraTrackingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3250861F248BF300B4BBD0 /* ARCameraTrackingState.swift */; };
 		BCE9167B1F151CBD00C4F67D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE9167A1F151CBD00C4F67D /* AppDelegate.swift */; };
 		BCE9167D1F151CBD00C4F67D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BCE9167C1F151CBD00C4F67D /* art.scnassets */; };
-		BCE9167F1F151CBD00C4F67D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE9167E1F151CBD00C4F67D /* ViewController.swift */; };
+		BCE9167F1F151CBD00C4F67D /* ARRulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE9167E1F151CBD00C4F67D /* ARRulerViewController.swift */; };
 		BCE916821F151CBD00C4F67D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCE916801F151CBD00C4F67D /* Main.storyboard */; };
 		BCE916841F151CBD00C4F67D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCE916831F151CBD00C4F67D /* Assets.xcassets */; };
 		BCE916871F151CBD00C4F67D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCE916851F151CBD00C4F67D /* LaunchScreen.storyboard */; };
@@ -43,7 +43,7 @@
 		BCE916771F151CBD00C4F67D /* ARRuler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARRuler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE9167A1F151CBD00C4F67D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCE9167C1F151CBD00C4F67D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		BCE9167E1F151CBD00C4F67D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BCE9167E1F151CBD00C4F67D /* ARRulerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARRulerViewController.swift; sourceTree = "<group>"; };
 		BCE916811F151CBD00C4F67D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCE916831F151CBD00C4F67D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCE916861F151CBD00C4F67D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 				BC218B3F1F23822100DE4048 /* Utility */,
 				BCE9167A1F151CBD00C4F67D /* AppDelegate.swift */,
 				BCE9167C1F151CBD00C4F67D /* art.scnassets */,
-				BCE9167E1F151CBD00C4F67D /* ViewController.swift */,
+				BCE9167E1F151CBD00C4F67D /* ARRulerViewController.swift */,
 				BCE916801F151CBD00C4F67D /* Main.storyboard */,
 				BCE916831F151CBD00C4F67D /* Assets.xcassets */,
 				BCE916851F151CBD00C4F67D /* LaunchScreen.storyboard */,
@@ -279,7 +279,7 @@
 			files = (
 				BC3250871F248BF300B4BBD0 /* ARCameraTrackingState.swift in Sources */,
 				BCE916AB1F152ACA00C4F67D /* Utilities.swift in Sources */,
-				BCE9167F1F151CBD00C4F67D /* ViewController.swift in Sources */,
+				BCE9167F1F151CBD00C4F67D /* ARRulerViewController.swift in Sources */,
 				BCE9167B1F151CBD00C4F67D /* AppDelegate.swift in Sources */,
 				BC218B411F2382A900DE4048 /* ARSessionConfigUtil.swift in Sources */,
 			);

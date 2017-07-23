@@ -10,7 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController {
+class ARRulerViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var distanceLabel: UILabel!
@@ -115,7 +115,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: ARSCNViewDelegate {
+extension ARRulerViewController: ARSCNViewDelegate {
     
     /*
      // Override to create and configure nodes for anchors added to the view's session.
@@ -165,7 +165,7 @@ extension ViewController: ARSCNViewDelegate {
     }
 }
 
-extension ViewController: ARSessionDelegate {
+extension ARRulerViewController: ARSessionDelegate {
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         cameraPosition = SCNVector3.init(
@@ -198,7 +198,7 @@ extension ViewController: ARSessionDelegate {
     }
 }
 
-extension ViewController {
+extension ARRulerViewController {
     
     fileprivate func hitTestWithScreenCenter() {
         

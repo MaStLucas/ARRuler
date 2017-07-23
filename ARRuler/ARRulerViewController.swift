@@ -108,6 +108,10 @@ class ARRulerViewController: UIViewController {
             isMeasuring = false
         }
     }
+    
+    @IBAction func resetButtonPressed(_ sender: UIButton) {
+        restartPlaneDetection()
+    }
 }
 
 extension ARRulerViewController: ARSCNViewDelegate {
@@ -180,6 +184,7 @@ extension ARRulerViewController: ARSessionDelegate {
 }
 
 extension ARRulerViewController {
+    
     func addPlane(node: SCNNode, anchor: ARPlaneAnchor) {
         
         let pos = SCNVector3.positionFromTransform(anchor.transform)
@@ -200,6 +205,17 @@ extension ARRulerViewController {
         if let plane = planes.removeValue(forKey: anchor) {
             plane.removeFromParentNode()
         }
+    }
+}
+
+extension ARRulerViewController {
+    
+    fileprivate func restartPlaneDetection() {
+        arSession.run(ARSessionConfigUtil.planeDetectionConfig(), options: [.resetTracking, .removeExistingAnchors])
+        
+        isMeasuring = false
+        removeMeasureNodes()
+        planes.removeAll()
     }
 }
 
@@ -251,8 +267,11 @@ extension ARRulerViewController {
     
     fileprivate func removeMeasureNodes() {
         startNode?.removeFromParentNode()
+        startNode = nil
         endNode?.removeFromParentNode()
+        endNode = nil
         ruler?.removeFromParentNode()
+        ruler = nil
         startVector = nil
         endVector = nil
     }

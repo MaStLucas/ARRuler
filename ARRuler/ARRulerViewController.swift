@@ -27,10 +27,11 @@ class ARRulerViewController: UIViewController {
     var endNode: SCNNode?
     var cameraPosition: SCNVector3 = SCNVector3.init()
     
-    var planes = [ARPlaneAnchor: SCNNode]()
+    var planes = [ARPlaneAnchor: Plane]()
     var rulerNode: SCNNode?
     
     var isMeasuring = false
+    var showDebug = true
     
     
     override func viewDidLoad() {
@@ -128,16 +129,7 @@ extension ARRulerViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         DispatchQueue.main.async {
             if let planeAnchor = anchor as? ARPlaneAnchor {
-                let plane = SCNBox.init(width: CGFloat(planeAnchor.extent.x), height: 0, length: CGFloat(planeAnchor.extent.z), chamferRadius: 0)
-           
-                plane.materials = [SCNMaterial.material(withDiffuse: UIImage(named: "art.scnassets/plane_grid.png"))]
-                
-                let planeNode = SCNNode.init(geometry: plane)
-                planeNode.position = SCNVector3.init(planeAnchor.center.x, 0, planeAnchor.center.z)
-                
-                node.addChildNode(planeNode)
-                
-                self.planes[planeAnchor] = planeNode
+                self.addPlane(node: node, anchor: planeAnchor)
             }
         }
     }
@@ -145,11 +137,7 @@ extension ARRulerViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         DispatchQueue.main.async {
             if let planeAnchor = anchor as? ARPlaneAnchor {
-                if let plane = self.planes[planeAnchor] {
-                    (plane.geometry as? SCNBox)?.width = CGFloat(planeAnchor.extent.x)
-                    (plane.geometry as? SCNBox)?.length = CGFloat(planeAnchor.extent.x)
-                    plane.position = SCNVector3.init(planeAnchor.center.x, 0, planeAnchor.center.z)
-                }
+                self.updatePlane(anchor: planeAnchor)
             }
         }
     }
@@ -157,9 +145,7 @@ extension ARRulerViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
         DispatchQueue.main.async {
             if let planeAnchor = anchor as? ARPlaneAnchor {
-                if let plane = self.planes.removeValue(forKey: planeAnchor) {
-                    plane.removeFromParentNode()
-                }
+                self.removePlane(anchor: planeAnchor)
             }
         }
     }
@@ -195,6 +181,30 @@ extension ARRulerViewController: ARSessionDelegate {
     
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
         print(camera.trackingState.presentationString)
+    }
+}
+
+extension ARRulerViewController {
+    func addPlane(node: SCNNode, anchor: ARPlaneAnchor) {
+        
+        let pos = SCNVector3.positionFromTransform(anchor.transform)
+        
+        let plane = Plane(anchor, showDebug)
+        
+        planes[anchor] = plane
+        node.addChildNode(plane)
+    }
+    
+    func updatePlane(anchor: ARPlaneAnchor) {
+        if let plane = planes[anchor] {
+            plane.update(anchor)
+        }
+    }
+    
+    func removePlane(anchor: ARPlaneAnchor) {
+        if let plane = planes.removeValue(forKey: anchor) {
+            plane.removeFromParentNode()
+        }
     }
 }
 

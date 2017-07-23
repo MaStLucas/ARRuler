@@ -243,6 +243,10 @@ extension ViewController: ARSessionDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+    
+    func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
+        print(camera.trackingState.presentationString)
+    }
 }
 
 extension ViewController {

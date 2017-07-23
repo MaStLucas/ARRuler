@@ -27,20 +27,38 @@ class Ruler: SCNNode {
         
         self.rulerGeometry = SCNPlane(width: CGFloat((startPoint-endPoint).length()), height: 0.02)
         self.rulerNode = SCNNode(geometry: rulerGeometry)
-        self.rulerNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2.0, 1, 0, 0)
         
         super.init()
         
         self.addChildNode(rulerNode)
         
         self.position = (startPoint+endPoint)/2
+        
+        self.rulerNode.transform = calculateTransformMatrix(anchor: planeAnchor, startPoint: startPoint, endPoint: endPoint)
     }
     
     func update(_ endPoint: SCNVector3) {
+        self.endPoint = endPoint
         
         self.rulerGeometry.width = CGFloat((startPoint-endPoint).length())
         
         self.position = (startPoint+endPoint)/2
+        
+        self.rulerNode.transform = calculateTransformMatrix(anchor: planeAnchor, startPoint: startPoint, endPoint: endPoint)
+    }
+    
+    private func calculateTransformMatrix(anchor: ARPlaneAnchor?, startPoint: SCNVector3, endPoint: SCNVector3) -> SCNMatrix4 {
+        let flip = SCNMatrix4MakeRotation(-Float.pi / 2.0, 1, 0, 0)
+        let translate = SCNMatrix4MakeTranslation(0, 0, -0.01)
+        
+//        let xAngle = atan2(endPoint.z-startPoint.z, endPoint.y-startPoint.y)+Float.pi/2
+//        let xRotate = SCNMatrix4MakeRotation(xAngle, 1, 0, 0)
+        let yAngle = Float.pi-atan2(endPoint.z-startPoint.z, endPoint.x-startPoint.x)
+        let yRotate = SCNMatrix4MakeRotation(yAngle, 0, 1, 0)
+        let zAngle = atan2(endPoint.y-startPoint.y, endPoint.x-startPoint.x)
+        let zRotate = SCNMatrix4MakeRotation(zAngle, 0, 0, 1)
+        
+        return SCNMatrix4Mult(SCNMatrix4Mult(SCNMatrix4Mult(flip, translate), yRotate), zRotate)
     }
     
     required init?(coder aDecoder: NSCoder) {

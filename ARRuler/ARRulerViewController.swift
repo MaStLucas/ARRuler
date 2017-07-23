@@ -28,7 +28,7 @@ class ARRulerViewController: UIViewController {
     var cameraPosition: SCNVector3 = SCNVector3.init()
     
     var planes = [ARPlaneAnchor: Plane]()
-    var rulerNode: SCNNode?
+    var ruler: Ruler?
     
     var isMeasuring = false
     var showDebug = true
@@ -84,7 +84,7 @@ class ARRulerViewController: UIViewController {
     @IBAction func modeChanged(_ sender: UISegmentedControl) {
         startNode?.removeFromParentNode()
         endNode?.removeFromParentNode()
-        rulerNode?.removeFromParentNode()
+        ruler?.removeFromParentNode()
     }
     
     @objc func handleTapTest(_ recognizer: UITapGestureRecognizer) {
@@ -241,22 +241,15 @@ extension ARRulerViewController {
     }
     
     fileprivate func drawRuler(startVector: SCNVector3, endVector: SCNVector3, distance: CGFloat) {
-        
-        if let rulerNode = rulerNode {
-            (rulerNode.geometry as? SCNPlane)?.width = CGFloat((startVector-endVector).length())
-            rulerNode.position = (startVector+endVector)/2
-        } else {
-            let ruler = SCNPlane.init(width: CGFloat((startVector-endVector).length()), height: 0.02)
-            ruler.firstMaterial?.diffuse.contents = UIColor.gray
-            
-            rulerNode? = SCNNode.init(geometry: ruler)
-            rulerNode?.position = (startVector+endVector)/2
-            
-            //        let angle = atan2f(startVector.z-endVector.z, startVector.x-endVector.x)
-            //        rulerNode.transform = SCNMatrix4MakeRotation(-angle, 0, 1, 0)
-            
-            if let rulerNode = rulerNode {
-                self.sceneView.scene.rootNode.addChildNode(rulerNode)
+        DispatchQueue.main.async {
+            if let ruler = self.ruler {
+                ruler.update(endVector)
+            } else {
+                self.ruler = Ruler.init(anchor: nil, startPoint: startVector, endPoint: endVector)
+                
+                if let ruler = self.ruler {
+                    self.sceneView.scene.rootNode.addChildNode(ruler)
+                }
             }
         }
     }
@@ -264,7 +257,7 @@ extension ARRulerViewController {
     fileprivate func removeMeasureNodes() {
         startNode?.removeFromParentNode()
         endNode?.removeFromParentNode()
-        rulerNode?.removeFromParentNode()
+        ruler?.removeFromParentNode()
         startVector = nil
         endVector = nil
     }

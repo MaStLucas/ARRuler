@@ -18,25 +18,27 @@ class ViewController: UIViewController {
     
     var arSession: ARSession!
     
-    var screenCenter: CGPoint?
+//    var screenCenter: CGPoint?
     
     var firstTap = true
-    var startVector: SCNVector3 = SCNVector3.init()
-    var endVector: SCNVector3 = SCNVector3.init()
-    var localStartVector: SCNVector3 = SCNVector3.init()
-    var localEndVector: SCNVector3 = SCNVector3.init()
-    var startEndNodes: [SCNNode] = []
+    var startVector: SCNVector3?
+    var endVector: SCNVector3?
+    var startNode: SCNNode?
+    var endNode: SCNNode?
     var cameraPosition: SCNVector3 = SCNVector3.init()
     
     var planes = [ARPlaneAnchor: SCNNode]()
-    var rulerNode = SCNNode.init()
+    var rulerNode: SCNNode?
+    
+    var isMeasuring = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.main.async {
-            self.screenCenter = self.sceneView.bounds.mid
-        }
+//        DispatchQueue.main.async {
+//            self.screenCenter = self.sceneView.bounds.mid
+//        }
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -77,13 +79,11 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
-
-    // MARK: - ARSCNViewDelegate
     
     @IBAction func modeChanged(_ sender: UISegmentedControl) {
-        startEndNodes.forEach{ $0.removeFromParentNode() }
-        startEndNodes.removeAll()
-        rulerNode.removeFromParentNode()
+        startNode?.removeFromParentNode()
+        endNode?.removeFromParentNode()
+        rulerNode?.removeFromParentNode()
     }
     
     @objc func handleTapTest(_ recognizer: UITapGestureRecognizer) {
@@ -104,68 +104,14 @@ class ViewController: UIViewController {
     
     @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
         
-        let point = recognizer.location(in: self.sceneView)
+//        let point = recognizer.location(in: self.sceneView)
         
-        let geometry = SCNSphere.init(radius: 0.01)
-        let node = SCNNode.init(geometry: geometry)
-        
-        let type: ARHitTestResult.ResultType
-        switch mode.selectedSegmentIndex {
-        case 0:
-            type = .featurePoint
-        case 1:
-            type = .estimatedHorizontalPlane
-        case 2:
-            type = .existingPlane
-        case 3:
-            type = .existingPlaneUsingExtent
-        default:
-            type = .existingPlaneUsingExtent
-        }
-        let results = self.sceneView.hitTest(point, types: type)
-        guard results.count != 0 else { return }
-        let result = results[0]
-        
-        let localPosition = SCNVector3.init(result.localTransform.columns.3.x, result.localTransform.columns.3.y, result.localTransform.columns.3.z)
-        let position = SCNVector3.init(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
-        node.position = position
-        
-        self.sceneView.scene.rootNode.addChildNode(node)
-        
-//        let position = SCNVector3.init(result.localTransform.columns.3.x, result.localTransform.columns.3.y, result.localTransform.columns.3.z)
-//        node.position = position
-//
-//        if let planeAnchor = result.anchor as? ARPlaneAnchor {
-//            self.planes[planeAnchor]?.addChildNode(node)
-//        }
-        
-        print("distance: \(result.distance)")
-        
-        if startEndNodes.count == 0 || startEndNodes.count == 2 {
-            startEndNodes.forEach{ $0.removeFromParentNode() }
-            startEndNodes.removeAll()
-            rulerNode.removeFromParentNode()
-            
-            startVector = position
-            print("start vector: \(startVector)")
-            localStartVector = localPosition
-            print("local start vector: \(localStartVector)")
+        if startVector == nil {
+            hitTestWithScreenCenter()
+            isMeasuring = true
         } else {
-            endVector = position
-            print("end vector: \(endVector)")
-            localEndVector = localPosition
-            print("local end vector: \(localEndVector)")
-            
-            let scale = Float(result.distance) / (cameraPosition-endVector).length()
-            let distance = (startVector-endVector).length()*scale
-            
-            print(distance)
-            distanceLabel.text = distance.description
-            
-//            drawRuler(startVector: startVector, endVector: endVector, distance: CGFloat(distance), planeAnchor: result.anchor as? ARPlaneAnchor)
+            isMeasuring = false
         }
-        
-        startEndNodes.append(node)
     }
 }
 
@@ -227,21 +173,24 @@ extension ViewController: ARSessionDelegate {
             frame.camera.transform.columns.3.y,
             frame.camera.transform.columns.3.z
         )
+        if startVector != nil {
+            hitTestWithScreenCenter()
+        }
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
-        
+        print("Session failed with: \(error)")
     }
     
     func sessionWasInterrupted(_ session: ARSession) {
         // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
+        print("Session interrupted")
     }
     
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
+        print("Session interruption end")
     }
     
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
@@ -251,21 +200,95 @@ extension ViewController: ARSessionDelegate {
 
 extension ViewController {
     
-    func drawRuler(startVector: SCNVector3, endVector: SCNVector3, distance: CGFloat, planeAnchor: ARPlaneAnchor?) {
+    fileprivate func hitTestWithScreenCenter() {
         
-        let ruler = SCNBox.init(width: CGFloat((startVector-endVector).length()), height: 0, length: 0.05, chamferRadius: 0)
-        ruler.firstMaterial?.diffuse.contents = UIColor.gray
-        
-        if let planeAnchor = planeAnchor {
-            
-            rulerNode = SCNNode.init(geometry: ruler)
-            rulerNode.position = (localStartVector+localEndVector)/2
-            
-            let angle = atan2f(localStartVector.z-localEndVector.z, localStartVector.x-localEndVector.x)
-            rulerNode.transform = SCNMatrix4MakeRotation(-angle, 0, 1, 0)
-            
-            planes[planeAnchor]?.addChildNode(rulerNode)
+        guard isMeasuring else {
+            return
         }
         
+        let point = self.sceneView.bounds.mid
+        
+        let results = self.sceneView.hitTest(point, types: [.estimatedHorizontalPlane, .existingPlane])
+        guard results.count != 0 else { return }
+        let result = results[0]
+        
+        print("distance: \(result.distance)")
+        
+        
+        if startVector == nil {
+            addStartNode(result)
+        } else {
+            updateEndNode(result)
+            
+            let scale = Float(result.distance) / (cameraPosition-endVector!).length()
+            let distance = (startVector!-endVector!).length()*scale
+            
+            print(distance)
+            distanceLabel.text = distance.description
+            
+            drawRuler(startVector: startVector!, endVector: endVector!, distance: CGFloat(distance))
+        }
+    }
+    
+    fileprivate func drawRuler(startVector: SCNVector3, endVector: SCNVector3, distance: CGFloat) {
+        
+        if let rulerNode = rulerNode {
+            (rulerNode.geometry as? SCNPlane)?.width = CGFloat((startVector-endVector).length())
+            rulerNode.position = (startVector+endVector)/2
+        } else {
+            let ruler = SCNPlane.init(width: CGFloat((startVector-endVector).length()), height: 0.02)
+            ruler.firstMaterial?.diffuse.contents = UIColor.gray
+            
+            rulerNode? = SCNNode.init(geometry: ruler)
+            rulerNode?.position = (startVector+endVector)/2
+            
+            //        let angle = atan2f(startVector.z-endVector.z, startVector.x-endVector.x)
+            //        rulerNode.transform = SCNMatrix4MakeRotation(-angle, 0, 1, 0)
+            
+            if let rulerNode = rulerNode {
+                self.sceneView.scene.rootNode.addChildNode(rulerNode)
+            }
+        }
+    }
+    
+    fileprivate func removeMeasureNodes() {
+        startNode?.removeFromParentNode()
+        endNode?.removeFromParentNode()
+        rulerNode?.removeFromParentNode()
+        startVector = nil
+        endVector = nil
+    }
+    
+    fileprivate func addStartNode(_ result: ARHitTestResult) {
+        let geometry = SCNSphere.init(radius: 0.01)
+        let node = SCNNode.init(geometry: geometry)
+        let position = SCNVector3.init(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
+        node.position = position
+        
+        self.sceneView.scene.rootNode.addChildNode(node)
+        
+        startNode = node
+        startVector = position
+//        print("start vector: \(startVector!)")
+    }
+    
+    fileprivate func updateEndNode(_ result: ARHitTestResult) {
+        
+        let position = SCNVector3.init(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
+        
+        if let endNode = endNode{
+            endNode.position = position
+        } else {
+            let geometry = SCNSphere.init(radius: 0.01)
+            let node = SCNNode.init(geometry: geometry)
+            node.position = position
+            
+            self.sceneView.scene.rootNode.addChildNode(node)
+            
+            endNode = node
+        }
+        
+        endVector = position
+//        print("end vector: \(endVector!)")
     }
 }

@@ -14,7 +14,7 @@ class ARRulerViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var mode: UISegmentedControl!
+    @IBOutlet weak var cameraTrackingStateLabel: UILabel!
     
     var arSession: ARSession!
     
@@ -79,12 +79,6 @@ class ARRulerViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
-    }
-    
-    @IBAction func modeChanged(_ sender: UISegmentedControl) {
-        startNode?.removeFromParentNode()
-        endNode?.removeFromParentNode()
-        ruler?.removeFromParentNode()
     }
     
     @objc func handleTapTest(_ recognizer: UITapGestureRecognizer) {
@@ -180,6 +174,7 @@ extension ARRulerViewController: ARSessionDelegate {
     }
     
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
+        cameraTrackingStateLabel.text = camera.trackingState.presentationString
         print(camera.trackingState.presentationString)
     }
 }

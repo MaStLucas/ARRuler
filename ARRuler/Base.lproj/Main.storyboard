@@ -33,25 +33,11 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giraffe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVZ-XS-Uws">
-                                                        <rect key="frame" x="20" y="11" width="52" height="21"/>
+                                                        <rect key="frame" x="161.5" y="11" width="52" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="o2Z-wI-yrV">
-                                                        <rect key="frame" x="127" y="7" width="235" height="29"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <segments>
-                                                            <segment title="Feature Point"/>
-                                                            <segment title="Estimated Horizontal Plane"/>
-                                                            <segment title="Existing Plane"/>
-                                                            <segment title="Existing Plane Using Extent "/>
-                                                            <segment title="Camera"/>
-                                                        </segments>
-                                                        <connections>
-                                                            <action selector="modeChanged:" destination="BV1-FR-VrT" eventType="valueChanged" id="RNF-sO-IPM"/>
-                                                        </connections>
-                                                    </segmentedControl>
                                                 </subviews>
                                             </view>
                                             <constraints>
@@ -67,9 +53,51 @@
                                     <constraint firstAttribute="height" constant="44" id="1Mi-4l-riS"/>
                                     <constraint firstAttribute="bottom" secondItem="Fbk-SD-lVT" secondAttribute="bottom" id="Gwr-wk-stg"/>
                                     <constraint firstAttribute="trailing" secondItem="Fbk-SD-lVT" secondAttribute="trailing" id="Rx3-ra-dIl"/>
+                                    <constraint firstItem="jVZ-XS-Uws" firstAttribute="centerX" secondItem="Rae-za-P0b" secondAttribute="centerX" id="ZtP-FZ-xOr"/>
                                     <constraint firstItem="Fbk-SD-lVT" firstAttribute="leading" secondItem="Rae-za-P0b" secondAttribute="leading" id="hgX-uq-APg"/>
                                     <constraint firstItem="Fbk-SD-lVT" firstAttribute="top" secondItem="Rae-za-P0b" secondAttribute="top" id="pqW-zJ-tlw"/>
-                                    <constraint firstItem="jVZ-XS-Uws" firstAttribute="leading" secondItem="Rae-za-P0b" secondAttribute="leading" constant="20" id="ur9-ce-lHj"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fge-dI-ZRM">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nhz-iU-6Mx">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzm-JC-g9u">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Gfo-75-Mdm">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera Tracking State" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cak-Fj-lXk">
+                                                        <rect key="frame" x="8" y="15" width="129" height="14.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="cak-Fj-lXk" firstAttribute="leading" secondItem="Gfo-75-Mdm" secondAttribute="leading" constant="8" id="jQF-7b-gyZ"/>
+                                                </constraints>
+                                            </view>
+                                            <constraints>
+                                                <constraint firstItem="cak-Fj-lXk" firstAttribute="centerY" secondItem="jzm-JC-g9u" secondAttribute="centerY" id="Dxv-Vt-QeA"/>
+                                            </constraints>
+                                            <vibrancyEffect>
+                                                <blurEffect style="extraLight"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="BaU-8n-vUW"/>
+                                    <constraint firstAttribute="bottom" secondItem="jzm-JC-g9u" secondAttribute="bottom" id="EZq-fq-u2C"/>
+                                    <constraint firstAttribute="height" constant="44" id="Fn4-v8-D1u"/>
+                                    <constraint firstAttribute="trailing" secondItem="jzm-JC-g9u" secondAttribute="trailing" id="RKg-Fo-Crt"/>
+                                    <constraint firstItem="jzm-JC-g9u" firstAttribute="top" secondItem="fge-dI-ZRM" secondAttribute="top" id="las-S9-uQE"/>
+                                    <constraint firstItem="jzm-JC-g9u" firstAttribute="leading" secondItem="fge-dI-ZRM" secondAttribute="leading" id="lyb-rA-QJy"/>
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -85,9 +113,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dIr-1q-qS9" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="0HG-Jf-P4Q"/>
+                            <constraint firstItem="fge-dI-ZRM" firstAttribute="trailing" secondItem="9H0-6L-OC7" secondAttribute="trailing" id="6yH-k3-OIC"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="trailing" secondItem="Rae-za-P0b" secondAttribute="trailing" id="NH6-2L-ZmO"/>
+                            <constraint firstItem="fge-dI-ZRM" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" id="US0-dP-61i"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="HmB-J8-ADd" secondAttribute="bottom" id="Yba-Yj-ut6"/>
                             <constraint firstItem="Rae-za-P0b" firstAttribute="top" secondItem="9H0-6L-OC7" secondAttribute="top" id="d9m-sz-csJ"/>
+                            <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="fge-dI-ZRM" secondAttribute="bottom" id="hQj-Eq-LRf"/>
                             <constraint firstItem="Rae-za-P0b" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" id="iPw-Fd-YmA"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="trailing" secondItem="HmB-J8-ADd" secondAttribute="trailing" id="iv0-dh-ddw"/>
                             <constraint firstItem="HmB-J8-ADd" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" id="jZP-zC-jwe"/>
@@ -100,8 +131,8 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="cameraTrackingStateLabel" destination="cak-Fj-lXk" id="YW5-Re-5Gg"/>
                         <outlet property="distanceLabel" destination="jVZ-XS-Uws" id="DPm-Gm-zfp"/>
-                        <outlet property="mode" destination="o2Z-wI-yrV" id="OBu-d4-XMB"/>
                         <outlet property="sceneView" destination="HmB-J8-ADd" id="OWn-kP-ilY"/>
                     </connections>
                 </viewController>

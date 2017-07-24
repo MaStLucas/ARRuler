@@ -13,7 +13,7 @@ class Ruler: SCNNode {
 
     var planeAnchor: ARPlaneAnchor?
     
-    var rulerGeometry: SCNPlane
+    var rulerGeometry: SCNBox
     var rulerNode: SCNNode
     
     var startPoint: SCNVector3
@@ -25,7 +25,7 @@ class Ruler: SCNNode {
         self.startPoint = startPoint
         self.endPoint = endPoint
         
-        self.rulerGeometry = SCNPlane(width: CGFloat((startPoint-endPoint).length()), height: 0.02)
+        self.rulerGeometry = SCNBox.init(width: CGFloat((startPoint-endPoint).length()), height: 0.002, length: 0.02, chamferRadius: 0.005)
         self.rulerNode = SCNNode(geometry: rulerGeometry)
         
         super.init()
@@ -58,7 +58,7 @@ class Ruler: SCNNode {
         let zAngle = atan2(endPoint.y-startPoint.y, endPoint.x-startPoint.x)
         let zRotate = SCNMatrix4MakeRotation(zAngle, 0, 0, 1)
         
-        return SCNMatrix4Mult(SCNMatrix4Mult(SCNMatrix4Mult(flip, translate), yRotate), zRotate)
+        return SCNMatrix4Mult(SCNMatrix4Mult(translate, yRotate), zRotate)
     }
     
     required init?(coder aDecoder: NSCoder) {

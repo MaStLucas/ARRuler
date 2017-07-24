@@ -37,34 +37,23 @@ class ARRulerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        DispatchQueue.main.async {
-//            self.screenCenter = self.sceneView.bounds.mid
-//        }
-        
         // Set the view's delegate
         sceneView.delegate = self
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        if showDebug {
+            sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        }
         
-        // Show statistics such as fps and timing information
-//        sceneView.showsStatistics = true
-        
-//        // Create a new scene
-//        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-//
-//        // Set the scene to the view
-//        sceneView.scene = scene
+        arSession = ARSession()
+        arSession.delegate = self
+        sceneView.session = self.arSession
         
         sceneView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleTap(_:))))
-//        sceneView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleTapTest(_:))))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        arSession = ARSession()
-        arSession.delegate = self
-        sceneView.session = self.arSession
         // Run the view's session
         arSession.run(ARSessionConfigUtil.planeDetectionConfig())
     }

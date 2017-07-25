@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BC218B411F2382A900DE4048 /* ARSessionConfigUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC218B401F2382A900DE4048 /* ARSessionConfigUtil.swift */; };
 		BC3250871F248BF300B4BBD0 /* ARCameraTrackingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3250861F248BF300B4BBD0 /* ARCameraTrackingState.swift */; };
+		BC4AEAEC1F27948000EB129E /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4AEAEB1F27948000EB129E /* SplashScreenViewController.swift */; };
 		BC55608B1F24C77800BEDD91 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55608A1F24C77800BEDD91 /* Plane.swift */; };
 		BC55608D1F24C8B900BEDD91 /* PlaneDebugVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55608C1F24C8B900BEDD91 /* PlaneDebugVisualization.swift */; };
 		BC55608F1F24CCFA00BEDD91 /* Ruler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55608E1F24CCFA00BEDD91 /* Ruler.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		BC218B401F2382A900DE4048 /* ARSessionConfigUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSessionConfigUtil.swift; sourceTree = "<group>"; };
 		BC3250861F248BF300B4BBD0 /* ARCameraTrackingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCameraTrackingState.swift; sourceTree = "<group>"; };
+		BC4AEAEB1F27948000EB129E /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		BC55608A1F24C77800BEDD91 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		BC55608C1F24C8B900BEDD91 /* PlaneDebugVisualization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDebugVisualization.swift; sourceTree = "<group>"; };
 		BC55608E1F24CCFA00BEDD91 /* Ruler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ruler.swift; sourceTree = "<group>"; };
@@ -134,10 +136,11 @@
 				BC5560891F24C71E00BEDD91 /* UIElements */,
 				BC218B3F1F23822100DE4048 /* Utility */,
 				BCE9167A1F151CBD00C4F67D /* AppDelegate.swift */,
-				BCE9167C1F151CBD00C4F67D /* art.scnassets */,
 				BCE9167E1F151CBD00C4F67D /* ARRulerViewController.swift */,
+				BC4AEAEB1F27948000EB129E /* SplashScreenViewController.swift */,
 				BCE916801F151CBD00C4F67D /* Main.storyboard */,
 				BCE916831F151CBD00C4F67D /* Assets.xcassets */,
+				BCE9167C1F151CBD00C4F67D /* art.scnassets */,
 				BCE916851F151CBD00C4F67D /* LaunchScreen.storyboard */,
 				BCE916881F151CBD00C4F67D /* Info.plist */,
 			);
@@ -297,6 +300,7 @@
 			files = (
 				BC55608F1F24CCFA00BEDD91 /* Ruler.swift in Sources */,
 				BC3250871F248BF300B4BBD0 /* ARCameraTrackingState.swift in Sources */,
+				BC4AEAEC1F27948000EB129E /* SplashScreenViewController.swift in Sources */,
 				BCE916AB1F152ACA00C4F67D /* Utilities.swift in Sources */,
 				BCE9167F1F151CBD00C4F67D /* ARRulerViewController.swift in Sources */,
 				BCE9167B1F151CBD00C4F67D /* AppDelegate.swift in Sources */,

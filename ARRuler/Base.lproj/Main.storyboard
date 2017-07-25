@@ -23,9 +23,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Qy-KD-THY" customClass="Giraffe" customModule="ARRuler" customModuleProvider="target">
+                                <rect key="frame" x="142" y="223.5" width="90" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="N8R-0v-gOA"/>
+                                    <constraint firstAttribute="height" constant="120" id="OGt-Pt-4ck"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="3Qy-KD-THY" firstAttribute="centerY" secondItem="qOJ-sM-hzh" secondAttribute="centerY" constant="-60" id="0kO-BR-baQ"/>
+                            <constraint firstItem="3Qy-KD-THY" firstAttribute="centerX" secondItem="qOJ-sM-hzh" secondAttribute="centerX" id="UEi-jy-JQ7"/>
                             <constraint firstItem="qOJ-sM-hzh" firstAttribute="bottom" secondItem="pdJ-gn-yl9" secondAttribute="bottom" constant="64" id="sZW-vO-lOz"/>
                             <constraint firstItem="pdJ-gn-yl9" firstAttribute="centerX" secondItem="qOJ-sM-hzh" secondAttribute="centerX" id="wll-lj-1HS"/>
                         </constraints>

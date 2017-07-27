@@ -15,6 +15,7 @@
 		BC55608B1F24C77800BEDD91 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55608A1F24C77800BEDD91 /* Plane.swift */; };
 		BC55608D1F24C8B900BEDD91 /* PlaneDebugVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55608C1F24C8B900BEDD91 /* PlaneDebugVisualization.swift */; };
 		BC55608F1F24CCFA00BEDD91 /* Ruler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55608E1F24CCFA00BEDD91 /* Ruler.swift */; };
+		BCC82D671F28EEAC00965A3E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC82D661F28EEAC00965A3E /* ShareViewController.swift */; };
 		BCE9167B1F151CBD00C4F67D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE9167A1F151CBD00C4F67D /* AppDelegate.swift */; };
 		BCE9167D1F151CBD00C4F67D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BCE9167C1F151CBD00C4F67D /* art.scnassets */; };
 		BCE9167F1F151CBD00C4F67D /* ARRulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE9167E1F151CBD00C4F67D /* ARRulerViewController.swift */; };
@@ -52,6 +53,7 @@
 		BC55608A1F24C77800BEDD91 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		BC55608C1F24C8B900BEDD91 /* PlaneDebugVisualization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDebugVisualization.swift; sourceTree = "<group>"; };
 		BC55608E1F24CCFA00BEDD91 /* Ruler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ruler.swift; sourceTree = "<group>"; };
+		BCC82D661F28EEAC00965A3E /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		BCE916771F151CBD00C4F67D /* ARRuler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARRuler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE9167A1F151CBD00C4F67D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCE9167C1F151CBD00C4F67D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				BCE9167A1F151CBD00C4F67D /* AppDelegate.swift */,
 				BCE9167E1F151CBD00C4F67D /* ARRulerViewController.swift */,
 				BC4AEAEB1F27948000EB129E /* SplashScreenViewController.swift */,
+				BCC82D661F28EEAC00965A3E /* ShareViewController.swift */,
 				BCE916801F151CBD00C4F67D /* Main.storyboard */,
 				BCE916831F151CBD00C4F67D /* Assets.xcassets */,
 				BCE9167C1F151CBD00C4F67D /* art.scnassets */,
@@ -318,6 +321,7 @@
 				BCE916AB1F152ACA00C4F67D /* Utilities.swift in Sources */,
 				BC4AEAEF1F27A09300EB129E /* Giraffe.swift in Sources */,
 				BCE9167F1F151CBD00C4F67D /* ARRulerViewController.swift in Sources */,
+				BCC82D671F28EEAC00965A3E /* ShareViewController.swift in Sources */,
 				BCE9167B1F151CBD00C4F67D /* AppDelegate.swift in Sources */,
 				BC4AEAF11F27A43E00EB129E /* Triangle.swift in Sources */,
 				BC55608B1F24C77800BEDD91 /* Plane.swift in Sources */,

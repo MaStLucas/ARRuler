@@ -98,6 +98,24 @@ class ARRulerViewController: UIViewController {
         }
     }
     
+    @IBAction func shotButtonPressed(_ sender: UIButton) {
+        DispatchQueue.main.async {
+            // Briefly flash the screen.
+            let flashOverlay = UIView(frame: self.sceneView.frame)
+            flashOverlay.backgroundColor = UIColor.white
+            self.sceneView.addSubview(flashOverlay)
+            UIView.animate(withDuration: 0.25, animations: {
+                flashOverlay.alpha = 0.0
+            }, completion: { _ in
+                flashOverlay.removeFromSuperview()
+                if let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShareScene") as? ShareViewController {
+                    vc.image = self.sceneView.snapshot()
+                    self.present(vc, animated: true, completion: nil)
+                }
+            })
+        }
+    }
+    
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         restartPlaneDetection()
     }

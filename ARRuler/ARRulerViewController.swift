@@ -15,6 +15,7 @@ class ARRulerViewController: UIViewController {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var cameraTrackingStateLabel: UILabel!
+    @IBOutlet weak var shotButton: ShotButton!
     
     var arSession: ARSession!
     
@@ -63,6 +64,12 @@ class ARRulerViewController: UIViewController {
         
         // Pause the view's session
         arSession.pause()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        shotButton.animate()
     }
     
     override func didReceiveMemoryWarning() {

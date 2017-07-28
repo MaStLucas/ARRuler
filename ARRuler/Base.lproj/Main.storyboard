@@ -173,14 +173,24 @@
                                     <constraint firstAttribute="width" constant="4" id="yFj-zJ-lEo"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="42r-x0-XfI" customClass="ShotButton" customModule="ARRuler" customModuleProvider="target">
+                                <rect key="frame" x="142.5" y="519" width="90" height="90"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="Vmg-8c-4YS"/>
+                                    <constraint firstAttribute="height" constant="90" id="cHb-TD-0PM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dIr-1q-qS9" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="0HG-Jf-P4Q"/>
+                            <constraint firstItem="42r-x0-XfI" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="6P6-3n-ycc"/>
                             <constraint firstItem="fge-dI-ZRM" firstAttribute="trailing" secondItem="9H0-6L-OC7" secondAttribute="trailing" id="6yH-k3-OIC"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="trailing" secondItem="Rae-za-P0b" secondAttribute="trailing" id="NH6-2L-ZmO"/>
                             <constraint firstItem="fge-dI-ZRM" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" id="US0-dP-61i"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="HmB-J8-ADd" secondAttribute="bottom" id="Yba-Yj-ut6"/>
+                            <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="42r-x0-XfI" secondAttribute="bottom" constant="58" id="bQa-ck-6r9"/>
                             <constraint firstItem="Rae-za-P0b" firstAttribute="top" secondItem="9H0-6L-OC7" secondAttribute="top" id="d9m-sz-csJ"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="fge-dI-ZRM" secondAttribute="bottom" id="hQj-Eq-LRf"/>
                             <constraint firstItem="Rae-za-P0b" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" id="iPw-Fd-YmA"/>
@@ -198,6 +208,7 @@
                         <outlet property="cameraTrackingStateLabel" destination="cak-Fj-lXk" id="YW5-Re-5Gg"/>
                         <outlet property="distanceLabel" destination="jVZ-XS-Uws" id="DPm-Gm-zfp"/>
                         <outlet property="sceneView" destination="HmB-J8-ADd" id="OWn-kP-ilY"/>
+                        <outlet property="shotButton" destination="42r-x0-XfI" id="jes-da-JZb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

@@ -30,6 +30,7 @@ class ShotButton: UIView {
             layer.bounds = CGRect.init(x: 0, y: 0, width: slot*sqrt(3), height: slot)
             layer.position = localCenter
             layer.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, -slot, 0), CATransform3DMakeRotation(CGFloat.pi/CGFloat(3)*CGFloat(i)-CGFloat.pi/CGFloat(6), 0, 0, 1))
+            layer.allowsEdgeAntialiasing = true
             layer.setNeedsDisplay()
             self.layer.addSublayer(layer)
             self.pieces.append(layer)
@@ -37,29 +38,28 @@ class ShotButton: UIView {
         
         for (i, piece) in pieces.enumerated() {
             let alphaAnimation = CAKeyframeAnimation.init(keyPath: "opacity")
-            alphaAnimation.duration = 1
+            alphaAnimation.duration = 0.8
             switch(i)
             {
             case 0:
-                alphaAnimation.values = [1/6, 2/6, 3/6, 4/6, 5/6, 1]
+                alphaAnimation.values = [1.0/6.0, 2.0/6.0, 3.0/6.0, 4.0/6.0, 5.0/6.0, 1]
             case 1:
-                alphaAnimation.values = [2/6, 3/6, 4/6, 5/6, 1, 5/6]
+                alphaAnimation.values = [2.0/6.0, 3.0/6, 4.0/6.0, 5.0/6.0, 1, 1.0/6.0]
             case 2:
-                alphaAnimation.values = [3/6, 4/6, 5/6, 1, 5/6, 4/6]
+                alphaAnimation.values = [3.0/6.0, 4.0/6.0, 5.0/6.0, 1, 1.0/6.0, 2.0/6.0]
             case 3:
-                alphaAnimation.values = [4/6, 5/6, 1, 5/6, 4/6, 3/6]
+                alphaAnimation.values = [4.0/6.0, 5.0/6.0, 1, 1.0/6.0, 2.0/6.0, 3.0/6.0]
             case 4:
-                alphaAnimation.values = [5/6, 1, 5/6, 4/6, 3/6, 2/6]
+                alphaAnimation.values = [5.0/6.0, 1, 1.0/6.0, 2.0/6.0, 3.0/6.0, 4.0/6.0]
             case 5:
-                alphaAnimation.values = [1, 5/6, 4/6, 3/6, 2/6, 1/6]
+                alphaAnimation.values = [1, 1.0/6.0, 2.0/6.0, 3.0/6.0, 4.0/6.0, 5.0/6.0]
             default:
                 break
             }
-            //            let currentTime = layer.convertTime(CACurrentMediaTime(), to: nil)
             alphaAnimation.repeatCount = Float.greatestFiniteMagnitude
             alphaAnimation.isRemovedOnCompletion = false
-            //            alphaAnimation.fillMode = kCAFillModeForwards
-            //            alphaAnimation.calculationMode = kCAAnimationDiscrete
+            alphaAnimation.fillMode = kCAFillModeForwards
+            alphaAnimation.calculationMode = kCAAnimationDiscrete
             piece.add(alphaAnimation, forKey: nil)
         }
     }

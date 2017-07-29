@@ -235,6 +235,77 @@ extension ARRulerViewController {
 
 extension ARRulerViewController {
     
+    fileprivate func worldPositionFromScreenPosition(_ position: CGPoint, objectPos: SCNVector3?, infinitePlane: Bool = false)
+        -> (position: SCNVector3?, planeAnchor: ARPlaneAnchor?, hitAPlane: Bool) {
+        
+        // -------------------------------------------------------------------------------
+        // 1. Always do a hit test against exisiting plane anchors first.
+        //    (If any such anchors exist & only within their extents.)
+        
+        let planeHitTestResults = sceneView.hitTest(position, types: .existingPlaneUsingExtent)
+        if let result = planeHitTestResults.first {
+            
+            let planeHitTestPosition = SCNVector3.positionFromTransform(result.worldTransform)
+            let planeAnchor = result.anchor
+            
+            // Return immediately - this is the best possible outcome.
+            return (planeHitTestPosition, planeAnchor as? ARPlaneAnchor, true)
+        }
+        
+        // -------------------------------------------------------------------------------
+        // 2. Collect more information about the environment by hit testing against
+        //    the feature point cloud, but do not return the result yet.
+        
+        var featureHitTestPosition: SCNVector3?
+        var highQualityFeatureHitTestResult = false
+        
+        let highQualityfeatureHitTestResults = sceneView.hitTestWithFeatures(position, coneOpeningAngleInDegrees: 18, minDistance: 0.2, maxDistance: 2.0)
+        
+        if !highQualityfeatureHitTestResults.isEmpty {
+            let result = highQualityfeatureHitTestResults[0]
+            featureHitTestPosition = result.position
+            highQualityFeatureHitTestResult = true
+        }
+        
+        // -------------------------------------------------------------------------------
+        // 3. If desired or necessary (no good feature hit test result): Hit test
+        //    against an infinite, horizontal plane (ignoring the real world).
+        
+        if infinitePlane || !highQualityFeatureHitTestResult {
+            
+            let pointOnPlane = objectPos ?? SCNVector3Zero
+            
+            let pointOnInfinitePlane = sceneView.hitTestWithInfiniteHorizontalPlane(position, pointOnPlane)
+            if pointOnInfinitePlane != nil {
+                return (pointOnInfinitePlane, nil, true)
+            }
+        }
+        
+        // -------------------------------------------------------------------------------
+        // 4. If available, return the result of the hit test against high quality
+        //    features if the hit tests against infinite planes were skipped or no
+        //    infinite plane was hit.
+        
+        if highQualityFeatureHitTestResult {
+            return (featureHitTestPosition, nil, false)
+        }
+        
+        // -------------------------------------------------------------------------------
+        // 5. As a last resort, perform a second, unfiltered hit test against features.
+        //    If there are no features in the scene, the result returned here will be nil.
+        
+        let unfilteredFeatureHitTestResults = sceneView.hitTestWithFeatures(position)
+        if !unfilteredFeatureHitTestResults.isEmpty {
+            let result = unfilteredFeatureHitTestResults[0]
+            return (result.position, nil, false)
+        }
+        
+        return (nil, nil, false)
+    }
+}
+
+extension ARRulerViewController {
+    
     fileprivate func hitTestWithScreenCenter() {
         
         guard isMeasuring else {
@@ -243,25 +314,30 @@ extension ARRulerViewController {
         
         let point = self.sceneView.bounds.mid
         
-        let results = self.sceneView.hitTest(point, types: [.estimatedHorizontalPlane, .existingPlane])
-        guard results.count != 0 else { return }
-        let result = results[0]
-        
-        print("distance: \(result.distance)")
+        let (worldPos, planeAnchor, _) = worldPositionFromScreenPosition(point, objectPos: nil)
+//        let results = self.sceneView.hitTest(point, types: [.estimatedHorizontalPlane, .existingPlane])
+//        guard results.count != 0 else { return }
+//        let result = results[0]
+//
+//        print("distance: \(result.distance)")
         
         
         if startVector == nil {
-            addStartNode(result)
+            if let worldPos = worldPos {
+                addStartNode(worldPos)
+            }
         } else {
-            updateEndNode(result)
-            
-            let scale = Float(result.distance) / (cameraPosition-endVector!).length()
-            let distance = (startVector!-endVector!).length()*scale
-            
-            print(distance)
-            distanceLabel.text = distance.description
-            
-            drawRuler(startVector: startVector!, endVector: endVector!, distance: CGFloat(distance))
+            if let worldPos = worldPos {
+                updateEndNode(worldPos)
+                
+//                let scale = Float(result.distance) / (cameraPosition-endVector!).length()
+//                let distance = (startVector!-endVector!).length()*scale
+                let distance = (startVector!-endVector!).length()
+                
+                distanceLabel.text = distance.description
+                
+                drawRuler(startVector: startVector!, endVector: endVector!, distance: CGFloat(distance))
+            }
         }
     }
     
@@ -290,10 +366,9 @@ extension ARRulerViewController {
         endVector = nil
     }
     
-    fileprivate func addStartNode(_ result: ARHitTestResult) {
+    fileprivate func addStartNode(_ position: SCNVector3) {
         let geometry = SCNSphere.init(radius: 0.01)
         let node = SCNNode.init(geometry: geometry)
-        let position = SCNVector3.init(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
         node.position = position
         
         self.sceneView.scene.rootNode.addChildNode(node)
@@ -303,9 +378,7 @@ extension ARRulerViewController {
 //        print("start vector: \(startVector!)")
     }
     
-    fileprivate func updateEndNode(_ result: ARHitTestResult) {
-        
-        let position = SCNVector3.init(result.worldTransform.columns.3.x, result.worldTransform.columns.3.y, result.worldTransform.columns.3.z)
+    fileprivate func updateEndNode(_ position: SCNVector3) {
         
         if let endNode = endNode{
             endNode.position = position

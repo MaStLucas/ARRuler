@@ -149,6 +149,12 @@
                                     <constraint firstAttribute="height" constant="45" id="cHb-TD-0PM"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-O7-hFY" customClass="Tip" customModule="ARRuler" customModuleProvider="target">
+                                <rect key="frame" x="166.5" y="546" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -157,6 +163,7 @@
                             <constraint firstItem="fge-dI-ZRM" firstAttribute="trailing" secondItem="9H0-6L-OC7" secondAttribute="trailing" id="6yH-k3-OIC"/>
                             <constraint firstItem="jVZ-XS-Uws" firstAttribute="top" secondItem="9H0-6L-OC7" secondAttribute="top" constant="20" id="9vq-FX-Lb7"/>
                             <constraint firstItem="jVZ-XS-Uws" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="MkA-oZ-vgJ"/>
+                            <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="f8B-O7-hFY" secondAttribute="bottom" constant="100" id="S44-z1-FQ6"/>
                             <constraint firstItem="fge-dI-ZRM" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" id="US0-dP-61i"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="HmB-J8-ADd" secondAttribute="bottom" id="Yba-Yj-ut6"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="42r-x0-XfI" secondAttribute="bottom" constant="20" id="bQa-ck-6r9"/>
@@ -164,6 +171,7 @@
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="trailing" secondItem="HmB-J8-ADd" secondAttribute="trailing" id="iv0-dh-ddw"/>
                             <constraint firstItem="HmB-J8-ADd" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" id="jZP-zC-jwe"/>
                             <constraint firstItem="HmB-J8-ADd" firstAttribute="top" secondItem="9H0-6L-OC7" secondAttribute="top" id="jqF-Pd-QAJ"/>
+                            <constraint firstItem="f8B-O7-hFY" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="mLX-eh-O4M"/>
                             <constraint firstItem="dIr-1q-qS9" firstAttribute="centerY" secondItem="9H0-6L-OC7" secondAttribute="centerY" id="stx-Gn-WZy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9H0-6L-OC7"/>
@@ -176,6 +184,7 @@
                         <outlet property="distanceLabel" destination="jVZ-XS-Uws" id="DPm-Gm-zfp"/>
                         <outlet property="sceneView" destination="HmB-J8-ADd" id="OWn-kP-ilY"/>
                         <outlet property="shotButton" destination="42r-x0-XfI" id="jes-da-JZb"/>
+                        <outlet property="tipsLabel" destination="f8B-O7-hFY" id="Drt-2Q-rne"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

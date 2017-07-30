@@ -16,6 +16,7 @@ class ARRulerViewController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var cameraTrackingStateLabel: UILabel!
     @IBOutlet weak var shotButton: ShotButton!
+    @IBOutlet weak var tipsLabel: Tip!
     
     var arSession: ARSession!
     
@@ -58,6 +59,7 @@ class ARRulerViewController: UIViewController {
         // Run the view's session
         restartPlaneDetection()
         shotButton.animate()
+        tipsLabel.text = "Tap to start measure"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -103,6 +105,7 @@ class ARRulerViewController: UIViewController {
             isMeasuring = true
         } else {
             isMeasuring = false
+            tipsLabel.text = "Capture your image"
         }
     }
     
@@ -328,6 +331,7 @@ extension ARRulerViewController {
                 addStartNode(worldPos)
             }
         } else {
+            tipsLabel.text = "Tap to end"
             if let worldPos = worldPos {
                 updateEndNode(worldPos)
                 

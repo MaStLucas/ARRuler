@@ -335,7 +335,7 @@ extension ARRulerViewController {
 //                let distance = (startVector!-endVector!).length()*scale
                 let distance = (startVector!-endVector!).length()
                 
-                distanceLabel.text = distance.description
+                distanceLabel.text = String.init(format: "%.2f", distance)
                 
                 drawRuler(startVector: startVector!, endVector: endVector!, distance: CGFloat(distance))
             }

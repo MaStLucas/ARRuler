@@ -10,7 +10,7 @@ import UIKit
 
 class ShotButton: UIView {
     
-    let slot: CGFloat = 30
+    let slot: CGFloat = 15
     
     var pieces: [Triangle] = []
     

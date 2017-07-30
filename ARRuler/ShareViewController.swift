@@ -27,6 +27,10 @@ class ShareViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func restartButtonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func shareButtonPressed(_ sender: UIButton) {
         let activityVC = UIActivityViewController.init(activityItems: [image], applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)

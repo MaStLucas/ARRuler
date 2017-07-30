@@ -56,7 +56,8 @@ class ARRulerViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // Run the view's session
-        arSession.run(ARSessionConfigUtil.planeDetectionConfig())
+        restartPlaneDetection()
+        shotButton.animate()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

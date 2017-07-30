@@ -24,18 +24,6 @@ class ShotButton: UIView {
     
     public func animate() {
         
-        for i in 1...6 {
-            let localCenter = CGPoint.init(x: self.frame.width/2, y: self.frame.height/2)
-            let layer = Triangle.init(v1: CGPoint.init(x: 0, y: 0), v2: CGPoint.init(x: 0, y: slot), v3: CGPoint.init(x: CGFloat(sqrtf(3))*slot, y: 0))
-            layer.bounds = CGRect.init(x: 0, y: 0, width: slot*sqrt(3), height: slot)
-            layer.position = localCenter
-            layer.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, -slot, 0), CATransform3DMakeRotation(CGFloat.pi/CGFloat(3)*CGFloat(i)-CGFloat.pi/CGFloat(6), 0, 0, 1))
-            layer.allowsEdgeAntialiasing = true
-            layer.setNeedsDisplay()
-            self.layer.addSublayer(layer)
-            self.pieces.append(layer)
-        }
-        
         for (i, piece) in pieces.enumerated() {
             let alphaAnimation = CAKeyframeAnimation.init(keyPath: "opacity")
             alphaAnimation.duration = 0.8
@@ -64,12 +52,22 @@ class ShotButton: UIView {
         }
     }
     
-    //    // Only override draw() if you perform custom drawing.
-    //    // An empty implementation adversely affects performance during animation.
-    //    override func draw(_ rect: CGRect) {
-    //        // Drawing code
-    //
-    //    }
+    // Only override draw() if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func draw(_ rect: CGRect) {
+        // Drawing code
+        for i in 1...6 {
+            let localCenter = CGPoint.init(x: rect.width/2, y: rect.height/2)
+            let layer = Triangle.init(v1: CGPoint.init(x: 0, y: 0), v2: CGPoint.init(x: 0, y: slot), v3: CGPoint.init(x: CGFloat(sqrtf(3))*slot, y: 0))
+            layer.bounds = CGRect.init(x: 0, y: 0, width: slot*sqrt(3), height: slot)
+            layer.position = localCenter
+            layer.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, -slot, 0), CATransform3DMakeRotation(CGFloat.pi/CGFloat(3)*CGFloat(i)-CGFloat.pi/CGFloat(6), 0, 0, 1))
+            layer.allowsEdgeAntialiasing = true
+            layer.setNeedsDisplay()
+            self.layer.addSublayer(layer)
+            self.pieces.append(layer)
+        }
+    }
     
 }
 

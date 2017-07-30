@@ -233,6 +233,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdj-jK-Qdp">
                                         <rect key="frame" x="0.0" y="0.0" width="111.5" height="30"/>
                                         <state key="normal" title="Restart"/>
+                                        <connections>
+                                            <action selector="restartButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="dO8-dl-Nd5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrp-tI-XHI">
                                         <rect key="frame" x="111.5" y="0.0" width="112" height="30"/>

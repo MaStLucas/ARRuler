@@ -314,7 +314,7 @@ extension ARRulerViewController {
         
         let point = self.sceneView.bounds.mid
         
-        let (worldPos, planeAnchor, _) = worldPositionFromScreenPosition(point, objectPos: nil)
+        let (worldPos, planeAnchor, _) = worldPositionFromScreenPosition(point, objectPos: startVector)
 //        let results = self.sceneView.hitTest(point, types: [.estimatedHorizontalPlane, .existingPlane])
 //        guard results.count != 0 else { return }
 //        let result = results[0]

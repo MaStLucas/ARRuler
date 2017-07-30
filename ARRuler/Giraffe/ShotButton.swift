@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShotButton: UIView {
+class ShotButton: UIControl {
     
     let slot: CGFloat = 15
     

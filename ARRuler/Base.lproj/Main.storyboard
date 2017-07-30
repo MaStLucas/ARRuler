@@ -89,9 +89,6 @@
                                                             <constraint firstAttribute="height" constant="30" id="wq1-NL-IGk"/>
                                                         </constraints>
                                                         <state key="normal" title="Shot"/>
-                                                        <connections>
-                                                            <action selector="shotButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="FAU-zF-ElN"/>
-                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uo4-ma-Pda">
                                                         <rect key="frame" x="321" y="7" width="46" height="30"/>
@@ -148,6 +145,9 @@
                                     <constraint firstAttribute="width" constant="45" id="Vmg-8c-4YS"/>
                                     <constraint firstAttribute="height" constant="45" id="cHb-TD-0PM"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="shotButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="RZp-6A-Gkr"/>
+                                </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-O7-hFY" customClass="Tip" customModule="ARRuler" customModuleProvider="target">
                                 <rect key="frame" x="166.5" y="546" width="42" height="21"/>

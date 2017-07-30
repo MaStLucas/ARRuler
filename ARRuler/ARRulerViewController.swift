@@ -58,8 +58,8 @@ class ARRulerViewController: UIViewController {
         
         // Run the view's session
         restartPlaneDetection()
-        shotButton.animate()
         tipsLabel.text = "Tap to start measure"
+        shotButton.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,8 +71,6 @@ class ARRulerViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        shotButton.animate()
     }
     
     override func didReceiveMemoryWarning() {
@@ -106,10 +104,12 @@ class ARRulerViewController: UIViewController {
         } else {
             isMeasuring = false
             tipsLabel.text = "Capture your image"
+            shotButton.isHidden = false
+            shotButton.animate()
         }
     }
     
-    @IBAction func shotButtonPressed(_ sender: UIButton) {
+    @IBAction func shotButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
             // Briefly flash the screen.
             let flashOverlay = UIView(frame: self.sceneView.frame)

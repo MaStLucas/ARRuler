@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BC218B411F2382A900DE4048 /* ARSessionConfigUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC218B401F2382A900DE4048 /* ARSessionConfigUtil.swift */; };
 		BC27CE991F2A4274009ECAF1 /* ShotButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC27CE981F2A4274009ECAF1 /* ShotButton.swift */; };
+		BC27CE9B1F2E3738009ECAF1 /* ScreenShotUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC27CE9A1F2E3738009ECAF1 /* ScreenShotUtil.swift */; };
 		BC3250871F248BF300B4BBD0 /* ARCameraTrackingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3250861F248BF300B4BBD0 /* ARCameraTrackingState.swift */; };
 		BC4AEAEC1F27948000EB129E /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4AEAEB1F27948000EB129E /* SplashScreenViewController.swift */; };
 		BC4AEAEF1F27A09300EB129E /* Giraffe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4AEAEE1F27A09300EB129E /* Giraffe.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		BC218B401F2382A900DE4048 /* ARSessionConfigUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSessionConfigUtil.swift; sourceTree = "<group>"; };
 		BC27CE981F2A4274009ECAF1 /* ShotButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotButton.swift; sourceTree = "<group>"; };
+		BC27CE9A1F2E3738009ECAF1 /* ScreenShotUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotUtil.swift; sourceTree = "<group>"; };
 		BC3250861F248BF300B4BBD0 /* ARCameraTrackingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCameraTrackingState.swift; sourceTree = "<group>"; };
 		BC4AEAEB1F27948000EB129E /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		BC4AEAEE1F27A09300EB129E /* Giraffe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Giraffe.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				BCE916AA1F152ACA00C4F67D /* Utilities.swift */,
 				BC218B401F2382A900DE4048 /* ARSessionConfigUtil.swift */,
 				BC3250861F248BF300B4BBD0 /* ARCameraTrackingState.swift */,
+				BC27CE9A1F2E3738009ECAF1 /* ScreenShotUtil.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				BC55608F1F24CCFA00BEDD91 /* Ruler.swift in Sources */,
 				BC3250871F248BF300B4BBD0 /* ARCameraTrackingState.swift in Sources */,
 				BC4AEAEC1F27948000EB129E /* SplashScreenViewController.swift in Sources */,
+				BC27CE9B1F2E3738009ECAF1 /* ScreenShotUtil.swift in Sources */,
 				BCE916AB1F152ACA00C4F67D /* Utilities.swift in Sources */,
 				BC4AEAEF1F27A09300EB129E /* Giraffe.swift in Sources */,
 				BCE9167F1F151CBD00C4F67D /* ARRulerViewController.swift in Sources */,

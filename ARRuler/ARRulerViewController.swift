@@ -116,7 +116,7 @@ class ARRulerViewController: UIViewController {
             }, completion: { _ in
                 flashOverlay.removeFromSuperview()
                 if let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShareScene") as? ShareViewController {
-                    vc.image = self.sceneView.snapshot()
+                    vc.image = ScreenShotUtil.screenshot()!
                     self.present(vc, animated: true, completion: nil)
                 }
             })

@@ -227,16 +227,37 @@
                                 <rect key="frame" x="16" y="20" width="343" height="545"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrp-tI-XHI">
-                                <rect key="frame" x="164" y="605" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Share"/>
-                                <connections>
-                                    <action selector="shareButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="FCp-gN-jvY"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cdc-UJ-mlx">
+                                <rect key="frame" x="20" y="617" width="335" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdj-jK-Qdp">
+                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="30"/>
+                                        <state key="normal" title="Restart"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrp-tI-XHI">
+                                        <rect key="frame" x="111.5" y="0.0" width="112" height="30"/>
+                                        <state key="normal" title="Share"/>
+                                        <connections>
+                                            <action selector="shareButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="FCp-gN-jvY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkG-hQ-gy6">
+                                        <rect key="frame" x="223.5" y="0.0" width="111.5" height="30"/>
+                                        <state key="normal" title="Gallery"/>
+                                        <connections>
+                                            <action selector="galleryButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="zQV-iq-MNt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cdc-UJ-mlx" firstAttribute="centerX" secondItem="iwH-wD-RlS" secondAttribute="centerX" id="2vQ-Ee-pK8"/>
+                            <constraint firstItem="cdc-UJ-mlx" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" constant="20" id="A5L-AA-xZS"/>
+                            <constraint firstItem="iwH-wD-RlS" firstAttribute="trailing" secondItem="cdc-UJ-mlx" secondAttribute="trailing" constant="20" id="Fpb-C2-cV8"/>
+                            <constraint firstItem="iwH-wD-RlS" firstAttribute="bottom" secondItem="cdc-UJ-mlx" secondAttribute="bottom" constant="20" id="vV5-vS-0QO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iwH-wD-RlS"/>
                     </view>
                     <connections>

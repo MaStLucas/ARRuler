@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class ShareViewController: UIViewController {
 
@@ -31,6 +32,27 @@ class ShareViewController: UIViewController {
         self.present(activityVC, animated: true, completion: nil)
     }
     
+    @IBAction func galleryButtonPressed(_ sender: UIButton) {
+        switch PHPhotoLibrary.authorizationStatus() {
+        case .authorized:
+            saveToAlbum()
+        case .restricted, .denied:
+            let title = "Photos access denied"
+            let message = "Please enable Photos access for this application in Settings > Privacy to allow saving screenshots."
+            self.showAlert(title: title, message: message)
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization({ (authorizationStatus) in
+                if authorizationStatus == .authorized {
+                    self.saveToAlbum()
+                }
+            })
+        }
+    }
+    
+    private func saveToAlbum() {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -41,4 +63,19 @@ class ShareViewController: UIViewController {
     }
     */
 
+}
+
+extension UIViewController {
+    
+    func showAlert(title: String, message: String, actions: [UIAlertAction]? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        if let actions = actions {
+            for action in actions {
+                alertController.addAction(action)
+            }
+        } else {
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        }
+        self.present(alertController, animated: true, completion: nil)
+    }
 }

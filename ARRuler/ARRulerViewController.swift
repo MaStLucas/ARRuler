@@ -346,11 +346,7 @@ extension ARRulerViewController {
             if let ruler = self.ruler {
                 ruler.update(endVector)
             } else {
-                self.ruler = Ruler.init(anchor: nil, startPoint: startVector, endPoint: endVector)
-                
-                if let ruler = self.ruler {
-                    self.sceneView.scene.rootNode.addChildNode(ruler)
-                }
+                self.ruler = Ruler.init(parentNode: self.sceneView.scene.rootNode, startPoint: startVector, endPoint: endVector)
             }
         }
     }
@@ -360,7 +356,7 @@ extension ARRulerViewController {
         startNode = nil
         endNode?.removeFromParentNode()
         endNode = nil
-        ruler?.removeFromParentNode()
+        ruler?.rulerNode.removeFromParentNode()
         ruler = nil
         startVector = nil
         endVector = nil

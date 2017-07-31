@@ -10,7 +10,9 @@ import UIKit
 
 class Tip: UILabel {
 
-    let cornerLength: CGFloat = 4
+    private let horizontalInset:CGFloat = 15
+    private let verticalInset:CGFloat = 10
+    private let cornerLength:CGFloat = 4
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,7 +36,16 @@ class Tip: UILabel {
             ctx.fillPath()
         }
         
-        super.draw(rect)
+        super.drawText(in: rect.insetBy(dx: horizontalInset, dy: verticalInset))
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        get {
+            var size = super.intrinsicContentSize
+            size.width += 2*horizontalInset
+            size.height += 2*verticalInset
+            return size
+        }
     }
 
 }

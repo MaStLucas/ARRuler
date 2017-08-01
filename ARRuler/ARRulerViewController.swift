@@ -31,10 +31,10 @@ class ARRulerViewController: UIViewController {
     
     var planes = [ARPlaneAnchor: Plane]()
     var ruler: Ruler?
+    var focusSquare: FocusSquare?
     
     var isMeasuring = false
     var showDebug = true
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +51,8 @@ class ARRulerViewController: UIViewController {
         sceneView.session = self.arSession
         
         sceneView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleTap(_:))))
+        
+        setupFocusSquare()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -165,6 +167,12 @@ extension ARRulerViewController: ARSCNViewDelegate {
             }
         }
     }
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        DispatchQueue.main.async {
+            self.updateFocusSquare()
+        }
+    }
 }
 
 extension ARRulerViewController: ARSessionDelegate {
@@ -205,8 +213,6 @@ extension ARRulerViewController {
     
     func addPlane(node: SCNNode, anchor: ARPlaneAnchor) {
         
-        let pos = SCNVector3.positionFromTransform(anchor.transform)
-        
         let plane = Plane(anchor, showDebug)
         
         planes[anchor] = plane
@@ -234,6 +240,30 @@ extension ARRulerViewController {
         isMeasuring = false
         removeMeasureNodes()
         planes.removeAll()
+    }
+}
+
+extension ARRulerViewController {
+    
+    func setupFocusSquare() {
+        focusSquare?.isHidden = true
+        focusSquare?.removeFromParentNode()
+        focusSquare = FocusSquare()
+        sceneView.scene.rootNode.addChildNode(focusSquare!)
+    }
+    
+    func updateFocusSquare() {
+        let screenCenter = self.sceneView.bounds.mid
+        
+        if false {
+            focusSquare?.hide()
+        } else {
+            focusSquare?.unhide()
+        }
+        let (worldPos, planeAnchor, _) = worldPositionFromScreenPosition(screenCenter, objectPos: focusSquare?.position)
+        if let worldPos = worldPos {
+            focusSquare?.update(for: worldPos, planeAnchor: planeAnchor, camera: self.arSession.currentFrame?.camera)
+        }
     }
 }
 

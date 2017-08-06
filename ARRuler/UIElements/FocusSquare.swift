@@ -155,7 +155,7 @@ class FocusSquare: SCNNode {
         pulseOutAction.timingMode = .easeInEaseOut
         pulseInAction.timingMode = .easeInEaseOut
         
-        return SCNAction.repeatForever(SCNAction.sequence([pulseOutAction, pulseInAction]))
+        return SCNAction.repeatForever(SCNAction.sequence([pulseOutAction, pulseInAction])!)!
     }
     
     private func stopPulsing(for node: SCNNode?) {
@@ -237,17 +237,17 @@ class FocusSquare: SCNNode {
             let waitAction = SCNAction.wait(duration: animationDuration * 0.75)
             let fadeInAction = SCNAction.fadeOpacity(to: 0.25, duration: animationDuration * 0.125)
             let fadeOutAction = SCNAction.fadeOpacity(to: 0.0, duration: animationDuration * 0.125)
-            fillPlane?.runAction(SCNAction.sequence([waitAction, fadeInAction, fadeOutAction]))
+            fillPlane?.runAction(SCNAction.sequence([waitAction, fadeInAction, fadeOutAction])!)
             
             let flashSquareAction = flashAnimation(duration: animationDuration * 0.25)
-            segments?[0].runAction(SCNAction.sequence([waitAction, flashSquareAction]))
-            segments?[1].runAction(SCNAction.sequence([waitAction, flashSquareAction]))
-            segments?[2].runAction(SCNAction.sequence([waitAction, flashSquareAction]))
-            segments?[3].runAction(SCNAction.sequence([waitAction, flashSquareAction]))
-            segments?[4].runAction(SCNAction.sequence([waitAction, flashSquareAction]))
-            segments?[5].runAction(SCNAction.sequence([waitAction, flashSquareAction]))
-            segments?[6].runAction(SCNAction.sequence([waitAction, flashSquareAction]))
-            segments?[7].runAction(SCNAction.sequence([waitAction, flashSquareAction]))
+            segments?[0].runAction(SCNAction.sequence([waitAction, flashSquareAction])!)
+            segments?[1].runAction(SCNAction.sequence([waitAction, flashSquareAction])!)
+            segments?[2].runAction(SCNAction.sequence([waitAction, flashSquareAction])!)
+            segments?[3].runAction(SCNAction.sequence([waitAction, flashSquareAction])!)
+            segments?[4].runAction(SCNAction.sequence([waitAction, flashSquareAction])!)
+            segments?[5].runAction(SCNAction.sequence([waitAction, flashSquareAction])!)
+            segments?[6].runAction(SCNAction.sequence([waitAction, flashSquareAction])!)
+            segments?[7].runAction(SCNAction.sequence([waitAction, flashSquareAction])!)
             
         }
         

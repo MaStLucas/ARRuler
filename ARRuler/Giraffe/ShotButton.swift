@@ -22,7 +22,7 @@ class ShotButton: UIControl {
         super.init(coder: aDecoder)
     }
     
-    public func animate() {
+    func animate() {
         
         for (i, piece) in pieces.enumerated() {
             let alphaAnimation = CAKeyframeAnimation.init(keyPath: "opacity")

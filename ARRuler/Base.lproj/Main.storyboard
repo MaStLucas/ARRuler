@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tVa-uU-29f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tVa-uU-29f">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
         <scene sceneID="hxp-Ys-X2u">
             <objects>
                 <viewController id="tVa-uU-29f" customClass="SplashScreenViewController" customModule="ARRuler" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="X3M-Du-du8">
+                    <view key="view" contentMode="scaleToFill" id="X3M-Du-du8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -23,7 +23,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Qy-KD-THY" customClass="Giraffe" customModule="ARRuler" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Qy-KD-THY" customClass="Giraffe" customModule="ARRuler" customModuleProvider="target">
                                 <rect key="frame" x="142" y="223.5" width="90" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -50,7 +50,7 @@
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController storyboardIdentifier="ARRulerScene" modalTransitionStyle="crossDissolve" id="BV1-FR-VrT" customClass="ARRulerViewController" customModule="ARRuler" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="7lS-ul-ncO">
+                    <view key="view" contentMode="scaleToFill" id="7lS-ul-ncO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -130,15 +130,15 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dIr-1q-qS9">
-                                <rect key="frame" x="185" y="341.5" width="4" height="4"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIr-1q-qS9" customClass="FocusHexagon" customModule="ARRuler" customModuleProvider="target">
+                                <rect key="frame" x="137" y="293.5" width="100" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="4" id="BA1-Sm-qw2"/>
-                                    <constraint firstAttribute="width" constant="4" id="yFj-zJ-lEo"/>
+                                    <constraint firstAttribute="height" constant="100" id="BA1-Sm-qw2"/>
+                                    <constraint firstAttribute="width" constant="100" id="yFj-zJ-lEo"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="42r-x0-XfI" customClass="ShotButton" customModule="ARRuler" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="42r-x0-XfI" customClass="ShotButton" customModule="ARRuler" customModuleProvider="target">
                                 <rect key="frame" x="165" y="602" width="45" height="45"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -195,7 +195,7 @@
         <scene sceneID="pCX-XD-AxJ">
             <objects>
                 <viewController storyboardIdentifier="ShareScene" id="RPH-4j-TpX" customClass="ShareViewController" customModule="ARRuler" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="SNU-6u-dph">
+                    <view key="view" contentMode="scaleToFill" id="SNU-6u-dph">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -203,7 +203,7 @@
                                 <rect key="frame" x="16" y="20" width="343" height="545"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cdc-UJ-mlx">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cdc-UJ-mlx">
                                 <rect key="frame" x="20" y="617" width="335" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdj-jK-Qdp">

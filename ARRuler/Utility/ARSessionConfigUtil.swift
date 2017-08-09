@@ -10,8 +10,8 @@ import ARKit
 
 class ARSessionConfigUtil {
     
-    static func planeDetectionConfig() -> ARWorldTrackingSessionConfiguration {
-        let config = ARWorldTrackingSessionConfiguration()
+    static func planeDetectionConfig() -> ARWorldTrackingConfiguration {
+        let config = ARWorldTrackingConfiguration()
         config.isLightEstimationEnabled = true
         config.planeDetection = .horizontal
         return config

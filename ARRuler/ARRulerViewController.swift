@@ -29,6 +29,9 @@ class ARRulerViewController: UIViewController {
     var endNode: SCNNode?
     var cameraPosition: SCNVector3 = SCNVector3.init()
     
+    var distanceFromCameraToStartNode: Float = 0
+    var hittestThreshold: Float = 0.02
+    
     var planes = [ARPlaneAnchor: Plane]()
     var ruler: Ruler?
     var focusSquare: FocusSquare?
@@ -283,6 +286,7 @@ extension ARRulerViewController {
             let planeAnchor = result.anchor
             
             // Return immediately - this is the best possible outcome.
+            print("Existing Plane Hittest Result")
             return (planeHitTestPosition, planeAnchor as? ARPlaneAnchor, true)
         }
         
@@ -293,7 +297,8 @@ extension ARRulerViewController {
         var featureHitTestPosition: SCNVector3?
         var highQualityFeatureHitTestResult = false
         
-        let highQualityfeatureHitTestResults = sceneView.hitTestWithFeatures(position, coneOpeningAngleInDegrees: 18, minDistance: 0.2, maxDistance: 2.0)
+        let minDistance = (objectPos == nil) ? 0.2 : distanceFromCameraToStartNode-hittestThreshold
+        let highQualityfeatureHitTestResults = sceneView.hitTestWithFeatures(position, coneOpeningAngleInDegrees: 18, minDistance: minDistance, maxDistance: 2.0)
         
         if !highQualityfeatureHitTestResults.isEmpty {
             let result = highQualityfeatureHitTestResults[0]
@@ -311,6 +316,7 @@ extension ARRulerViewController {
             
             let pointOnInfinitePlane = sceneView.hitTestWithInfiniteHorizontalPlane(position, pointOnPlane)
             if pointOnInfinitePlane != nil {
+                print("Infinite Plane Hittest Result")
                 return (pointOnInfinitePlane, nil, true)
             }
         }
@@ -321,6 +327,7 @@ extension ARRulerViewController {
         //    infinite plane was hit.
         
         if highQualityFeatureHitTestResult {
+            print("High Quality Feature Hittest Result")
             return (featureHitTestPosition, nil, false)
         }
         
@@ -331,6 +338,7 @@ extension ARRulerViewController {
         let unfilteredFeatureHitTestResults = sceneView.hitTestWithFeatures(position)
         if !unfilteredFeatureHitTestResults.isEmpty {
             let result = unfilteredFeatureHitTestResults[0]
+            print("Feature Hittest Result")
             return (result.position, nil, false)
         }
         
@@ -407,6 +415,8 @@ extension ARRulerViewController {
         startNode = node
         startVector = position
 //        print("start vector: \(startVector!)")
+        
+        distanceFromCameraToStartNode = (startVector!-cameraPosition).length()
     }
     
     fileprivate func updateEndNode(_ position: SCNVector3) {

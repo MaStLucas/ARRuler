@@ -359,7 +359,8 @@ func rayIntersectionWithHorizontalPlane(rayOrigin: SCNVector3, direction: SCNVec
         if rayOrigin.y == planeY {
             // The ray is horizontal and on the plane, thus all points on the ray intersect with the plane.
             // Therefore we simply return the ray origin.
-            return rayOrigin
+//            return rayOrigin
+            return nil
         } else {
             // The ray is parallel to the plane and never intersects.
             return nil

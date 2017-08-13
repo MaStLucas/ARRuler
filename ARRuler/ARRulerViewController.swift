@@ -335,12 +335,12 @@ extension ARRulerViewController {
         // 5. As a last resort, perform a second, unfiltered hit test against features.
         //    If there are no features in the scene, the result returned here will be nil.
         
-        let unfilteredFeatureHitTestResults = sceneView.hitTestWithFeatures(position)
-        if !unfilteredFeatureHitTestResults.isEmpty {
-            let result = unfilteredFeatureHitTestResults[0]
-            print("Feature Hittest Result")
-            return (result.position, nil, false)
-        }
+//        let unfilteredFeatureHitTestResults = sceneView.hitTestWithFeatures(position)
+//        if !unfilteredFeatureHitTestResults.isEmpty {
+//            let result = unfilteredFeatureHitTestResults[0]
+//            print("Feature Hittest Result")
+//            return (result.position, nil, false)
+//        }
         
         return (nil, nil, false)
     }

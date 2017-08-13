@@ -285,6 +285,11 @@ extension ARRulerViewController {
         if let worldPos = worldPos {
             focusSquare?.update(for: worldPos, planeAnchor: planeAnchor, camera: self.arSession.currentFrame?.camera)
         }
+        if planeAnchor == nil {
+            self.focusHexagon.unfocus()
+        } else {
+            self.focusHexagon.focus()
+        }
     }
 }
 

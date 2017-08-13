@@ -34,7 +34,7 @@ class FocusHexagon: UIView {
             let layer = Triangle.init(v1: CGPoint.init(x: 0, y: 6), v2: CGPoint.init(x: 6, y: 6), v3: CGPoint.init(x: 3, y: 0))
             layer.bounds = CGRect.init(x: 0, y: 0, width: 6, height: 6)
             layer.position = localCenter
-            layer.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, 12, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
+            layer.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, 30, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
             layer.allowsEdgeAntialiasing = true
             layer.setNeedsDisplay()
             self.layer.addSublayer(layer)
@@ -72,4 +72,15 @@ class FocusHexagon: UIView {
         }
     }
     
+    func focus() {
+        for (i, piece) in pieces.enumerated() {
+            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, 12, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i), 0, 0, 1))
+        }
+    }
+    
+    func unfocus() {
+        for (i, piece) in pieces.enumerated() {
+            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, 30, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i), 0, 0, 1))
+        }
+    }
 }

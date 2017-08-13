@@ -46,7 +46,8 @@ class ARRulerViewController: UIViewController {
         sceneView.delegate = self
         
         if showDebug {
-            sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+//            sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+            sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         }
         
         arSession = ARSession()
@@ -258,7 +259,7 @@ extension ARRulerViewController {
     func updateFocusSquare() {
         let screenCenter = self.sceneView.bounds.mid
         
-        if false {
+        if true {
             focusSquare?.hide()
         } else {
             focusSquare?.unhide()

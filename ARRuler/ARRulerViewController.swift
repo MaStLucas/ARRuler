@@ -312,12 +312,12 @@ extension ARRulerViewController {
         
         if infinitePlane || !highQualityFeatureHitTestResult {
             
-            let pointOnPlane = objectPos ?? SCNVector3Zero
-            
-            let pointOnInfinitePlane = sceneView.hitTestWithInfiniteHorizontalPlane(position, pointOnPlane)
-            if pointOnInfinitePlane != nil {
-                print("Infinite Plane Hittest Result")
-                return (pointOnInfinitePlane, nil, true)
+            if let pointOnPlane = objectPos {
+                let pointOnInfinitePlane = sceneView.hitTestWithInfiniteHorizontalPlane(position, pointOnPlane)
+                if pointOnInfinitePlane != nil {
+                    print("Infinite Plane Hittest Result")
+                    return (pointOnInfinitePlane, nil, true)
+                }
             }
         }
         

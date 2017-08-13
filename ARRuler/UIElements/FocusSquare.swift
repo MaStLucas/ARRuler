@@ -56,7 +56,6 @@ class FocusSquare: SCNNode {
     }
     
     func update(for position: SCNVector3, planeAnchor: ARPlaneAnchor?, camera: ARCamera?) {
-        lastPosition = position
         if let anchor = planeAnchor {
             close(flash: !anchorsOfVisitedPlanes.contains(anchor))
             lastPositionOnPlane = position
@@ -97,6 +96,7 @@ class FocusSquare: SCNNode {
         // move to average of recent positions to avoid jitter
         if let average = recentFocusSquarePositions.average {
             self.position = average
+            self.lastPosition = average
             self.setUniformScale(scaleBasedOnDistance(camera: camera))
         }
         

@@ -354,27 +354,25 @@ extension ARRulerViewController {
             return
         }
         
-        let point = self.sceneView.bounds.mid
+//        let point = self.sceneView.bounds.mid
+//
+//        let (worldPos, planeAnchor, _) = worldPositionFromScreenPosition(point, objectPos: startVector)
         
-        let (worldPos, planeAnchor, _) = worldPositionFromScreenPosition(point, objectPos: startVector)
 //        let results = self.sceneView.hitTest(point, types: [.estimatedHorizontalPlane, .existingPlane])
 //        guard results.count != 0 else { return }
 //        let result = results[0]
 //
 //        print("distance: \(result.distance)")
         
-        
-        if startVector == nil {
-            if let worldPos = worldPos {
+        if let worldPos = focusSquare?.lastPosition {
+            if startVector == nil {
                 addStartNode(worldPos)
-            }
-        } else {
-            tipsLabel.text = "Tap to end"
-            if let worldPos = worldPos {
+            } else {
+                tipsLabel.text = "Tap to end"
                 updateEndNode(worldPos)
                 
-//                let scale = Float(result.distance) / (cameraPosition-endVector!).length()
-//                let distance = (startVector!-endVector!).length()*scale
+                //                let scale = Float(result.distance) / (cameraPosition-endVector!).length()
+                //                let distance = (startVector!-endVector!).length()*scale
                 let distance = (startVector!-endVector!).length()
                 
                 distanceLabel.text = String.init(format: "%.2f", distance)

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tVa-uU-29f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tVa-uU-29f">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -182,6 +182,7 @@
                     <connections>
                         <outlet property="cameraTrackingStateLabel" destination="cak-Fj-lXk" id="YW5-Re-5Gg"/>
                         <outlet property="distanceLabel" destination="jVZ-XS-Uws" id="DPm-Gm-zfp"/>
+                        <outlet property="focusHexagon" destination="dIr-1q-qS9" id="KeW-GX-oyd"/>
                         <outlet property="sceneView" destination="HmB-J8-ADd" id="OWn-kP-ilY"/>
                         <outlet property="shotButton" destination="42r-x0-XfI" id="jes-da-JZb"/>
                         <outlet property="tipsLabel" destination="f8B-O7-hFY" id="Drt-2Q-rne"/>

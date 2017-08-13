@@ -17,6 +17,7 @@ class ARRulerViewController: UIViewController {
     @IBOutlet weak var cameraTrackingStateLabel: UILabel!
     @IBOutlet weak var shotButton: ShotButton!
     @IBOutlet weak var tipsLabel: Tip!
+    @IBOutlet weak var focusHexagon: FocusHexagon!
     
     var arSession: ARSession!
     
@@ -66,6 +67,7 @@ class ARRulerViewController: UIViewController {
         restartPlaneDetection()
         tipsLabel.text = "Tap to start measure"
         shotButton.isHidden = true
+        focusHexagon.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -190,6 +192,14 @@ extension ARRulerViewController: ARSessionDelegate {
         if startVector != nil {
             hitTestWithScreenCenter()
         }
+        if self.focusHexagon.isHidden {
+            if let rawFeaturePoints = frame.rawFeaturePoints {
+                if rawFeaturePoints.__count > 50 {
+                    self.focusHexagon.isHidden = false
+                    self.focusHexagon.animate()
+                }
+            }
+        }
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
@@ -208,8 +218,15 @@ extension ARRulerViewController: ARSessionDelegate {
     }
     
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
-        cameraTrackingStateLabel.text = camera.trackingState.presentationString
+//        cameraTrackingStateLabel.text = camera.trackingState.presentationString
         print(camera.trackingState.presentationString)
+        
+        switch camera.trackingState {
+        case .normal:
+            break
+        default:
+            self.focusHexagon.isHidden = true
+        }
     }
 }
 

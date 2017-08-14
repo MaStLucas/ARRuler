@@ -89,7 +89,7 @@ extension SCNGeometry {
         return SCNGeometry(sources: [source], elements: [element])
     }
     
-    class func triangleStripFrom(vector vector1: SCNVector3, toVector vector2: SCNVector3) -> SCNGeometry {
+    class func trianglesFrom(vector vector1: SCNVector3, toVector vector2: SCNVector3) -> SCNGeometry {
         
         let slice: Float = 0.01
         let direction = (vector2-vector1).normalized()
@@ -98,11 +98,15 @@ extension SCNGeometry {
         var vertices: [SCNVector3] = []
         var indices: [Int32] = []
         
-        vertices.append(contentsOf: [vector1, vector2])
-        indices.append(contentsOf: [0, 1])
-        
         let count = Int(ceil(distance/slice))
-        for i in 0...count {
+        guard count > 3 else {
+            return lineFrom(vector:vector1, toVector:vector2)
+        }
+        for i in 0...count-3 {
+            if i > 2 {
+                indices.append(Int32(i-2))
+                indices.append(Int32(i-1))
+            }
             indices.append(Int32(i))
         }
         
@@ -121,7 +125,7 @@ extension SCNGeometry {
         vertices.append(vector2)
         
         let source = SCNGeometrySource(vertices: vertices)
-        let element = SCNGeometryElement(indices: indices, primitiveType: .triangleStrip)
+        let element = SCNGeometryElement(indices: indices, primitiveType: .triangles)
         
         return SCNGeometry(sources: [source], elements: [element])
     }

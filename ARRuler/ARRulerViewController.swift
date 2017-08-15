@@ -67,7 +67,7 @@ class ARRulerViewController: UIViewController {
         restartPlaneDetection()
         tipsLabel.text = "Tap to start measure"
         shotButton.isHidden = true
-        focusHexagon.isHidden = true
+        hideTipAndFocusHexagon()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -195,7 +195,7 @@ extension ARRulerViewController: ARSessionDelegate {
         if self.focusHexagon.isHidden {
             if let rawFeaturePoints = frame.rawFeaturePoints {
                 if rawFeaturePoints.__count > 50 {
-                    self.focusHexagon.isHidden = false
+                    showTipAndFocusHexagon()
                     self.focusHexagon.animate()
                 }
             }
@@ -225,7 +225,7 @@ extension ARRulerViewController: ARSessionDelegate {
         case .normal:
             break
         default:
-            self.focusHexagon.isHidden = true
+            hideTipAndFocusHexagon()
         }
     }
 }
@@ -456,5 +456,18 @@ extension ARRulerViewController {
         
         endVector = position
 //        print("end vector: \(endVector!)")
+    }
+}
+
+extension ARRulerViewController {
+    
+    fileprivate func showTipAndFocusHexagon() {
+        self.tipsLabel.isHidden = false
+        self.focusHexagon.isHidden = false
+    }
+    
+    fileprivate func hideTipAndFocusHexagon() {
+        self.tipsLabel.isHidden = true
+        self.focusHexagon.isHidden = true
     }
 }

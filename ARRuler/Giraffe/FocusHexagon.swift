@@ -41,6 +41,10 @@ class FocusHexagon: UIView {
             self.pieces.append(layer)
         }
     }
+    
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        return false
+    }
 
     func animate() {
         

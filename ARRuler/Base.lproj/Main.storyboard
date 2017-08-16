@@ -149,7 +149,7 @@
                                     <action selector="shotButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="RZp-6A-Gkr"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-O7-hFY" customClass="Tip" customModule="ARRuler" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-O7-hFY" customClass="Tip" customModule="ARRuler" customModuleProvider="target">
                                 <rect key="frame" x="166.5" y="546" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -168,6 +168,7 @@
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="HmB-J8-ADd" secondAttribute="bottom" id="Yba-Yj-ut6"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="42r-x0-XfI" secondAttribute="bottom" constant="20" id="bQa-ck-6r9"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="fge-dI-ZRM" secondAttribute="bottom" id="hQj-Eq-LRf"/>
+                            <constraint firstItem="f8B-O7-hFY" firstAttribute="width" relation="lessThanOrEqual" secondItem="7lS-ul-ncO" secondAttribute="width" constant="-40" id="iIH-kk-kWu"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="trailing" secondItem="HmB-J8-ADd" secondAttribute="trailing" id="iv0-dh-ddw"/>
                             <constraint firstItem="HmB-J8-ADd" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" id="jZP-zC-jwe"/>
                             <constraint firstItem="HmB-J8-ADd" firstAttribute="top" secondItem="9H0-6L-OC7" secondAttribute="top" id="jqF-Pd-QAJ"/>

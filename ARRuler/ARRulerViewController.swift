@@ -65,9 +65,10 @@ class ARRulerViewController: UIViewController {
         
         // Run the view's session
         restartPlaneDetection()
-        tipsLabel.text = "Tap to start measure"
+        tipsLabel.text = "Environment Identifying，please move your phone around"
         shotButton.isHidden = true
-        hideTipAndFocusHexagon()
+        distanceLabel.isHidden = true
+        hideFocusHexagon()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -105,6 +106,8 @@ class ARRulerViewController: UIViewController {
     @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
         
 //        let point = recognizer.location(in: self.sceneView)
+        
+        guard canStartMeasure() else { return }
         
         if startVector == nil {
             hitTestWithScreenCenter()
@@ -195,7 +198,7 @@ extension ARRulerViewController: ARSessionDelegate {
         if self.focusHexagon.isHidden {
             if let rawFeaturePoints = frame.rawFeaturePoints {
                 if rawFeaturePoints.__count > 50 {
-                    showTipAndFocusHexagon()
+                    showFocusHexagon()
                     self.focusHexagon.animate()
                 }
             }
@@ -225,7 +228,7 @@ extension ARRulerViewController: ARSessionDelegate {
         case .normal:
             break
         default:
-            hideTipAndFocusHexagon()
+            hideFocusHexagon()
         }
     }
 }
@@ -371,33 +374,28 @@ extension ARRulerViewController {
 
 extension ARRulerViewController {
     
+    fileprivate func canStartMeasure() -> Bool {
+        return !self.focusHexagon.isHidden
+    }
+    
     fileprivate func hitTestWithScreenCenter() {
         
         guard isMeasuring else {
             return
         }
         
-//        let point = self.sceneView.bounds.mid
-//
-//        let (worldPos, planeAnchor, _) = worldPositionFromScreenPosition(point, objectPos: startVector)
-        
-//        let results = self.sceneView.hitTest(point, types: [.estimatedHorizontalPlane, .existingPlane])
-//        guard results.count != 0 else { return }
-//        let result = results[0]
-//
-//        print("distance: \(result.distance)")
-        
         if let worldPos = focusSquare?.lastPosition {
             if startVector == nil {
                 addStartNode(worldPos)
             } else {
-                tipsLabel.text = "Tap to end"
+                tipsLabel.text = "Tap to set an end point"
                 updateEndNode(worldPos)
                 
                 //                let scale = Float(result.distance) / (cameraPosition-endVector!).length()
                 //                let distance = (startVector!-endVector!).length()*scale
                 let distance = (startVector!-endVector!).length()
                 
+                distanceLabel.isHidden = false
                 distanceLabel.text = String.init(format: "%.2f", distance)
                 
                 drawRuler(startVector: startVector!, endVector: endVector!, distance: CGFloat(distance))
@@ -435,7 +433,6 @@ extension ARRulerViewController {
         
         startNode = node
         startVector = position
-//        print("start vector: \(startVector!)")
         
         distanceFromCameraToStartNode = (startVector!-cameraPosition).length()
     }
@@ -455,19 +452,17 @@ extension ARRulerViewController {
         }
         
         endVector = position
-//        print("end vector: \(endVector!)")
     }
 }
 
 extension ARRulerViewController {
     
-    fileprivate func showTipAndFocusHexagon() {
-        self.tipsLabel.isHidden = false
+    fileprivate func showFocusHexagon() {
         self.focusHexagon.isHidden = false
+        self.tipsLabel.text = "Tap to set a start point"
     }
     
-    fileprivate func hideTipAndFocusHexagon() {
-        self.tipsLabel.isHidden = true
+    fileprivate func hideFocusHexagon() {
         self.focusHexagon.isHidden = true
     }
 }

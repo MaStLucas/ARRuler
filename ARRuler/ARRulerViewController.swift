@@ -21,8 +21,6 @@ class ARRulerViewController: UIViewController {
     
     var arSession: ARSession!
     
-//    var screenCenter: CGPoint?
-    
     var firstTap = true
     var startVector: SCNVector3?
     var endVector: SCNVector3?
@@ -65,10 +63,8 @@ class ARRulerViewController: UIViewController {
         
         // Run the view's session
         restartPlaneDetection()
-        tipsLabel.text = "Environment Identifying，please move your phone around"
-        shotButton.isHidden = true
-        distanceLabel.isHidden = true
-        hideFocusHexagon()
+        
+        initMeasureStage()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -114,9 +110,7 @@ class ARRulerViewController: UIViewController {
             isMeasuring = true
         } else {
             isMeasuring = false
-            tipsLabel.text = "Capture your image"
-            shotButton.isHidden = false
-            shotButton.animate()
+            captureImageStage()
         }
     }
     
@@ -143,6 +137,7 @@ class ARRulerViewController: UIViewController {
     }
 }
 
+// MARK: - ARSCNViewDelegate
 extension ARRulerViewController: ARSCNViewDelegate {
     
     /*
@@ -184,6 +179,7 @@ extension ARRulerViewController: ARSCNViewDelegate {
     }
 }
 
+// MARK: - ARSessionDelegate
 extension ARRulerViewController: ARSessionDelegate {
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
@@ -198,8 +194,7 @@ extension ARRulerViewController: ARSessionDelegate {
         if self.focusHexagon.isHidden {
             if let rawFeaturePoints = frame.rawFeaturePoints {
                 if rawFeaturePoints.__count > 50 {
-                    showFocusHexagon()
-                    self.focusHexagon.animate()
+                    startMeasureStage()
                 }
             }
         }
@@ -228,11 +223,12 @@ extension ARRulerViewController: ARSessionDelegate {
         case .normal:
             break
         default:
-            hideFocusHexagon()
+            measureUnavailableStage()
         }
     }
 }
 
+// MARK: - Plane
 extension ARRulerViewController {
     
     func addPlane(node: SCNNode, anchor: ARPlaneAnchor) {
@@ -256,6 +252,7 @@ extension ARRulerViewController {
     }
 }
 
+// MARK: - Restart Session
 extension ARRulerViewController {
     
     fileprivate func restartPlaneDetection() {
@@ -267,6 +264,7 @@ extension ARRulerViewController {
     }
 }
 
+// MARK: - Focus Square
 extension ARRulerViewController {
     
     func setupFocusSquare() {
@@ -296,6 +294,7 @@ extension ARRulerViewController {
     }
 }
 
+// MARK: - Hit Test
 extension ARRulerViewController {
     
     fileprivate func worldPositionFromScreenPosition(_ position: CGPoint, objectPos: SCNVector3?, infinitePlane: Bool = false)
@@ -372,6 +371,7 @@ extension ARRulerViewController {
     }
 }
 
+// MARK: - Measure
 extension ARRulerViewController {
     
     fileprivate func canStartMeasure() -> Bool {
@@ -388,7 +388,8 @@ extension ARRulerViewController {
             if startVector == nil {
                 addStartNode(worldPos)
             } else {
-                tipsLabel.text = "Tap to set an end point"
+                endMeasureStage()
+                
                 updateEndNode(worldPos)
                 
                 //                let scale = Float(result.distance) / (cameraPosition-endVector!).length()
@@ -455,14 +456,34 @@ extension ARRulerViewController {
     }
 }
 
+// MARK: - UI State
 extension ARRulerViewController {
     
-    fileprivate func showFocusHexagon() {
-        self.focusHexagon.isHidden = false
-        self.tipsLabel.text = "Tap to set a start point"
+    fileprivate func initMeasureStage() {
+        tipsLabel.text = "Environment Identifying，please move your phone around"
+        shotButton.isHidden = true
+        distanceLabel.isHidden = true
+        focusHexagon.isHidden = true
     }
     
-    fileprivate func hideFocusHexagon() {
-        self.focusHexagon.isHidden = true
+    fileprivate func startMeasureStage() {
+        focusHexagon.isHidden = false
+        focusHexagon.animate()
+        
+        tipsLabel.text = "Tap to set a start point"
+    }
+    
+    fileprivate func endMeasureStage() {
+        tipsLabel.text = "Tap to set an end point"
+    }
+    
+    fileprivate func measureUnavailableStage() {
+        focusHexagon.isHidden = true
+    }
+    
+    fileprivate func captureImageStage() {
+        tipsLabel.text = "Capture your image"
+        shotButton.isHidden = false
+        shotButton.animate()
     }
 }

@@ -38,7 +38,7 @@ class ARRulerViewController: UIViewController {
     var focusSquare: FocusSquare?
     
     var isMeasuring = false
-    var showDebug = true
+    var showDebug = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

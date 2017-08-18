@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BC183FA51F30D3210062DBF2 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC183FA41F30D3210062DBF2 /* FocusSquare.swift */; };
 		BC218B411F2382A900DE4048 /* ARSessionConfigUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC218B401F2382A900DE4048 /* ARSessionConfigUtil.swift */; };
+		BC2741461F466C0F00E533ED /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2741451F466C0F00E533ED /* Distance.swift */; };
 		BC27CE991F2A4274009ECAF1 /* ShotButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC27CE981F2A4274009ECAF1 /* ShotButton.swift */; };
 		BC27CE9B1F2E3738009ECAF1 /* ScreenShotUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC27CE9A1F2E3738009ECAF1 /* ScreenShotUtil.swift */; };
 		BC27CE9D1F2E4A87009ECAF1 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC27CE9C1F2E4A87009ECAF1 /* Tip.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		BC183FA41F30D3210062DBF2 /* FocusSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 		BC218B401F2382A900DE4048 /* ARSessionConfigUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSessionConfigUtil.swift; sourceTree = "<group>"; };
+		BC2741451F466C0F00E533ED /* Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distance.swift; sourceTree = "<group>"; };
 		BC27CE981F2A4274009ECAF1 /* ShotButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotButton.swift; sourceTree = "<group>"; };
 		BC27CE9A1F2E3738009ECAF1 /* ScreenShotUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotUtil.swift; sourceTree = "<group>"; };
 		BC27CE9C1F2E4A87009ECAF1 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
@@ -117,6 +119,14 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		BC2741441F466BFC00E533ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC2741451F466C0F00E533ED /* Distance.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BC4AEAED1F279F1F00EB129E /* Giraffe */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +173,7 @@
 		BCE916791F151CBD00C4F67D /* ARRuler */ = {
 			isa = PBXGroup;
 			children = (
+				BC2741441F466BFC00E533ED /* Model */,
 				BC4AEAED1F279F1F00EB129E /* Giraffe */,
 				BC5560891F24C71E00BEDD91 /* UIElements */,
 				BC218B3F1F23822100DE4048 /* Utility */,
@@ -330,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC2741461F466C0F00E533ED /* Distance.swift in Sources */,
 				BC55608F1F24CCFA00BEDD91 /* Ruler.swift in Sources */,
 				BC3250871F248BF300B4BBD0 /* ARCameraTrackingState.swift in Sources */,
 				BC4AEAEC1F27948000EB129E /* SplashScreenViewController.swift in Sources */,

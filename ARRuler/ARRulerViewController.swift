@@ -14,7 +14,6 @@ class ARRulerViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var cameraTrackingStateLabel: UILabel!
     @IBOutlet weak var shotButton: ShotButton!
     @IBOutlet weak var tipsLabel: Tip!
     @IBOutlet weak var focusHexagon: FocusHexagon!

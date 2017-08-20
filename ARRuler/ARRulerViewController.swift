@@ -61,10 +61,7 @@ class ARRulerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Run the view's session
-        restartPlaneDetection()
-        
-        initMeasureStage()
+        restart()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -133,7 +130,7 @@ class ARRulerViewController: UIViewController {
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        restartPlaneDetection()
+        restart()
     }
 }
 
@@ -254,6 +251,13 @@ extension ARRulerViewController {
 
 // MARK: - Restart Session
 extension ARRulerViewController {
+    
+    fileprivate func restart() {
+        // Run the view's session
+        restartPlaneDetection()
+        
+        initMeasureStage()
+    }
     
     fileprivate func restartPlaneDetection() {
         arSession.run(ARSessionConfigUtil.planeDetectionConfig(), options: [.resetTracking, .removeExistingAnchors])

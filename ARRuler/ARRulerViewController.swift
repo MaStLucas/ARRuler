@@ -26,6 +26,7 @@ class ARRulerViewController: UIViewController {
     var startNode: SCNNode?
     var endNode: SCNNode?
     var cameraPosition: SCNVector3 = SCNVector3.init()
+    var distance = Distance()
     
     var distanceFromCameraToStartNode: Float = 0
     var hittestThreshold: Float = 0.02
@@ -393,12 +394,13 @@ extension ARRulerViewController {
                 
                 //                let scale = Float(result.distance) / (cameraPosition-endVector!).length()
                 //                let distance = (startVector!-endVector!).length()*scale
-                let distance = (startVector!-endVector!).length()
+                
+                distance.value = (startVector!-endVector!).length()
                 
                 distanceLabel.isHidden = false
-                distanceLabel.text = String.init(format: "%.2f", distance)
+                distanceLabel.text = distance.valueInCentimeter
                 
-                drawRuler(startVector: startVector!, endVector: endVector!, distance: CGFloat(distance))
+                drawRuler(startVector: startVector!, endVector: endVector!, distance: CGFloat(distance.value))
             }
         }
     }

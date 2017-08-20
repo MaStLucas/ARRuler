@@ -10,11 +10,7 @@ import Foundation
 
 class Distance {
     
-    private var value: Float = 0.0
-    
-    func setValue(_ v: Float) {
-        value = v
-    }
+    var value: Float = 0.0
     
     var valueInMeter: String {
         return String(format: "%.2f", value)

@@ -86,7 +86,11 @@ extension SCNGeometry {
         let source = SCNGeometrySource(vertices: vertices)
         let element = SCNGeometryElement(indices: indices, primitiveType: .line)
         
-        return SCNGeometry(sources: [source], elements: [element])
+        let geometry = SCNGeometry(sources: [source], elements: [element])
+        geometry.firstMaterial?.diffuse.contents = UIColor.yellow
+        geometry.firstMaterial?.isDoubleSided = true
+        
+        return geometry
     }
     
     class func trianglesFrom(vector vector1: SCNVector3, toVector vector2: SCNVector3) -> SCNGeometry {
@@ -114,11 +118,6 @@ extension SCNGeometry {
         for index in 0...count-1 {
             vector.x = vector1.x + Float(index)*slice*direction.x
             vector.y = vector1.y + Float(index)*slice*direction.y
-            if index%2 == 0 {
-                vector.y -= 0.01
-            } else {
-                vector.y += 0.01
-            }
             vector.z = vector1.z + Float(index)*slice*direction.z
             vertices.append(vector)
         }
@@ -127,6 +126,10 @@ extension SCNGeometry {
         let source = SCNGeometrySource(vertices: vertices)
         let element = SCNGeometryElement(indices: indices, primitiveType: .triangles)
         
-        return SCNGeometry(sources: [source], elements: [element])
+        let geometry = SCNGeometry(sources: [source], elements: [element])
+        geometry.firstMaterial?.diffuse.contents = UIColor.yellow
+        geometry.firstMaterial?.isDoubleSided = true
+        
+        return geometry
     }
 }

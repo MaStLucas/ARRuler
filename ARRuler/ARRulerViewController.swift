@@ -135,7 +135,9 @@ class ARRulerViewController: UIViewController {
     }
     
     @IBAction func distanceUnitButtonPressed(_ sender: UIButton) {
-        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DropDownTable")
+        guard let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DropDownTable") as? DropDownTableViewController else { return }
+        vc.delegate = self
+        vc.selectedIndex = distance.unit.rawValue
         vc.modalPresentationStyle = .popover
         vc.preferredContentSize = CGSize.init(width: 100, height: 132)
         if let popover = vc.popoverPresentationController {
@@ -413,7 +415,7 @@ extension ARRulerViewController {
                 //                let distance = (startVector!-endVector!).length()*scale
                 
                 distance.value = (startVector!-endVector!).length()
-                distanceLabel.text = distance.valueInMeter
+                distanceLabel.text = distance.displayString
                 
                 drawRuler(startVector: startVector!, endVector: endVector!, distance: CGFloat(distance.value))
             }
@@ -514,5 +516,22 @@ extension ARRulerViewController: UIPopoverPresentationControllerDelegate {
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
+    }
+}
+
+extension ARRulerViewController: DropDownTableViewControllerDelegate {
+    
+    func dropDownTableViewController(_: DropDownTableViewController, didSelectItemAt index: Int) {
+        if index == 0 {
+            distance.unit = .meter
+            distanceUnitButton.titleLabel?.text = "m"
+        } else if index == 1 {
+            distance.unit = .centimeter
+            distanceUnitButton.titleLabel?.text = "cm"
+        } else if index == 2 {
+            distance.unit = .inch
+            distanceUnitButton.titleLabel?.text = "inch"
+        }
+        distanceLabel.text = distance.displayString
     }
 }

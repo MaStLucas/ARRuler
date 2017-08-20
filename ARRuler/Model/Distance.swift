@@ -8,9 +8,26 @@
 
 import Foundation
 
+enum DistanceUnit: Int {
+    case meter, centimeter, inch
+}
+
 class Distance {
     
     var value: Float = 0.0
+    
+    var unit: DistanceUnit = .meter
+    
+    var displayString: String {
+        switch unit {
+        case .meter:
+            return valueInMeter
+        case .centimeter:
+            return valueInCentimeter
+        case .inch:
+            return valueInInch
+        }
+    }
     
     var valueInMeter: String {
         return String(format: "%.2f", value)

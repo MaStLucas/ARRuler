@@ -8,15 +8,21 @@
 
 import UIKit
 
-class DropDownTableViewController: UITableViewController {
+protocol DropDownTableViewControllerDelegate: class {
+    func dropDownTableViewController(_: DropDownTableViewController, didSelectItemAt index: Int)
+}
 
+class DropDownTableViewController: UITableViewController {
+    
+    weak var delegate: DropDownTableViewControllerDelegate?
+    
     private let units = [
         "m",
         "cm",
         "inch"
     ]
     
-    private var selectedIndex = 0
+    var selectedIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +79,9 @@ class DropDownTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         self.tableView.reloadData()
+        
+        delegate?.dropDownTableViewController(self, didSelectItemAt: selectedIndex)
+        self.dismiss(animated: true, completion: nil)
     }
     
     /*

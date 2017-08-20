@@ -133,6 +133,18 @@ class ARRulerViewController: UIViewController {
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         restart()
     }
+    
+    @IBAction func distanceUnitButtonPressed(_ sender: UIButton) {
+        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DropDownTable")
+        vc.modalPresentationStyle = .popover
+        vc.preferredContentSize = CGSize.init(width: 100, height: 132)
+        if let popover = vc.popoverPresentationController {
+            popover.delegate = self
+            popover.sourceView = sender
+            popover.sourceRect = sender.bounds
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 // MARK: - ARSCNViewDelegate
@@ -495,5 +507,12 @@ extension ARRulerViewController {
         
         shotButton.isHidden = false
         shotButton.animate()
+    }
+}
+
+extension ARRulerViewController: UIPopoverPresentationControllerDelegate {
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }

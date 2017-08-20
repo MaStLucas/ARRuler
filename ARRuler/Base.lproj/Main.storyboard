@@ -57,10 +57,10 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmB-J8-ADd">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </arscnView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVZ-XS-Uws">
-                                <rect key="frame" x="154" y="40" width="67" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.82" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVZ-XS-Uws">
+                                <rect key="frame" x="153.5" y="40" width="68" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" red="0.97254901960784312" green="0.90588235294117647" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="lightTextColor"/>
                             </label>
@@ -89,7 +89,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29t-lU-nVs">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29t-lU-nVs" userLabel="Restart Button">
                                 <rect key="frame" x="24" y="617" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="APw-Yk-Q8q"/>
@@ -100,10 +100,22 @@
                                     <action selector="resetButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="E2D-qm-Mea"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvo-1b-gY0">
+                                <rect key="frame" x="299" y="42" width="60" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Jmw-YH-rh8"/>
+                                    <constraint firstAttribute="height" constant="40" id="ffL-es-f3k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="m">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dIr-1q-qS9" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="0HG-Jf-P4Q"/>
+                            <constraint firstItem="bvo-1b-gY0" firstAttribute="centerY" secondItem="jVZ-XS-Uws" secondAttribute="centerY" id="19k-4k-l0Y"/>
                             <constraint firstItem="42r-x0-XfI" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="6P6-3n-ycc"/>
                             <constraint firstItem="jVZ-XS-Uws" firstAttribute="top" secondItem="9H0-6L-OC7" secondAttribute="top" constant="20" id="9vq-FX-Lb7"/>
                             <constraint firstItem="jVZ-XS-Uws" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="MkA-oZ-vgJ"/>
@@ -116,6 +128,7 @@
                             <constraint firstItem="HmB-J8-ADd" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" id="jZP-zC-jwe"/>
                             <constraint firstItem="HmB-J8-ADd" firstAttribute="top" secondItem="9H0-6L-OC7" secondAttribute="top" id="jqF-Pd-QAJ"/>
                             <constraint firstItem="f8B-O7-hFY" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="mLX-eh-O4M"/>
+                            <constraint firstItem="9H0-6L-OC7" firstAttribute="trailing" secondItem="bvo-1b-gY0" secondAttribute="trailing" constant="16" id="rTU-6h-SCz"/>
                             <constraint firstItem="dIr-1q-qS9" firstAttribute="centerY" secondItem="9H0-6L-OC7" secondAttribute="centerY" id="stx-Gn-WZy"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="29t-lU-nVs" secondAttribute="bottom" constant="20" id="v61-aX-3RQ"/>
                         </constraints>
@@ -126,6 +139,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="distanceLabel" destination="jVZ-XS-Uws" id="DPm-Gm-zfp"/>
+                        <outlet property="distanceUnitButton" destination="bvo-1b-gY0" id="1nO-x1-xad"/>
                         <outlet property="focusHexagon" destination="dIr-1q-qS9" id="KeW-GX-oyd"/>
                         <outlet property="sceneView" destination="HmB-J8-ADd" id="OWn-kP-ilY"/>
                         <outlet property="shotButton" destination="42r-x0-XfI" id="jes-da-JZb"/>

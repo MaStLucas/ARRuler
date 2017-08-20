@@ -14,6 +14,7 @@ class ARRulerViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var distanceUnitButton: UIButton!
     @IBOutlet weak var shotButton: ShotButton!
     @IBOutlet weak var tipsLabel: Tip!
     @IBOutlet weak var focusHexagon: FocusHexagon!
@@ -400,9 +401,7 @@ extension ARRulerViewController {
                 //                let distance = (startVector!-endVector!).length()*scale
                 
                 distance.value = (startVector!-endVector!).length()
-                
-                distanceLabel.isHidden = false
-                distanceLabel.text = distance.valueInCentimeter
+                distanceLabel.text = distance.valueInMeter
                 
                 drawRuler(startVector: startVector!, endVector: endVector!, distance: CGFloat(distance.value))
             }
@@ -466,20 +465,25 @@ extension ARRulerViewController {
     
     fileprivate func initMeasureStage() {
         tipsLabel.text = "Environment Identifying，please move your phone around"
+        
         shotButton.isHidden = true
         distanceLabel.isHidden = true
+        distanceUnitButton.isHidden = true
         focusHexagon.isHidden = true
     }
     
     fileprivate func startMeasureStage() {
+        tipsLabel.text = "Tap to set a start point"
+        
         focusHexagon.isHidden = false
         focusHexagon.animate()
-        
-        tipsLabel.text = "Tap to set a start point"
     }
     
     fileprivate func endMeasureStage() {
         tipsLabel.text = "Tap to set an end point"
+        
+        distanceLabel.isHidden = false
+        distanceUnitButton.isHidden = false
     }
     
     fileprivate func measureUnavailableStage() {
@@ -488,6 +492,7 @@ extension ARRulerViewController {
     
     fileprivate func captureImageStage() {
         tipsLabel.text = "Capture your image"
+        
         shotButton.isHidden = false
         shotButton.animate()
     }

@@ -524,13 +524,13 @@ extension ARRulerViewController: DropDownTableViewControllerDelegate {
     func dropDownTableViewController(_: DropDownTableViewController, didSelectItemAt index: Int) {
         if index == 0 {
             distance.unit = .meter
-            distanceUnitButton.titleLabel?.text = "m"
+            distanceUnitButton.setTitle("m", for: .normal)
         } else if index == 1 {
             distance.unit = .centimeter
-            distanceUnitButton.titleLabel?.text = "cm"
+            distanceUnitButton.setTitle("cm", for: .normal)
         } else if index == 2 {
             distance.unit = .inch
-            distanceUnitButton.titleLabel?.text = "inch"
+            distanceUnitButton.setTitle("inch", for: .normal)
         }
         distanceLabel.text = distance.displayString
     }

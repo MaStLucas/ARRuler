@@ -407,7 +407,6 @@ extension ARRulerViewController {
             if startVector == nil {
                 addStartNode(worldPos)
             } else {
-                endMeasureStage()
                 
                 updateEndNode(worldPos)
                 
@@ -416,6 +415,12 @@ extension ARRulerViewController {
                 
                 distance.value = (startVector!-endVector!).length()
                 distanceLabel.text = distance.displayString
+                
+                if distance.value > 0.05 {
+                    endMeasureStage()
+                } else {
+                    moveStage()
+                }
                 
                 drawRuler(startVector: startVector!, endVector: endVector!, distance: CGFloat(distance.value))
             }
@@ -491,6 +496,13 @@ extension ARRulerViewController {
         
         focusHexagon.isHidden = false
         focusHexagon.animate()
+    }
+    
+    fileprivate func moveStage() {
+        tipsLabel.text = "Move your phone to measure"
+        
+        distanceLabel.isHidden = false
+        distanceUnitButton.isHidden = false
     }
     
     fileprivate func endMeasureStage() {

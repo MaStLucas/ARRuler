@@ -105,8 +105,8 @@ class ARRulerViewController: UIViewController {
         guard canStartMeasure() else { return }
         
         if startVector == nil {
-            hitTestWithScreenCenter()
             isMeasuring = true
+            hitTestWithScreenCenter()
         } else {
             isMeasuring = false
             captureImageStage()

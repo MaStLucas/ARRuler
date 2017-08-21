@@ -62,7 +62,8 @@ class ARRulerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        restart()
+        restartMeasure()
+        restartPlaneDetection()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -131,7 +132,7 @@ class ARRulerViewController: UIViewController {
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        restart()
+        restartMeasure()
     }
     
     @IBAction func distanceUnitButtonPressed(_ sender: UIButton) {
@@ -235,7 +236,7 @@ extension ARRulerViewController: ARSessionDelegate {
         case .normal:
             break
         default:
-            measureUnavailableStage()
+            restartMeasure()
         }
     }
 }
@@ -267,18 +268,16 @@ extension ARRulerViewController {
 // MARK: - Restart Session
 extension ARRulerViewController {
     
-    fileprivate func restart() {
-        // Run the view's session
-        restartPlaneDetection()
-        
+    fileprivate func restartMeasure() {
         initMeasureStage()
+        
+        isMeasuring = false
+        removeMeasureNodes()
     }
     
     fileprivate func restartPlaneDetection() {
         arSession.run(ARSessionConfigUtil.planeDetectionConfig(), options: [.resetTracking, .removeExistingAnchors])
         
-        isMeasuring = false
-        removeMeasureNodes()
         planes.removeAll()
     }
 }
@@ -510,10 +509,6 @@ extension ARRulerViewController {
         
         distanceLabel.isHidden = false
         distanceUnitButton.isHidden = false
-    }
-    
-    fileprivate func measureUnavailableStage() {
-        focusHexagon.isHidden = true
     }
     
     fileprivate func captureImageStage() {

@@ -24,6 +24,7 @@
 		BC55608F1F24CCFA00BEDD91 /* Ruler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55608E1F24CCFA00BEDD91 /* Ruler.swift */; };
 		BC8DE19B1F3760C400CA9765 /* FocusHexagon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DE19A1F3760C400CA9765 /* FocusHexagon.swift */; };
 		BCA406C11F4C91090024F950 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA406C01F4C91090024F950 /* UIViewController+Alert.swift */; };
+		BCA406C31F4C956D0024F950 /* PhotoAlbumUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA406C21F4C956D0024F950 /* PhotoAlbumUtil.swift */; };
 		BCC82D671F28EEAC00965A3E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC82D661F28EEAC00965A3E /* ShareViewController.swift */; };
 		BCE9167B1F151CBD00C4F67D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE9167A1F151CBD00C4F67D /* AppDelegate.swift */; };
 		BCE9167D1F151CBD00C4F67D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BCE9167C1F151CBD00C4F67D /* art.scnassets */; };
@@ -71,6 +72,7 @@
 		BC55608E1F24CCFA00BEDD91 /* Ruler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ruler.swift; sourceTree = "<group>"; };
 		BC8DE19A1F3760C400CA9765 /* FocusHexagon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusHexagon.swift; sourceTree = "<group>"; };
 		BCA406C01F4C91090024F950 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		BCA406C21F4C956D0024F950 /* PhotoAlbumUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumUtil.swift; sourceTree = "<group>"; };
 		BCC82D661F28EEAC00965A3E /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		BCE916771F151CBD00C4F67D /* ARRuler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARRuler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE9167A1F151CBD00C4F67D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				BC3250861F248BF300B4BBD0 /* ARCameraTrackingState.swift */,
 				BC27CE9A1F2E3738009ECAF1 /* ScreenShotUtil.swift */,
 				BCA406C01F4C91090024F950 /* UIViewController+Alert.swift */,
+				BCA406C21F4C956D0024F950 /* PhotoAlbumUtil.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				BCE9167B1F151CBD00C4F67D /* AppDelegate.swift in Sources */,
 				BC4AEAF11F27A43E00EB129E /* Triangle.swift in Sources */,
 				BC16E3191F4A618E00BAC063 /* DropDownButton.swift in Sources */,
+				BCA406C31F4C956D0024F950 /* PhotoAlbumUtil.swift in Sources */,
 				BC55608B1F24C77800BEDD91 /* Plane.swift in Sources */,
 				BC55608D1F24C8B900BEDD91 /* PlaneDebugVisualization.swift in Sources */,
 				BC27CE9D1F2E4A87009ECAF1 /* Tip.swift in Sources */,

@@ -39,24 +39,36 @@ class ShareViewController: UIViewController {
     }
     
     @IBAction func galleryButtonPressed(_ sender: UIButton) {
-        switch PHPhotoLibrary.authorizationStatus() {
-        case .authorized:
-            saveToAlbum()
-        case .restricted, .denied:
-            let title = "Photos access denied"
-            let message = "Please enable Photos access for this application in Settings > Privacy to allow saving screenshots."
-            self.showAlert(title: title, message: message)
-        case .notDetermined:
-            PHPhotoLibrary.requestAuthorization({ (authorizationStatus) in
-                if authorizationStatus == .authorized {
-                    self.saveToAlbum()
-                }
-            })
-        }
+//        switch PHPhotoLibrary.authorizationStatus() {
+//        case .authorized:
+//            saveToAlbum()
+//        case .restricted, .denied:
+//            let title = "Photos access denied"
+//            let message = "Please enable Photos access for this application in Settings > Privacy to allow saving screenshots."
+//            self.showAlert(title: title, message: message)
+//        case .notDetermined:
+//            PHPhotoLibrary.requestAuthorization({ (authorizationStatus) in
+//                if authorizationStatus == .authorized {
+//                    self.saveToAlbum()
+//                }
+//            })
+//        }
+        saveToAlbum()
     }
     
     private func saveToAlbum() {
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        PhotoAlbumUtil.saveImageInAlbum(image: image, albumName: "ARuler") { result in
+            switch result {
+            case .success:
+                self.showAlert(title: "Save success", message: "")
+            case .error:
+                self.showAlert(title: "Save Error", message: "")
+            case .denied:
+                let title = "Photos access denied"
+                let message = "Please enable Photos access for this application in Settings > Privacy to allow saving screenshots."
+                self.showAlert(title: title, message: message)
+            }
+        }
     }
     
     /*

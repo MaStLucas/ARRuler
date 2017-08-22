@@ -15,7 +15,7 @@ class ARRulerViewController: UIViewController {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var distanceUnitButton: UIButton!
-    @IBOutlet weak var shotButton: ShotButton!
+    @IBOutlet weak var shotButton: UIButton!
     @IBOutlet weak var tipsLabel: Tip!
     @IBOutlet weak var focusHexagon: FocusHexagon!
     
@@ -515,7 +515,7 @@ extension ARRulerViewController {
         tipsLabel.text = "Capture your image"
         
         shotButton.isHidden = false
-        shotButton.animate()
+//        shotButton.animate()
     }
 }
 

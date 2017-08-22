@@ -14,12 +14,14 @@ class ShareViewController: UIViewController {
     var image: UIImage!
     
     @IBOutlet weak var screenShot: UIImageView!
+    @IBOutlet weak var background: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         screenShot.image = image
+        background.image = image
     }
 
     override func didReceiveMemoryWarning() {

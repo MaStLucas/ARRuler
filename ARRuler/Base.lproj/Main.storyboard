@@ -195,9 +195,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Q9-Bb-V25">
-                                <rect key="frame" x="16" y="20" width="343" height="545"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JMV-By-EJg">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eN-GL-Dum">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VV9-52-VwD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Q9-Bb-V25">
+                                <rect key="frame" x="16" y="36" width="343" height="529"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cdc-UJ-mlx">
                                 <rect key="frame" x="20" y="617" width="335" height="30"/>
@@ -228,14 +238,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="3eN-GL-Dum" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" id="1eF-vl-rfE"/>
                             <constraint firstItem="cdc-UJ-mlx" firstAttribute="centerX" secondItem="iwH-wD-RlS" secondAttribute="centerX" id="2vQ-Ee-pK8"/>
                             <constraint firstItem="cdc-UJ-mlx" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" constant="20" id="A5L-AA-xZS"/>
                             <constraint firstItem="iwH-wD-RlS" firstAttribute="trailing" secondItem="cdc-UJ-mlx" secondAttribute="trailing" constant="20" id="Fpb-C2-cV8"/>
+                            <constraint firstItem="iwH-wD-RlS" firstAttribute="trailing" secondItem="1Q9-Bb-V25" secondAttribute="trailing" constant="16" id="Grn-i5-uJk"/>
+                            <constraint firstItem="JMV-By-EJg" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" id="M50-hI-3iB"/>
+                            <constraint firstItem="iwH-wD-RlS" firstAttribute="bottom" secondItem="3eN-GL-Dum" secondAttribute="bottom" id="OCh-vm-NOp"/>
+                            <constraint firstItem="iwH-wD-RlS" firstAttribute="bottom" secondItem="JMV-By-EJg" secondAttribute="bottom" id="XBq-1U-Vuq"/>
+                            <constraint firstItem="1Q9-Bb-V25" firstAttribute="top" secondItem="iwH-wD-RlS" secondAttribute="top" constant="16" id="Ymb-ub-75F"/>
+                            <constraint firstItem="3eN-GL-Dum" firstAttribute="top" secondItem="iwH-wD-RlS" secondAttribute="top" id="ZpS-Ne-A0c"/>
+                            <constraint firstItem="1Q9-Bb-V25" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" constant="16" id="nqg-gc-qpo"/>
+                            <constraint firstItem="cdc-UJ-mlx" firstAttribute="top" secondItem="1Q9-Bb-V25" secondAttribute="bottom" constant="52" id="o8L-kv-uIF"/>
+                            <constraint firstItem="iwH-wD-RlS" firstAttribute="trailing" secondItem="3eN-GL-Dum" secondAttribute="trailing" id="ofc-08-MTg"/>
                             <constraint firstItem="iwH-wD-RlS" firstAttribute="bottom" secondItem="cdc-UJ-mlx" secondAttribute="bottom" constant="20" id="vV5-vS-0QO"/>
+                            <constraint firstItem="iwH-wD-RlS" firstAttribute="trailing" secondItem="JMV-By-EJg" secondAttribute="trailing" id="wvB-4Q-wK0"/>
+                            <constraint firstItem="JMV-By-EJg" firstAttribute="top" secondItem="iwH-wD-RlS" secondAttribute="top" id="xeE-TQ-toP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iwH-wD-RlS"/>
                     </view>
                     <connections>
+                        <outlet property="background" destination="JMV-By-EJg" id="Kcf-tD-NeL"/>
                         <outlet property="screenShot" destination="1Q9-Bb-V25" id="rVe-4A-0bc"/>
                     </connections>
                 </viewController>

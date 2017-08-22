@@ -73,6 +73,19 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="lightTextColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvo-1b-gY0" customClass="DropDownButton" customModule="ARRuler" customModuleProvider="target">
+                                <rect key="frame" x="299" y="44" width="60" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Jmw-YH-rh8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="m">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="distanceUnitButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="aKn-v9-V1S"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIr-1q-qS9" customClass="FocusHexagon" customModule="ARRuler" customModuleProvider="target">
                                 <rect key="frame" x="137" y="293.5" width="100" height="100"/>
                                 <subviews>
@@ -92,6 +105,12 @@
                                     <constraint firstAttribute="width" constant="100" id="yFj-zJ-lEo"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-O7-hFY" customClass="Tip" customModule="ARRuler" customModuleProvider="target">
+                                <rect key="frame" x="166" y="546" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4m-Ns-8pZ">
                                 <rect key="frame" x="156" y="585" width="62" height="62"/>
                                 <constraints>
@@ -104,12 +123,13 @@
                                     <action selector="shotButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ne6-La-MsV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-O7-hFY" customClass="Tip" customModule="ARRuler" customModuleProvider="target">
-                                <rect key="frame" x="166.5" y="546" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tips_giraffe" translatesAutoresizingMaskIntoConstraints="NO" id="nA4-AQ-hMb">
+                                <rect key="frame" x="162" y="637" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZXV-KW-kyQ"/>
+                                    <constraint firstAttribute="width" constant="50" id="fWk-yp-evl"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29t-lU-nVs" userLabel="Restart Button">
                                 <rect key="frame" x="24" y="617" width="30" height="30"/>
                                 <constraints>
@@ -119,19 +139,6 @@
                                 <state key="normal" image="restart"/>
                                 <connections>
                                     <action selector="resetButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="E2D-qm-Mea"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvo-1b-gY0" customClass="DropDownButton" customModule="ARRuler" customModuleProvider="target">
-                                <rect key="frame" x="299" y="44" width="60" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Jmw-YH-rh8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="m">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="distanceUnitButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="aKn-v9-V1S"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -144,7 +151,9 @@
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="f8B-O7-hFY" secondAttribute="bottom" constant="100" id="S44-z1-FQ6"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="n4m-Ns-8pZ" secondAttribute="bottom" constant="20" id="TIy-90-2W9"/>
                             <constraint firstItem="n4m-Ns-8pZ" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="Th4-NP-Tzc"/>
+                            <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="nA4-AQ-hMb" secondAttribute="bottom" constant="-20" id="Y0v-Ri-eXI"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="HmB-J8-ADd" secondAttribute="bottom" id="Yba-Yj-ut6"/>
+                            <constraint firstItem="nA4-AQ-hMb" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="e0e-Sg-6bW"/>
                             <constraint firstItem="29t-lU-nVs" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" constant="24" id="eJY-uc-DdZ"/>
                             <constraint firstItem="f8B-O7-hFY" firstAttribute="width" relation="lessThanOrEqual" secondItem="7lS-ul-ncO" secondAttribute="width" constant="-40" id="iIH-kk-kWu"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="trailing" secondItem="HmB-J8-ADd" secondAttribute="trailing" id="iv0-dh-ddw"/>
@@ -166,6 +175,8 @@
                         <outlet property="focusHexagon" destination="dIr-1q-qS9" id="KeW-GX-oyd"/>
                         <outlet property="sceneView" destination="HmB-J8-ADd" id="OWn-kP-ilY"/>
                         <outlet property="shotButton" destination="n4m-Ns-8pZ" id="pFo-jV-U2C"/>
+                        <outlet property="tipsGiraffe" destination="nA4-AQ-hMb" id="jop-xe-gcF"/>
+                        <outlet property="tipsGiraffeBottomMargin" destination="Y0v-Ri-eXI" id="coZ-If-QVL"/>
                         <outlet property="tipsLabel" destination="f8B-O7-hFY" id="Drt-2Q-rne"/>
                     </connections>
                 </viewController>
@@ -273,5 +284,6 @@
         <image name="cross" width="32" height="32"/>
         <image name="restart" width="20" height="23"/>
         <image name="splash_giraffe" width="68" height="106"/>
+        <image name="tips_giraffe" width="50" height="50"/>
     </resources>
 </document>

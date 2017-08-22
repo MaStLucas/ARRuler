@@ -19,6 +19,9 @@ class ARRulerViewController: UIViewController {
     @IBOutlet weak var tipsLabel: Tip!
     @IBOutlet weak var focusHexagon: FocusHexagon!
     
+    @IBOutlet weak var tipsGiraffe: UIImageView!
+    @IBOutlet weak var tipsGiraffeBottomMargin: NSLayoutConstraint!
+    
     var arSession: ARSession!
     
     var firstTap = true
@@ -488,6 +491,12 @@ extension ARRulerViewController {
         distanceLabel.isHidden = true
         distanceUnitButton.isHidden = true
         focusHexagon.isHidden = true
+        
+        tipsGiraffe.isHidden = false
+        tipsGiraffeBottomMargin.constant = -20
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     fileprivate func startMeasureStage() {
@@ -495,6 +504,11 @@ extension ARRulerViewController {
         
         focusHexagon.isHidden = false
         focusHexagon.animate()
+        
+        tipsGiraffeBottomMargin.constant = 0
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     fileprivate func moveStage() {
@@ -514,6 +528,7 @@ extension ARRulerViewController {
     fileprivate func captureImageStage() {
         tipsLabel.text = "Capture your image"
         
+        tipsGiraffe.isHidden = true
         shotButton.isHidden = false
 //        shotButton.animate()
     }

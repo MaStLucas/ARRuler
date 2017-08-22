@@ -18,6 +18,7 @@ class ARRulerViewController: UIViewController {
     @IBOutlet weak var shotButton: UIButton!
     @IBOutlet weak var tipsLabel: Tip!
     @IBOutlet weak var focusHexagon: FocusHexagon!
+    @IBOutlet weak var restartButton: UIButton!
     
     @IBOutlet weak var tipsGiraffe: UIImageView!
     @IBOutlet weak var tipsGiraffeBottomMargin: NSLayoutConstraint!
@@ -497,6 +498,7 @@ extension ARRulerViewController {
         distanceLabel.isHidden = true
         distanceUnitButton.isHidden = true
         focusHexagon.isHidden = true
+        restartButton.isHidden = true
         
         tipsGiraffe.isHidden = false
         tipsGiraffeBottomMargin.constant = -20
@@ -529,6 +531,8 @@ extension ARRulerViewController {
         
         distanceLabel.isHidden = false
         distanceUnitButton.isHidden = false
+        
+        restartButton.isHidden = false
     }
     
     fileprivate func captureImageStage() {

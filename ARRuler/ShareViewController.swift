@@ -70,18 +70,3 @@ class ShareViewController: UIViewController {
     */
 
 }
-
-extension UIViewController {
-    
-    func showAlert(title: String, message: String, actions: [UIAlertAction]? = nil) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        if let actions = actions {
-            for action in actions {
-                alertController.addAction(action)
-            }
-        } else {
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        }
-        self.present(alertController, animated: true, completion: nil)
-    }
-}

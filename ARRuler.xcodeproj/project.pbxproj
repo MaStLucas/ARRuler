@@ -22,6 +22,7 @@
 		BC55608B1F24C77800BEDD91 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55608A1F24C77800BEDD91 /* Plane.swift */; };
 		BC55608D1F24C8B900BEDD91 /* PlaneDebugVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55608C1F24C8B900BEDD91 /* PlaneDebugVisualization.swift */; };
 		BC55608F1F24CCFA00BEDD91 /* Ruler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55608E1F24CCFA00BEDD91 /* Ruler.swift */; };
+		BC8295DE1F4DD34F00BB1572 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8295DD1F4DD34F00BB1572 /* Colors.xcassets */; };
 		BC8DE19B1F3760C400CA9765 /* FocusHexagon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DE19A1F3760C400CA9765 /* FocusHexagon.swift */; };
 		BCA406C11F4C91090024F950 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA406C01F4C91090024F950 /* UIViewController+Alert.swift */; };
 		BCA406C31F4C956D0024F950 /* PhotoAlbumUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA406C21F4C956D0024F950 /* PhotoAlbumUtil.swift */; };
@@ -70,6 +71,7 @@
 		BC55608A1F24C77800BEDD91 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		BC55608C1F24C8B900BEDD91 /* PlaneDebugVisualization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDebugVisualization.swift; sourceTree = "<group>"; };
 		BC55608E1F24CCFA00BEDD91 /* Ruler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ruler.swift; sourceTree = "<group>"; };
+		BC8295DD1F4DD34F00BB1572 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BC8DE19A1F3760C400CA9765 /* FocusHexagon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusHexagon.swift; sourceTree = "<group>"; };
 		BCA406C01F4C91090024F950 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		BCA406C21F4C956D0024F950 /* PhotoAlbumUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumUtil.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				BCC82D661F28EEAC00965A3E /* ShareViewController.swift */,
 				BCE916801F151CBD00C4F67D /* Main.storyboard */,
 				BCE916831F151CBD00C4F67D /* Assets.xcassets */,
+				BC8295DD1F4DD34F00BB1572 /* Colors.xcassets */,
 				BCE9167C1F151CBD00C4F67D /* art.scnassets */,
 				BCE916851F151CBD00C4F67D /* LaunchScreen.storyboard */,
 				BCE916881F151CBD00C4F67D /* Info.plist */,
@@ -325,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC8295DE1F4DD34F00BB1572 /* Colors.xcassets in Resources */,
 				BCE9167D1F151CBD00C4F67D /* art.scnassets in Resources */,
 				BCE916871F151CBD00C4F67D /* LaunchScreen.storyboard in Resources */,
 				BCE916841F151CBD00C4F67D /* Assets.xcassets in Resources */,

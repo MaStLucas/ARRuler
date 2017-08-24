@@ -122,6 +122,9 @@ class ARRulerViewController: UIViewController {
     
     @IBAction func shotButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
+            
+            self.prepareForScreenShot()
+            
             // Briefly flash the screen.
             let flashOverlay = UIView(frame: self.sceneView.frame)
             flashOverlay.backgroundColor = UIColor.white
@@ -496,6 +499,7 @@ extension ARRulerViewController {
     
     fileprivate func initMeasureStage() {
         tipsLabel.text = "Environment Identifying，please move your phone around"
+        tipsLabel.isHidden = false
         distanceLabel.text = "ARuler"
         
         shotButton.isHidden = true
@@ -516,6 +520,7 @@ extension ARRulerViewController {
     
     fileprivate func startMeasureStage() {
         tipsLabel.text = "Tap to set a start point"
+        tipsLabel.isHidden = false
         
         focusHexagon.isHidden = false
 //        focusHexagon.animate()
@@ -531,6 +536,7 @@ extension ARRulerViewController {
     
     fileprivate func moveStage() {
         tipsLabel.text = "Move your phone to measure"
+        tipsLabel.isHidden = false
         
         distanceLabel.isHidden = false
         distanceUnitButton.isHidden = false
@@ -538,6 +544,7 @@ extension ARRulerViewController {
     
     fileprivate func endMeasureStage() {
         tipsLabel.text = "Tap to set an end point"
+        tipsLabel.isHidden = false
         
         distanceLabel.isHidden = false
         distanceUnitButton.isHidden = false
@@ -547,11 +554,18 @@ extension ARRulerViewController {
     
     fileprivate func captureImageStage() {
         tipsLabel.text = "Capture your image"
+        tipsLabel.isHidden = false
         
         focusHexagon.isHidden = true
         tipsGiraffe.isHidden = true
         shotButton.isHidden = false
 //        shotButton.animate()
+    }
+    
+    fileprivate func prepareForScreenShot() {
+        shotButton.isHidden = true
+        tipsLabel.isHidden = true
+        restartButton.isHidden = true
     }
 }
 

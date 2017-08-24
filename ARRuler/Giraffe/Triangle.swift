@@ -30,7 +30,9 @@ class Triangle: CALayer {
     }
     
     override func draw(in ctx: CGContext) {
-        ctx.setFillColor(UIColor.yellow.cgColor)
+        ctx.setAllowsAntialiasing(true)
+        ctx.setShouldAntialias(true)
+        ctx.setFillColor(UIColor(named: "GiraffeYellow")!.cgColor)
         ctx.addLines(between: [vertex1, vertex2, vertex3])
         ctx.closePath()
         ctx.fillPath()

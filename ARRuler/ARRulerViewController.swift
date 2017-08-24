@@ -511,7 +511,7 @@ extension ARRulerViewController {
         tipsLabel.text = "Tap to set a start point"
         
         focusHexagon.isHidden = false
-        focusHexagon.animate()
+//        focusHexagon.animate()
         
         tipsGiraffeBottomMargin.constant = 0
         UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {

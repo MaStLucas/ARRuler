@@ -23,6 +23,7 @@
 		BC55608D1F24C8B900BEDD91 /* PlaneDebugVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55608C1F24C8B900BEDD91 /* PlaneDebugVisualization.swift */; };
 		BC55608F1F24CCFA00BEDD91 /* Ruler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC55608E1F24CCFA00BEDD91 /* Ruler.swift */; };
 		BC8295DE1F4DD34F00BB1572 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8295DD1F4DD34F00BB1572 /* Colors.xcassets */; };
+		BC8295E01F4DE83700BB1572 /* HexagonPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8295DF1F4DE83700BB1572 /* HexagonPiece.swift */; };
 		BC8DE19B1F3760C400CA9765 /* FocusHexagon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8DE19A1F3760C400CA9765 /* FocusHexagon.swift */; };
 		BCA406C11F4C91090024F950 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA406C01F4C91090024F950 /* UIViewController+Alert.swift */; };
 		BCA406C31F4C956D0024F950 /* PhotoAlbumUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA406C21F4C956D0024F950 /* PhotoAlbumUtil.swift */; };
@@ -72,6 +73,7 @@
 		BC55608C1F24C8B900BEDD91 /* PlaneDebugVisualization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDebugVisualization.swift; sourceTree = "<group>"; };
 		BC55608E1F24CCFA00BEDD91 /* Ruler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ruler.swift; sourceTree = "<group>"; };
 		BC8295DD1F4DD34F00BB1572 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		BC8295DF1F4DE83700BB1572 /* HexagonPiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonPiece.swift; sourceTree = "<group>"; };
 		BC8DE19A1F3760C400CA9765 /* FocusHexagon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusHexagon.swift; sourceTree = "<group>"; };
 		BCA406C01F4C91090024F950 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		BCA406C21F4C956D0024F950 /* PhotoAlbumUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumUtil.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				BC27CE981F2A4274009ECAF1 /* ShotButton.swift */,
 				BC27CE9C1F2E4A87009ECAF1 /* Tip.swift */,
 				BC8DE19A1F3760C400CA9765 /* FocusHexagon.swift */,
+				BC8295DF1F4DE83700BB1572 /* HexagonPiece.swift */,
 			);
 			path = Giraffe;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			files = (
 				BC2741461F466C0F00E533ED /* Distance.swift in Sources */,
 				BC55608F1F24CCFA00BEDD91 /* Ruler.swift in Sources */,
+				BC8295E01F4DE83700BB1572 /* HexagonPiece.swift in Sources */,
 				BC3250871F248BF300B4BBD0 /* ARCameraTrackingState.swift in Sources */,
 				BC4AEAEC1F27948000EB129E /* SplashScreenViewController.swift in Sources */,
 				BC16E3171F49ED2F00BAC063 /* DropDownTableViewController.swift in Sources */,

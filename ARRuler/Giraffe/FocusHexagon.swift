@@ -10,35 +10,44 @@ import UIKit
 
 class FocusHexagon: UIView {
 
-    var pieces: [Triangle] = []
+    var trianglePieces: [Triangle] = []
+    var hexagonPieces: [HexagonPiece] = []
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
-        if let ctx = UIGraphicsGetCurrentContext() {
-            ctx.setStrokeColor(UIColor.white.cgColor)
-            ctx.setLineWidth(2)
-            ctx.move(to: CGPoint(x: rect.width/2.0, y: 0))
-            ctx.addLine(to: CGPoint(x: rect.width/2.0+tan(CGFloat.pi/3.0)*rect.width/4.0, y: rect.width/4.0))
-            ctx.addLine(to: CGPoint(x: rect.width/2.0+tan(CGFloat.pi/3.0)*rect.width/4.0, y: rect.width*3.0/4.0))
-            ctx.addLine(to: CGPoint(x: rect.width/2.0, y: rect.width))
-            ctx.addLine(to: CGPoint(x: rect.width/2.0-tan(CGFloat.pi/3.0)*rect.width/4.0, y: rect.width*3.0/4.0))
-            ctx.addLine(to: CGPoint(x: rect.width/2.0-tan(CGFloat.pi/3.0)*rect.width/4.0, y: rect.width/4.0))
-            ctx.closePath()
-            ctx.strokePath()
-        }
+//        if let ctx = UIGraphicsGetCurrentContext() {
+//            ctx.setStrokeColor(UIColor.white.cgColor)
+//            ctx.setLineWidth(2)
+//            ctx.move(to: CGPoint(x: rect.width/2.0, y: 0))
+//            ctx.addLine(to: CGPoint(x: rect.width/2.0+tan(CGFloat.pi/3.0)*rect.width/4.0, y: rect.width/4.0))
+//            ctx.addLine(to: CGPoint(x: rect.width/2.0+tan(CGFloat.pi/3.0)*rect.width/4.0, y: rect.width*3.0/4.0))
+//            ctx.addLine(to: CGPoint(x: rect.width/2.0, y: rect.width))
+//            ctx.addLine(to: CGPoint(x: rect.width/2.0-tan(CGFloat.pi/3.0)*rect.width/4.0, y: rect.width*3.0/4.0))
+//            ctx.addLine(to: CGPoint(x: rect.width/2.0-tan(CGFloat.pi/3.0)*rect.width/4.0, y: rect.width/4.0))
+//            ctx.closePath()
+//            ctx.strokePath()
+//        }
         
         for i in 1...6 {
             let localCenter = CGPoint.init(x: rect.width/2, y: rect.height/2)
+            
             let layer = Triangle.init(v1: CGPoint.init(x: 0, y: 6), v2: CGPoint.init(x: 6, y: 6), v3: CGPoint.init(x: 3, y: 0))
             layer.bounds = CGRect.init(x: 0, y: 0, width: 6, height: 6)
             layer.position = localCenter
-            layer.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, 30, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
-            layer.allowsEdgeAntialiasing = true
+            layer.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, 30, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(6)-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
             layer.setNeedsDisplay()
             self.layer.addSublayer(layer)
-            self.pieces.append(layer)
+            self.trianglePieces.append(layer)
+            
+            let layer2 = HexagonPiece.init()
+            layer2.bounds = CGRect.init(x: 0, y: 0, width: tan(CGFloat.pi/3.0)*2.0*25.0/2.0, height: 25.0/2.0)
+            layer2.position = localCenter
+            layer2.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, -2.0*25.0, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
+            layer2.setNeedsDisplay()
+            self.layer.addSublayer(layer2)
+            self.hexagonPieces.append(layer2)
         }
     }
     
@@ -48,7 +57,7 @@ class FocusHexagon: UIView {
 
     func animate() {
         
-        for (i, piece) in pieces.enumerated() {
+        for (i, piece) in trianglePieces.enumerated() {
             let alphaAnimation = CAKeyframeAnimation.init(keyPath: "opacity")
             alphaAnimation.duration = 0.8
             switch(i)
@@ -77,14 +86,24 @@ class FocusHexagon: UIView {
     }
     
     func focus() {
-        for (i, piece) in pieces.enumerated() {
-            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, 12, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i), 0, 0, 1))
+        for (i, piece) in trianglePieces.enumerated() {
+            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, 12, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(6)-CGFloat.pi/CGFloat(3)*CGFloat(i), 0, 0, 1))
+            piece.opacity = 1.0
+        }
+        for (i, piece) in hexagonPieces.enumerated() {
+            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, -2.0*25.0, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
+            piece.opacity = 0.1
         }
     }
     
     func unfocus() {
-        for (i, piece) in pieces.enumerated() {
-            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, 30, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i), 0, 0, 1))
+        for (i, piece) in trianglePieces.enumerated() {
+            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, 30, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(6)-CGFloat.pi/CGFloat(3)*CGFloat(i), 0, 0, 1))
+            piece.opacity = 0.1
+        }
+        for (i, piece) in hexagonPieces.enumerated() {
+            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, -3.0*25.0, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
+            piece.opacity = 1.0
         }
     }
 }

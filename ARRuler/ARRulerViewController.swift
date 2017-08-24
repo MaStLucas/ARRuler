@@ -493,9 +493,10 @@ extension ARRulerViewController {
     
     fileprivate func initMeasureStage() {
         tipsLabel.text = "Environment Identifying，please move your phone around"
+        distanceLabel.text = "ARuler"
         
         shotButton.isHidden = true
-        distanceLabel.isHidden = true
+        distanceLabel.isHidden = false
         distanceUnitButton.isHidden = true
         focusHexagon.isHidden = true
         restartButton.isHidden = true

@@ -91,7 +91,7 @@ class FocusHexagon: UIView {
             piece.opacity = 1.0
         }
         for (i, piece) in hexagonPieces.enumerated() {
-            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, -2.0*25.0, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
+            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, -1.5*25.0, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
             piece.opacity = 0.1
         }
     }

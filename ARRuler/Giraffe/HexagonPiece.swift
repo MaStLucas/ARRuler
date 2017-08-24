@@ -20,7 +20,7 @@ class HexagonPiece: CALayer {
         ctx.setAllowsAntialiasing(true)
         ctx.setShouldAntialias(true)
         ctx.setStrokeColor(UIColor(named: "GiraffeYellow")!.cgColor)
-        ctx.setLineWidth(4)
+        ctx.setLineWidth(2)
         ctx.strokePath()
     }
 }

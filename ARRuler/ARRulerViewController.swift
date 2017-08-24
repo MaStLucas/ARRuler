@@ -23,6 +23,9 @@ class ARRulerViewController: UIViewController {
     @IBOutlet weak var tipsGiraffe: UIImageView!
     @IBOutlet weak var tipsGiraffeBottomMargin: NSLayoutConstraint!
     
+    @IBOutlet weak var tipsCenterYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tipsBottomConstraint: NSLayoutConstraint!
+    
     var arSession: ARSession!
     
     var firstTap = true
@@ -501,6 +504,9 @@ extension ARRulerViewController {
         focusHexagon.isHidden = true
         restartButton.isHidden = true
         
+        tipsCenterYConstraint.isActive = true
+        tipsBottomConstraint.isActive = false
+        
         tipsGiraffe.isHidden = false
         tipsGiraffeBottomMargin.constant = -20
         UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {
@@ -513,6 +519,9 @@ extension ARRulerViewController {
         
         focusHexagon.isHidden = false
 //        focusHexagon.animate()
+        
+        tipsCenterYConstraint.isActive = false
+        tipsBottomConstraint.isActive = true
         
         tipsGiraffeBottomMargin.constant = 0
         UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {

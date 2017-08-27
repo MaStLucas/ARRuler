@@ -465,6 +465,7 @@ extension ARRulerViewController {
     
     fileprivate func addStartNode(_ position: SCNVector3) {
         let geometry = SCNSphere.init(radius: 0.01)
+        geometry.firstMaterial?.diffuse.contents = UIColor(named: "GiraffeYellow")!
         let node = SCNNode.init(geometry: geometry)
         node.position = position
         
@@ -482,6 +483,7 @@ extension ARRulerViewController {
             endNode.position = position
         } else {
             let geometry = SCNSphere.init(radius: 0.01)
+            geometry.firstMaterial?.diffuse.contents = UIColor(named: "GiraffeYellow")!
             let node = SCNNode.init(geometry: geometry)
             node.position = position
             

@@ -80,7 +80,7 @@ extension SCNGeometry {
         let element = SCNGeometryElement(indices: indices, primitiveType: .line)
         
         let geometry = SCNGeometry(sources: [source], elements: [element])
-        geometry.firstMaterial?.diffuse.contents = UIColor.yellow
+        geometry.firstMaterial?.diffuse.contents = UIColor.white
         geometry.firstMaterial?.isDoubleSided = true
         
         return geometry

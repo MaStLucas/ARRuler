@@ -16,6 +16,7 @@
 		BC27CE9B1F2E3738009ECAF1 /* ScreenShotUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC27CE9A1F2E3738009ECAF1 /* ScreenShotUtil.swift */; };
 		BC27CE9D1F2E4A87009ECAF1 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC27CE9C1F2E4A87009ECAF1 /* Tip.swift */; };
 		BC3250871F248BF300B4BBD0 /* ARCameraTrackingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3250861F248BF300B4BBD0 /* ARCameraTrackingState.swift */; };
+		BC39F3341F526979005E5A9A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC39F3331F526979005E5A9A /* Localizable.strings */; };
 		BC4AEAEC1F27948000EB129E /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4AEAEB1F27948000EB129E /* SplashScreenViewController.swift */; };
 		BC4AEAEF1F27A09300EB129E /* Giraffe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4AEAEE1F27A09300EB129E /* Giraffe.swift */; };
 		BC4AEAF11F27A43E00EB129E /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4AEAF01F27A43E00EB129E /* Triangle.swift */; };
@@ -66,6 +67,7 @@
 		BC27CE9A1F2E3738009ECAF1 /* ScreenShotUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotUtil.swift; sourceTree = "<group>"; };
 		BC27CE9C1F2E4A87009ECAF1 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		BC3250861F248BF300B4BBD0 /* ARCameraTrackingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCameraTrackingState.swift; sourceTree = "<group>"; };
+		BC39F3331F526979005E5A9A /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		BC4AEAEB1F27948000EB129E /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		BC4AEAEE1F27A09300EB129E /* Giraffe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Giraffe.swift; sourceTree = "<group>"; };
 		BC4AEAF01F27A43E00EB129E /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				BCE9167C1F151CBD00C4F67D /* art.scnassets */,
 				BCE916851F151CBD00C4F67D /* LaunchScreen.storyboard */,
 				BCE916881F151CBD00C4F67D /* Info.plist */,
+				BC39F3331F526979005E5A9A /* Localizable.strings */,
 			);
 			path = ARRuler;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC8295DE1F4DD34F00BB1572 /* Colors.xcassets in Resources */,
+				BC39F3341F526979005E5A9A /* Localizable.strings in Resources */,
 				BCE9167D1F151CBD00C4F67D /* art.scnassets in Resources */,
 				BCE916871F151CBD00C4F67D /* LaunchScreen.storyboard in Resources */,
 				BCE916841F151CBD00C4F67D /* Assets.xcassets in Resources */,

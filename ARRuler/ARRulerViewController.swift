@@ -49,17 +49,10 @@ class ARRulerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the view's delegate
-        sceneView.delegate = self
-        
-        if showDebug {
-//            sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
-            sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
-        }
-        
         arSession = ARSession()
         arSession.delegate = self
-        sceneView.session = self.arSession
+        
+        setupScene()
         
         sceneView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleTap(_:))))
         
@@ -250,6 +243,32 @@ extension ARRulerViewController: ARSessionDelegate {
         default:
             restartMeasure()
         }
+    }
+}
+
+// MARK: - Scene
+extension ARRulerViewController {
+    
+    func setupScene() {
+        // set up sceneView
+        sceneView.delegate = self
+        sceneView.session = arSession
+        sceneView.antialiasingMode = .multisampling4X
+        sceneView.automaticallyUpdatesLighting = false
+        
+        sceneView.preferredFramesPerSecond = 60
+        
+        if showDebug {
+//            sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+            sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        }
+        
+//        if let camera = sceneView.pointOfView?.camera {
+//            camera.wantsHDR = true
+//            camera.wantsExposureAdaptation = true
+//            camera.exposureOffset = -1
+//            camera.minimumExposure = -1
+//        }
     }
 }
 

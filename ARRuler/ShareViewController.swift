@@ -36,7 +36,13 @@ class ShareViewController: UIViewController {
     }
     
     @IBAction func shareButtonPressed(_ sender: UIButton) {
-        let activityVC = UIActivityViewController.init(activityItems: [image], applicationActivities: nil)
+        
+        let shareString = NSMutableAttributedString()
+        shareString.append(NSAttributedString.init(string: "让ARuler帮助您随时随地精准测量\n在"))
+        shareString.append(NSAttributedString.init(string: "此处", attributes: [NSAttributedStringKey.link : URL.init(string: "www.baidu.com")!]))
+        shareString.append(NSAttributedString.init(string: "下载"))
+        
+        let activityVC = UIActivityViewController.init(activityItems: [shareString, screenShot.image!], applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
     }
     

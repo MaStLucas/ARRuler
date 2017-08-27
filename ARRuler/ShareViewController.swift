@@ -20,7 +20,9 @@ class ShareViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        screenShot.image = image
+        if let borderedImage = image.imageWithBorder(borderWidth: 7, borderColor: UIColor.white) {
+            screenShot.image = borderedImage
+        }
         background.image = image
     }
 
@@ -57,7 +59,7 @@ class ShareViewController: UIViewController {
     }
     
     private func saveToAlbum() {
-        PhotoAlbumUtil.saveImageInAlbum(image: image, albumName: "ARuler") { result in
+        PhotoAlbumUtil.saveImageInAlbum(image: screenShot.image!, albumName: "ARuler") { result in
             switch result {
             case .success:
                 self.showAlert(title: "Save success", message: "")

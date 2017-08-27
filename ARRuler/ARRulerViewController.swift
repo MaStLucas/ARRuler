@@ -44,6 +44,7 @@ class ARRulerViewController: UIViewController {
     var focusSquare: FocusSquare?
     
     var isMeasuring = false
+    var isMeasureEnd = false
     var showDebug = false
     
     override func viewDidLoad() {
@@ -207,7 +208,7 @@ extension ARRulerViewController: ARSessionDelegate {
         if startVector != nil {
             hitTestWithScreenCenter()
         }
-        if !isMeasureEnd() {
+        if !isMeasureEnd {
             if self.focusHexagon.isHidden {
                 if let rawFeaturePoints = frame.rawFeaturePoints {
                     if rawFeaturePoints.__count > 50 {
@@ -427,10 +428,6 @@ extension ARRulerViewController {
         return !self.focusHexagon.isHidden
     }
     
-    fileprivate func isMeasureEnd() -> Bool {
-        return !self.shotButton.isHidden
-    }
-    
     fileprivate func hitTestWithScreenCenter() {
         
         guard isMeasuring else {
@@ -523,6 +520,8 @@ extension ARRulerViewController {
         tipsLabel.isHidden = false
         distanceLabel.text = "ARuler"
         
+        isMeasureEnd = false
+        
         shotButton.isHidden = true
         distanceLabel.isHidden = false
         distanceUnitButton.isHidden = true
@@ -576,6 +575,8 @@ extension ARRulerViewController {
     fileprivate func captureImageStage() {
         tipsLabel.text = "Capture your image"
         tipsLabel.isHidden = false
+        
+        isMeasureEnd = true
         
         focusHexagon.isHidden = true
         tipsGiraffe.isHidden = true

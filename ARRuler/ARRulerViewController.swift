@@ -14,7 +14,7 @@ class ARRulerViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var distanceUnitButton: UIButton!
+    @IBOutlet weak var distanceUnitButton: DropDownButton!
     @IBOutlet weak var shotButton: UIButton!
     @IBOutlet weak var tipsLabel: Tip!
     @IBOutlet weak var focusHexagon: FocusHexagon!
@@ -560,6 +560,7 @@ extension ARRulerViewController {
         
         distanceLabel.isHidden = false
         distanceUnitButton.isHidden = false
+        distanceUnitButton.showDropDownIndicator = true
     }
     
     fileprivate func endMeasureStage() {
@@ -588,6 +589,7 @@ extension ARRulerViewController {
         shotButton.isHidden = true
         tipsLabel.isHidden = true
         restartButton.isHidden = true
+        distanceUnitButton.showDropDownIndicator = false
     }
 }
 

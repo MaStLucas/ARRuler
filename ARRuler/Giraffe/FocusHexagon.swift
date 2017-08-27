@@ -17,18 +17,6 @@ class FocusHexagon: UIView {
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
-//        if let ctx = UIGraphicsGetCurrentContext() {
-//            ctx.setStrokeColor(UIColor.white.cgColor)
-//            ctx.setLineWidth(2)
-//            ctx.move(to: CGPoint(x: rect.width/2.0, y: 0))
-//            ctx.addLine(to: CGPoint(x: rect.width/2.0+tan(CGFloat.pi/3.0)*rect.width/4.0, y: rect.width/4.0))
-//            ctx.addLine(to: CGPoint(x: rect.width/2.0+tan(CGFloat.pi/3.0)*rect.width/4.0, y: rect.width*3.0/4.0))
-//            ctx.addLine(to: CGPoint(x: rect.width/2.0, y: rect.width))
-//            ctx.addLine(to: CGPoint(x: rect.width/2.0-tan(CGFloat.pi/3.0)*rect.width/4.0, y: rect.width*3.0/4.0))
-//            ctx.addLine(to: CGPoint(x: rect.width/2.0-tan(CGFloat.pi/3.0)*rect.width/4.0, y: rect.width/4.0))
-//            ctx.closePath()
-//            ctx.strokePath()
-//        }
         
         for i in 1...6 {
             let localCenter = CGPoint.init(x: rect.width/2, y: rect.height/2)

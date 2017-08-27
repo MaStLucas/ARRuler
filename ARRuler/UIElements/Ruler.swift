@@ -22,16 +22,9 @@ class Ruler {
         self.startPoint = startPoint
         self.endPoint = endPoint
         
-//        let width = CGFloat((startPoint-endPoint).length())
-//        self.rulerGeometry = SCNBox.init(width: width, height: 0.002, length: 0.02, chamferRadius: 0.005)
-//        self.rulerGeometry = SCNGeometry.lineFrom(vector: startPoint, toVector: endPoint)
         self.rulerNode = SCNNode(geometry: SCNGeometry.lineFrom(vector: startPoint, toVector: endPoint))
         
         parentNode.addChildNode(rulerNode)
-        
-//        self.rulerNode.position = SCNVector3.init((startPoint.x+endPoint.x)/2.0, (startPoint.y+endPoint.y)/2.0, (startPoint.z+endPoint.z)/2.0)
-        
-//        self.rulerNode.transform = calculateTransformMatrix(startPoint: startPoint, endPoint: endPoint)
     }
     
     func update(_ endPoint: SCNVector3) {

@@ -221,9 +221,9 @@
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdj-jK-Qdp">
-                                <rect key="frame" x="10" y="30" width="50" height="30"/>
-                                <state key="normal" title="Restart"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdj-jK-Qdp">
+                                <rect key="frame" x="10" y="30" width="12" height="22"/>
+                                <state key="normal" image="back"/>
                                 <connections>
                                     <action selector="restartButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="dO8-dl-Nd5"/>
                                 </connections>
@@ -344,6 +344,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back" width="12" height="13"/>
         <image name="bottom" width="375" height="90"/>
         <image name="capture" width="62" height="62"/>
         <image name="capture_active" width="62" height="62"/>

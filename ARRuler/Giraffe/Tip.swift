@@ -27,7 +27,7 @@ class Tip: UILabel {
     override func draw(_ rect: CGRect) {
         
         if let ctx = UIGraphicsGetCurrentContext() {
-            ctx.setFillColor(UIColor.yellow.cgColor)
+            ctx.setFillColor(UIColor(named: "GiraffeYellow")!.cgColor)
             ctx.addLines(between: [CGPoint.init(x: 0, y: 0), CGPoint.init(x: cornerLength, y: 0), CGPoint.init(x: 0, y: cornerLength)])
             ctx.addLines(between: [CGPoint.init(x: rect.width, y: 0), CGPoint.init(x: rect.width-cornerLength, y: 0), CGPoint.init(x: rect.width, y: cornerLength)])
             ctx.addLines(between: [CGPoint.init(x: 0, y: rect.height), CGPoint.init(x: cornerLength, y: rect.height), CGPoint.init(x: 0, y: rect.height-cornerLength)])

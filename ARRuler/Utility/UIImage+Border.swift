@@ -23,6 +23,9 @@ extension UIImage {
             
             self.draw(in: CGRect(x: borderWidth, y: borderWidth, width: self.size.width, height: self.size.height))
             
+            let watermarkImage = #imageLiteral(resourceName: "watermark")
+            watermarkImage.draw(in: CGRect.init(x: (imageSize.width-watermarkImage.size.width)/CGFloat(2), y: imageSize.height-watermarkImage.size.height-CGFloat(20), width: watermarkImage.size.width, height: watermarkImage.size.height))
+            
             let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             return image

@@ -11,18 +11,25 @@ import ARKit
 
 class Ruler {
     
-//    var rulerGeometry: SCNGeometry
     var rulerNode: SCNNode
     
     var startPoint: SCNVector3
     var endPoint: SCNVector3
+    
+    var rulerGeometry: SCNBox
     
     init(parentNode: SCNNode, startPoint: SCNVector3, endPoint: SCNVector3) {
         
         self.startPoint = startPoint
         self.endPoint = endPoint
         
-        self.rulerNode = SCNNode(geometry: SCNGeometry.lineFrom(vector: startPoint, toVector: endPoint))
+//        self.rulerNode = SCNNode(geometry: SCNGeometry.lineFrom(vector: startPoint, toVector: endPoint))
+        
+        let width = CGFloat((startPoint-endPoint).length())
+        self.rulerGeometry = SCNBox.init(width: width, height: 0.002, length: 0.02, chamferRadius: 0.005)
+        self.rulerNode = SCNNode(geometry: rulerGeometry)
+        self.rulerNode.position = SCNVector3.init((startPoint.x+endPoint.x)/2.0, (startPoint.y+endPoint.y)/2.0, (startPoint.z+endPoint.z)/2.0)
+        self.rulerNode.transform = calculateTransformMatrix(startPoint: startPoint, endPoint: endPoint)
         
         parentNode.addChildNode(rulerNode)
     }
@@ -30,14 +37,13 @@ class Ruler {
     func update(_ endPoint: SCNVector3) {
         self.endPoint = endPoint
         
-        self.rulerNode.geometry = SCNGeometry.lineFrom(vector: startPoint, toVector: endPoint)
+//        self.rulerNode.geometry = SCNGeometry.lineFrom(vector: startPoint, toVector: endPoint)
         
-//        let width = CGFloat((startPoint-endPoint).length())
-//        self.rulerGeometry.width = width
+        let width = CGFloat((startPoint-endPoint).length())
+        self.rulerGeometry.width = width
         
-//        self.rulerNode.position = SCNVector3.init((startPoint.x+endPoint.x)/2.0, (startPoint.y+endPoint.y)/2.0, (startPoint.z+endPoint.z)/2.0)
-        
-//        self.rulerNode.transform = calculateTransformMatrix(startPoint: startPoint, endPoint: endPoint)
+        self.rulerNode.position = SCNVector3.init((startPoint.x+endPoint.x)/2.0, (startPoint.y+endPoint.y)/2.0, (startPoint.z+endPoint.z)/2.0)
+        self.rulerNode.transform = calculateTransformMatrix(startPoint: startPoint, endPoint: endPoint)
     }
     
     private func calculateTransformMatrix(startPoint: SCNVector3, endPoint: SCNVector3) -> SCNMatrix4 {

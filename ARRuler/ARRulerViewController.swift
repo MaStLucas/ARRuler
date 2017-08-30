@@ -23,9 +23,6 @@ class ARRulerViewController: UIViewController {
     @IBOutlet weak var tipsGiraffe: UIImageView!
     @IBOutlet weak var tipsGiraffeBottomMargin: NSLayoutConstraint!
     
-    @IBOutlet weak var tipsCenterYConstraint: NSLayoutConstraint!
-    @IBOutlet weak var tipsBottomConstraint: NSLayoutConstraint!
-    
     var arSession: ARSession!
     
     var firstTap = true
@@ -102,8 +99,6 @@ class ARRulerViewController: UIViewController {
     @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
         
 //        let point = recognizer.location(in: self.sceneView)
-        
-        guard canStartMeasure() else { return }
         
         if startVector == nil {
             isMeasuring = true
@@ -209,11 +204,9 @@ extension ARRulerViewController: ARSessionDelegate {
             hitTestWithScreenCenter()
         }
         if !isMeasureEnd {
-            if self.focusHexagon.isHidden {
-                if let rawFeaturePoints = frame.rawFeaturePoints {
-                    if rawFeaturePoints.__count > 50 {
-                        startMeasureStage()
-                    }
+            if let rawFeaturePoints = frame.rawFeaturePoints {
+                if rawFeaturePoints.__count > 50 {
+                    startMeasureStage()
                 }
             }
         }
@@ -336,11 +329,21 @@ extension ARRulerViewController {
         if let worldPos = worldPos {
             focusSquare?.update(for: worldPos, planeAnchor: planeAnchor, camera: self.arSession.currentFrame?.camera)
         }
-        if planeAnchor == nil {
-            self.focusHexagon.unfocus()
+        if canStartMeasure() {
+            if worldPos != nil {
+                focusHexagon.focus()
+            } else {
+                focusHexagon.unfocus()
+            }
         } else {
-            self.focusHexagon.focus()
+            focusHexagon.unfocus()
         }
+//        if planeAnchor == nil {
+//            self.focusHexagon.unfocus()
+//        } else {
+//            self.focusHexagon.focus()
+//        }
+        
     }
 }
 
@@ -425,7 +428,7 @@ extension ARRulerViewController {
 extension ARRulerViewController {
     
     fileprivate func canStartMeasure() -> Bool {
-        return !self.focusHexagon.isHidden
+        return sceneView.isUserInteractionEnabled
     }
     
     fileprivate func hitTestWithScreenCenter() {
@@ -525,11 +528,10 @@ extension ARRulerViewController {
         shotButton.isHidden = true
         distanceLabel.isHidden = false
         distanceUnitButton.isHidden = true
-        focusHexagon.isHidden = true
+        focusHexagon.isHidden = false
         restartButton.isHidden = true
         
-        tipsCenterYConstraint.isActive = true
-        tipsBottomConstraint.isActive = false
+        sceneView.isUserInteractionEnabled = false
         
         tipsGiraffe.isHidden = false
         tipsGiraffeBottomMargin.constant = -20
@@ -545,8 +547,7 @@ extension ARRulerViewController {
         focusHexagon.isHidden = false
 //        focusHexagon.animate()
         
-        tipsCenterYConstraint.isActive = false
-        tipsBottomConstraint.isActive = true
+        sceneView.isUserInteractionEnabled = true
         
         tipsGiraffeBottomMargin.constant = 0
         UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {

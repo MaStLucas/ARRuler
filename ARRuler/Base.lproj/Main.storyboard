@@ -116,7 +116,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-O7-hFY" customClass="Tip" customModule="ARRuler" customModuleProvider="target">
-                                <rect key="frame" x="166" y="333.5" width="42" height="20.5"/>
+                                <rect key="frame" x="166" y="546.5" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -157,7 +157,6 @@
                             <constraint firstItem="dIr-1q-qS9" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="0HG-Jf-P4Q"/>
                             <constraint firstItem="bvo-1b-gY0" firstAttribute="centerY" secondItem="jVZ-XS-Uws" secondAttribute="centerY" id="19k-4k-l0Y"/>
                             <constraint firstItem="jVZ-XS-Uws" firstAttribute="top" secondItem="9H0-6L-OC7" secondAttribute="top" constant="20" id="9vq-FX-Lb7"/>
-                            <constraint firstItem="f8B-O7-hFY" firstAttribute="centerY" secondItem="9H0-6L-OC7" secondAttribute="centerY" id="Buy-gb-VEW"/>
                             <constraint firstItem="BUv-V2-bPF" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" id="JLK-Oy-O4S"/>
                             <constraint firstItem="jVZ-XS-Uws" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="MkA-oZ-vgJ"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="f8B-O7-hFY" secondAttribute="bottom" constant="100" id="S44-z1-FQ6"/>
@@ -182,11 +181,6 @@
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="29t-lU-nVs" secondAttribute="bottom" constant="20" id="v61-aX-3RQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9H0-6L-OC7"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="S44-z1-FQ6"/>
-                            </mask>
-                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -198,8 +192,6 @@
                         <outlet property="restartButton" destination="29t-lU-nVs" id="mtf-Dd-mXD"/>
                         <outlet property="sceneView" destination="HmB-J8-ADd" id="OWn-kP-ilY"/>
                         <outlet property="shotButton" destination="n4m-Ns-8pZ" id="pFo-jV-U2C"/>
-                        <outlet property="tipsBottomConstraint" destination="S44-z1-FQ6" id="o04-cW-45v"/>
-                        <outlet property="tipsCenterYConstraint" destination="Buy-gb-VEW" id="8ll-4u-ZEz"/>
                         <outlet property="tipsGiraffe" destination="nA4-AQ-hMb" id="jop-xe-gcF"/>
                         <outlet property="tipsGiraffeBottomMargin" destination="Y0v-Ri-eXI" id="coZ-If-QVL"/>
                         <outlet property="tipsLabel" destination="f8B-O7-hFY" id="Drt-2Q-rne"/>

@@ -12,15 +12,22 @@ class FocusHexagon: UIView {
 
     var trianglePieces: [Triangle] = []
     var hexagonPieces: [HexagonPiece] = []
+    var aimPoint = CALayer()
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
         
+        let localCenter = CGPoint.init(x: rect.width/2, y: rect.height/2)
+        
+        aimPoint.bounds = CGRect.init(x: 0, y: 0, width: 4, height: 4)
+        aimPoint.position = localCenter
+        aimPoint.cornerRadius = 2
+        aimPoint.backgroundColor = UIColor(named: "GiraffeYellow")!.cgColor
+        self.layer.addSublayer(aimPoint)
+        
         for i in 1...6 {
-            let localCenter = CGPoint.init(x: rect.width/2, y: rect.height/2)
-            
             let layer = Triangle.init(v1: CGPoint.init(x: 0, y: 6), v2: CGPoint.init(x: 6, y: 6), v3: CGPoint.init(x: 3, y: 0))
             layer.bounds = CGRect.init(x: 0, y: 0, width: 6, height: 6)
             layer.position = localCenter
@@ -82,6 +89,7 @@ class FocusHexagon: UIView {
             piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, -1.5*25.0, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
             piece.opacity = 0.1
         }
+        aimPoint.opacity = 1.0
     }
     
     func unfocus() {
@@ -93,5 +101,6 @@ class FocusHexagon: UIView {
             piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, -3.0*25.0, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
             piece.opacity = 1.0
         }
+        aimPoint.opacity = 0
     }
 }

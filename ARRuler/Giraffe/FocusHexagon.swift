@@ -50,9 +50,9 @@ class FocusHexagon: UIView {
         return false
     }
 
-    func animate() {
+    func blink() {
         
-        for (i, piece) in trianglePieces.enumerated() {
+        for (i, piece) in hexagonPieces.enumerated() {
             let alphaAnimation = CAKeyframeAnimation.init(keyPath: "opacity")
             alphaAnimation.duration = 0.8
             switch(i)
@@ -76,7 +76,13 @@ class FocusHexagon: UIView {
             alphaAnimation.isRemovedOnCompletion = false
             alphaAnimation.fillMode = kCAFillModeForwards
             alphaAnimation.calculationMode = kCAAnimationDiscrete
-            piece.add(alphaAnimation, forKey: nil)
+            piece.add(alphaAnimation, forKey: "blink")
+        }
+    }
+    
+    func removeBlink() {
+        for piece in hexagonPieces {
+            piece.removeAnimation(forKey: "blink")
         }
     }
     

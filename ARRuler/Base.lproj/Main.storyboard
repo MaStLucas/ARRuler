@@ -220,31 +220,42 @@
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdj-jK-Qdp">
-                                <rect key="frame" x="10" y="30" width="12" height="22"/>
-                                <state key="normal" image="back"/>
-                                <connections>
-                                    <action selector="restartButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="dO8-dl-Nd5"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Q9-Bb-V25">
                                 <rect key="frame" x="54" y="68" width="267" height="421"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cdc-UJ-mlx">
                                 <rect key="frame" x="20" y="541" width="335" height="106"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="1kA-HG-2ck">
+                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="106"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksj-Ab-Mu1">
+                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="66"/>
+                                                <state key="normal" image="save"/>
+                                                <connections>
+                                                    <action selector="restartButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="1wf-DY-Mgq"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXt-fQ-ujB">
+                                                <rect key="frame" x="0.0" y="77" width="111.5" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="wSk-2N-7qO">
-                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="106"/>
+                                        <rect key="frame" x="111.5" y="0.0" width="112" height="106"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkG-hQ-gy6">
-                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="66"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="112" height="66"/>
                                                 <state key="normal" image="save"/>
                                                 <connections>
                                                     <action selector="galleryButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="zQV-iq-MNt"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHH-nn-mqL">
-                                                <rect key="frame" x="0.0" y="77" width="167.5" height="29"/>
+                                                <rect key="frame" x="0.0" y="77" width="112" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -252,17 +263,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Uqx-Ch-Iii">
-                                        <rect key="frame" x="167.5" y="0.0" width="167.5" height="106"/>
+                                        <rect key="frame" x="223.5" y="0.0" width="111.5" height="106"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrp-tI-XHI">
-                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="66"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="66"/>
                                                 <state key="normal" image="share"/>
                                                 <connections>
                                                     <action selector="shareButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="FCp-gN-jvY"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czH-dR-vEc">
-                                                <rect key="frame" x="0.0" y="77" width="167.5" height="29"/>
+                                                <rect key="frame" x="0.0" y="77" width="111.5" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -274,12 +285,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Hdj-jK-Qdp" firstAttribute="top" secondItem="iwH-wD-RlS" secondAttribute="top" constant="10" id="0T5-OW-Pnz"/>
                             <constraint firstItem="3eN-GL-Dum" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" id="1eF-vl-rfE"/>
                             <constraint firstItem="cdc-UJ-mlx" firstAttribute="centerX" secondItem="iwH-wD-RlS" secondAttribute="centerX" id="2vQ-Ee-pK8"/>
                             <constraint firstItem="cdc-UJ-mlx" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" constant="20" id="A5L-AA-xZS"/>
                             <constraint firstItem="iwH-wD-RlS" firstAttribute="trailing" secondItem="cdc-UJ-mlx" secondAttribute="trailing" constant="20" id="Fpb-C2-cV8"/>
-                            <constraint firstItem="Hdj-jK-Qdp" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" constant="10" id="G3v-Ul-aEI"/>
                             <constraint firstItem="iwH-wD-RlS" firstAttribute="trailing" secondItem="1Q9-Bb-V25" secondAttribute="trailing" constant="54" id="Grn-i5-uJk"/>
                             <constraint firstItem="JMV-By-EJg" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" id="M50-hI-3iB"/>
                             <constraint firstItem="iwH-wD-RlS" firstAttribute="bottom" secondItem="3eN-GL-Dum" secondAttribute="bottom" id="OCh-vm-NOp"/>
@@ -343,7 +352,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="12" height="13"/>
         <image name="bottom" width="375" height="90"/>
         <image name="capture" width="62" height="62"/>
         <image name="capture_active" width="62" height="62"/>

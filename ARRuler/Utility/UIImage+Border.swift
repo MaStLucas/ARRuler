@@ -23,8 +23,15 @@ extension UIImage {
             
             self.draw(in: CGRect(x: borderWidth, y: borderWidth, width: self.size.width, height: self.size.height))
             
+            let text: NSString = "Measured by ARuler"
+            let textSize = text.size(withAttributes: [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 9)])
+            text.draw(in: CGRect.init(origin: CGPoint.init(x: (imageSize.width-textSize.width)/CGFloat(2), y: imageSize.height-textSize.height-CGFloat(20)), size: size), withAttributes: [
+                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 9),
+                NSAttributedStringKey.foregroundColor : UIColor.init(white: 0xffffff, alpha: 0.5)
+                ])
+            
             let watermarkImage = #imageLiteral(resourceName: "watermark")
-            watermarkImage.draw(in: CGRect.init(x: (imageSize.width-watermarkImage.size.width)/CGFloat(2), y: imageSize.height-watermarkImage.size.height-CGFloat(20), width: watermarkImage.size.width, height: watermarkImage.size.height))
+            watermarkImage.draw(in: CGRect.init(x: (imageSize.width-watermarkImage.size.width)/CGFloat(2), y: imageSize.height-watermarkImage.size.height-textSize.height-CGFloat(30), width: watermarkImage.size.width, height: watermarkImage.size.height))
             
             let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()

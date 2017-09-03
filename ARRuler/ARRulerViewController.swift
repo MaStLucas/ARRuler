@@ -73,6 +73,8 @@ class ARRulerViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        focusHexagon.unfocus()
     }
     
     override func didReceiveMemoryWarning() {
@@ -126,6 +128,7 @@ class ARRulerViewController: UIViewController {
             popover.delegate = self
             popover.sourceView = sender
             popover.sourceRect = sender.bounds
+            popover.backgroundColor = UIColor(named: "GiraffePurple")!
         }
         self.present(vc, animated: true, completion: nil)
     }

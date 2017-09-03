@@ -80,25 +80,7 @@ class ARRulerViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
     
-    @objc func handleTapTest(_ recognizer: UITapGestureRecognizer) {
-        guard let currentFrame = sceneView.session.currentFrame else {
-            return
-        }
-        let imagePlane = SCNPlane.init(width: sceneView.bounds.width/6000, height: sceneView.bounds.height/6000)
-        imagePlane.firstMaterial?.diffuse.contents = sceneView.snapshot()
-        imagePlane.firstMaterial?.lightingModel = .constant
-        
-        let planeNode = SCNNode.init(geometry: imagePlane)
-        sceneView.scene.rootNode.addChildNode(planeNode)
-        
-        var translation = matrix_identity_float4x4
-        translation.columns.3.z = -0.1
-        planeNode.simdTransform = matrix_multiply(currentFrame.camera.transform, translation)
-    }
-    
     @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
-        
-//        let point = recognizer.location(in: self.sceneView)
         
         if startVector == nil {
             isMeasuring = true
@@ -160,29 +142,29 @@ extension ARRulerViewController: ARSCNViewDelegate {
      return node
      }
      */
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        DispatchQueue.main.async {
-            if let planeAnchor = anchor as? ARPlaneAnchor {
-                self.addPlane(node: node, anchor: planeAnchor)
-            }
-        }
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        DispatchQueue.main.async {
-            if let planeAnchor = anchor as? ARPlaneAnchor {
-                self.updatePlane(anchor: planeAnchor)
-            }
-        }
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
-        DispatchQueue.main.async {
-            if let planeAnchor = anchor as? ARPlaneAnchor {
-                self.removePlane(anchor: planeAnchor)
-            }
-        }
-    }
+//    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+//        DispatchQueue.main.async {
+//            if let planeAnchor = anchor as? ARPlaneAnchor {
+//                self.addPlane(node: node, anchor: planeAnchor)
+//            }
+//        }
+//    }
+//
+//    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+//        DispatchQueue.main.async {
+//            if let planeAnchor = anchor as? ARPlaneAnchor {
+//                self.updatePlane(anchor: planeAnchor)
+//            }
+//        }
+//    }
+//
+//    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+//        DispatchQueue.main.async {
+//            if let planeAnchor = anchor as? ARPlaneAnchor {
+//                self.removePlane(anchor: planeAnchor)
+//            }
+//        }
+//    }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         DispatchQueue.main.async {

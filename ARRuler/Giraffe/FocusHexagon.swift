@@ -14,6 +14,11 @@ class FocusHexagon: UIView {
     var hexagonPieces: [HexagonPiece] = []
     var aimPoint = CALayer()
     
+    var hasFocused = true
+    
+    let unfocusRadius: CGFloat = 5*25
+    let focusRadius: CGFloat = 1.5*25
+    
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
@@ -80,33 +85,69 @@ class FocusHexagon: UIView {
         }
     }
     
-    func removeBlink() {
-        for piece in hexagonPieces {
-            piece.removeAnimation(forKey: "blink")
-        }
+    func rotate() {
+        
+        let rotateAnimation = CAKeyframeAnimation.init(keyPath: "transform")
+        rotateAnimation.duration = 3
+        
+        rotateAnimation.values = [
+            CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(0), 0, 0, 1),
+            CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(1), 0, 0, 1),
+            CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(2), 0, 0, 1),
+            CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(3), 0, 0, 1),
+            CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(4), 0, 0, 1),
+            CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(5), 0, 0, 1)
+        ]
+        
+        rotateAnimation.repeatCount = Float.greatestFiniteMagnitude
+        rotateAnimation.isRemovedOnCompletion = false
+        self.layer.add(rotateAnimation, forKey: "rotate")
     }
     
     func focus() {
+        
+        if hasFocused {
+            return
+        }
+        hasFocused = true
+        
+        let focusAnimation = CABasicAnimation.init(keyPath: "transform")
+        focusAnimation.duration = 2
+        focusAnimation.toValue = CATransform3DIdentity
+        self.layer.add(focusAnimation, forKey: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
+            self.layer.removeAnimation(forKey: "rotate")
+        })
+        
         for (i, piece) in trianglePieces.enumerated() {
             piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, 12, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(6)-CGFloat.pi/CGFloat(3)*CGFloat(i), 0, 0, 1))
             piece.opacity = 1.0
         }
         for (i, piece) in hexagonPieces.enumerated() {
-            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, -1.5*25.0, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
+            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, -focusRadius, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
             piece.opacity = 0.1
         }
         aimPoint.opacity = 1.0
     }
     
     func unfocus() {
+        
+        if !hasFocused {
+            return
+        }
+        hasFocused = false
+        
         for (i, piece) in trianglePieces.enumerated() {
             piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, 30, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(6)-CGFloat.pi/CGFloat(3)*CGFloat(i), 0, 0, 1))
             piece.opacity = 0.1
         }
         for (i, piece) in hexagonPieces.enumerated() {
-            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, -3.0*25.0, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
+            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, -unfocusRadius, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
             piece.opacity = 1.0
         }
         aimPoint.opacity = 0
+        
+        rotate()
     }
 }

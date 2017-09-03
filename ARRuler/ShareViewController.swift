@@ -20,7 +20,7 @@ class ShareViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if let borderedImage = image.imageWithBorder(borderWidth: 7, borderColor: UIColor.white) {
+        if let borderedImage = image.imageWithBorder(borderWidth: 0, borderColor: UIColor.white) {
             screenShot.image = borderedImage
         }
         background.image = image

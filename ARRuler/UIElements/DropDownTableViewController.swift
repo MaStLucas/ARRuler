@@ -24,6 +24,8 @@ class DropDownTableViewController: UITableViewController {
     
     var selectedIndex = 0
     
+    var selectedIndicator: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +36,11 @@ class DropDownTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         tableView.backgroundColor = UIColor.clear
-        tableView.separatorEffect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: .light))
+        tableView.separatorColor = UIColor.darkGray
+        
+        selectedIndicator = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 8, height: 8))
+        selectedIndicator.layer.cornerRadius = selectedIndicator.bounds.size.width / CGFloat(2)
+        selectedIndicator.backgroundColor = UIColor.init(named: "GiraffeYellow")
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,9 +74,9 @@ class DropDownTableViewController: UITableViewController {
         cell.textLabel?.text = units[indexPath.row]
         
         if indexPath.row == selectedIndex {
-            cell.accessoryType = .checkmark
+            cell.accessoryView = selectedIndicator
         } else {
-            cell.accessoryType = .none
+            cell.accessoryView = nil
         }
 
         return cell

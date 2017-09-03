@@ -17,9 +17,9 @@ class DropDownTableViewController: UITableViewController {
     weak var delegate: DropDownTableViewControllerDelegate?
     
     private let units = [
-        "m",
-        "cm",
-        "inch"
+        NSLocalizedString("m", comment: ""),
+        NSLocalizedString("cm", comment: ""),
+        NSLocalizedString("inch", comment: "")
     ]
     
     var selectedIndex = 0

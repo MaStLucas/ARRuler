@@ -1,0 +1,29 @@
+/*
+ Localizable.strings
+ ARRuler
+ 
+ Created by StephenMa on 2017/8/27.
+ Copyright © 2017年 Stephen Ma. All rights reserved.
+ */
+
+"ARuler" = "ARuler";
+
+"m" = "m";
+
+"cm" = "cm";
+
+"inch" = "inch";
+
+"OK" = "OK";
+
+"Measured by ARuler" = "Measured by ARuler";
+
+"Environment Identifying，please move your phone around" = "Environment Identifying，please move your phone around";
+
+"Tap to set a start point" = "Tap to set a start point";
+
+"Move your phone to measure" = "Move your phone to measure";
+
+"Tap to set an end point" = "Tap to set an end point";
+
+"Capture your image" = "Capture your image";

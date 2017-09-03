@@ -504,9 +504,9 @@ extension ARRulerViewController {
 extension ARRulerViewController {
     
     fileprivate func initMeasureStage() {
-        tipsLabel.text = "Environment Identifying，please move your phone around"
+        tipsLabel.text = NSLocalizedString("Environment Identifying，please move your phone around", comment: "")
         tipsLabel.isHidden = false
-        distanceLabel.text = "ARuler"
+        distanceLabel.text = NSLocalizedString("ARuler", comment: "")
         
         isMeasureEnd = false
         
@@ -526,7 +526,7 @@ extension ARRulerViewController {
     }
     
     fileprivate func startMeasureStage() {
-        tipsLabel.text = "Tap to set a start point"
+        tipsLabel.text = NSLocalizedString("Tap to set a start point", comment: "")
         tipsLabel.isHidden = false
         
         focusHexagon.isHidden = false
@@ -541,7 +541,7 @@ extension ARRulerViewController {
     }
     
     fileprivate func moveStage() {
-        tipsLabel.text = "Move your phone to measure"
+        tipsLabel.text = NSLocalizedString("Move your phone to measure", comment: "")
         tipsLabel.isHidden = false
         
         distanceLabel.isHidden = false
@@ -550,7 +550,7 @@ extension ARRulerViewController {
     }
     
     fileprivate func endMeasureStage() {
-        tipsLabel.text = "Tap to set an end point"
+        tipsLabel.text = NSLocalizedString("Tap to set an end point", comment: "")
         tipsLabel.isHidden = false
         
         distanceLabel.isHidden = false
@@ -560,7 +560,7 @@ extension ARRulerViewController {
     }
     
     fileprivate func captureImageStage() {
-        tipsLabel.text = "Capture your image"
+        tipsLabel.text = NSLocalizedString("Capture your image", comment: "")
         tipsLabel.isHidden = false
         
         isMeasureEnd = true
@@ -591,13 +591,13 @@ extension ARRulerViewController: DropDownTableViewControllerDelegate {
     func dropDownTableViewController(_: DropDownTableViewController, didSelectItemAt index: Int) {
         if index == 0 {
             distance.unit = .meter
-            distanceUnitButton.setTitle("m", for: .normal)
+            distanceUnitButton.setTitle(NSLocalizedString("m", comment: ""), for: .normal)
         } else if index == 1 {
             distance.unit = .centimeter
-            distanceUnitButton.setTitle("cm", for: .normal)
+            distanceUnitButton.setTitle(NSLocalizedString("cm", comment: ""), for: .normal)
         } else if index == 2 {
             distance.unit = .inch
-            distanceUnitButton.setTitle("inch", for: .normal)
+            distanceUnitButton.setTitle(NSLocalizedString("inch", comment: ""), for: .normal)
         }
         distanceLabel.text = distance.displayString
     }

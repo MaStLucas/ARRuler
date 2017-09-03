@@ -1,0 +1,30 @@
+/*
+ Localizable.strings
+ ARRuler
+ 
+ Created by StephenMa on 2017/8/27.
+ Copyright © 2017年 Stephen Ma. All rights reserved.
+ */
+
+"ARuler" = "爱鹿测量";
+
+"m" = "米";
+
+"cm" = "厘米";
+
+"inch" = "英寸";
+
+"OK" = "好的";
+
+"Measured by ARuler" = "爱鹿测量";
+
+"Environment Identifying，please move your phone around" = "小鹿正在检测环境，请尝试移动您的手机";
+
+"Tap to set a start point" = "点击设置测量起始点";
+
+"Move your phone to measure" = "移动手机开始测量";
+
+"Tap to set an end point" = "点击设置测量终点";
+
+"Capture your image" = "点击拍照";
+

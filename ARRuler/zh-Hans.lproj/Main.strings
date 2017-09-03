@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "ARuler"; ObjectID = "pdJ-gn-yl9"; */
+"pdJ-gn-yl9.text" = "爱鹿测量";
+
+/* Class = "UILabel"; text = "Restart"; ObjectID = "EXt-fQ-ujB"; */
+"EXt-fQ-ujB.text" = "再量一次";
+
+/* Class = "UILabel"; text = "Save"; ObjectID = "IHH-nn-mqL"; */
+"IHH-nn-mqL.text" = "保存截图";
+
+/* Class = "UILabel"; text = "Share"; ObjectID = "czH-dR-vEc"; */
+"czH-dR-vEc.text" = "分享一下";
+
+/* Class = "UIButton"; normalTitle = "m"; ObjectID = "bvo-1b-gY0"; */
+"bvo-1b-gY0.normalTitle" = "米";

@@ -17,7 +17,7 @@ extension UIViewController {
                 alertController.addAction(action)
             }
         } else {
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil))
         }
         self.present(alertController, animated: true, completion: nil)
     }

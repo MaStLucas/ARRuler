@@ -136,7 +136,7 @@
                                     <constraint firstAttribute="width" constant="30" id="APw-Yk-Q8q"/>
                                     <constraint firstAttribute="height" constant="30" id="q5V-kw-7Zb"/>
                                 </constraints>
-                                <state key="normal" image="restart"/>
+                                <state key="normal" image="restart_measure"/>
                                 <connections>
                                     <action selector="resetButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="E2D-qm-Mea"/>
                                 </connections>
@@ -210,61 +210,72 @@
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp5-2Z-Nv0">
+                                <rect key="frame" x="4" y="24" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0nu-Tb-ulq"/>
+                                    <constraint firstAttribute="width" constant="44" id="G0g-JB-sJT"/>
+                                </constraints>
+                                <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="restartButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="VrV-RE-ASF"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Q9-Bb-V25">
-                                <rect key="frame" x="54" y="68" width="267" height="421"/>
+                                <rect key="frame" x="54" y="68" width="267" height="415.5"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cdc-UJ-mlx">
-                                <rect key="frame" x="20" y="541" width="335" height="106"/>
+                                <rect key="frame" x="75" y="535.5" width="225" height="77.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="1kA-HG-2ck">
-                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="106"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="77.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksj-Ab-Mu1">
-                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="66"/>
-                                                <state key="normal" image="save"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="52"/>
+                                                <state key="normal" image="restart"/>
                                                 <connections>
                                                     <action selector="restartButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="1wf-DY-Mgq"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXt-fQ-ujB">
-                                                <rect key="frame" x="0.0" y="77" width="111.5" height="29"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <rect key="frame" x="0.0" y="63" width="75" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="wSk-2N-7qO">
-                                        <rect key="frame" x="111.5" y="0.0" width="112" height="106"/>
+                                        <rect key="frame" x="75" y="0.0" width="75" height="77.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkG-hQ-gy6">
-                                                <rect key="frame" x="0.0" y="0.0" width="112" height="66"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="52"/>
                                                 <state key="normal" image="save"/>
                                                 <connections>
                                                     <action selector="galleryButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="zQV-iq-MNt"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHH-nn-mqL">
-                                                <rect key="frame" x="0.0" y="77" width="112" height="29"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <rect key="frame" x="0.0" y="63" width="75" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Uqx-Ch-Iii">
-                                        <rect key="frame" x="223.5" y="0.0" width="111.5" height="106"/>
+                                        <rect key="frame" x="150" y="0.0" width="75" height="77.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrp-tI-XHI">
-                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="66"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="52"/>
                                                 <state key="normal" image="share"/>
                                                 <connections>
                                                     <action selector="shareButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="FCp-gN-jvY"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czH-dR-vEc">
-                                                <rect key="frame" x="0.0" y="77" width="111.5" height="29"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <rect key="frame" x="0.0" y="63" width="75" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -277,18 +288,20 @@
                         <constraints>
                             <constraint firstItem="3eN-GL-Dum" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" id="1eF-vl-rfE"/>
                             <constraint firstItem="cdc-UJ-mlx" firstAttribute="centerX" secondItem="iwH-wD-RlS" secondAttribute="centerX" id="2vQ-Ee-pK8"/>
-                            <constraint firstItem="cdc-UJ-mlx" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" constant="20" id="A5L-AA-xZS"/>
-                            <constraint firstItem="iwH-wD-RlS" firstAttribute="trailing" secondItem="cdc-UJ-mlx" secondAttribute="trailing" constant="20" id="Fpb-C2-cV8"/>
+                            <constraint firstItem="cdc-UJ-mlx" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" constant="75" id="A5L-AA-xZS"/>
+                            <constraint firstItem="iwH-wD-RlS" firstAttribute="trailing" secondItem="cdc-UJ-mlx" secondAttribute="trailing" constant="75" id="Fpb-C2-cV8"/>
                             <constraint firstItem="iwH-wD-RlS" firstAttribute="trailing" secondItem="1Q9-Bb-V25" secondAttribute="trailing" constant="54" id="Grn-i5-uJk"/>
                             <constraint firstItem="JMV-By-EJg" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" id="M50-hI-3iB"/>
                             <constraint firstItem="iwH-wD-RlS" firstAttribute="bottom" secondItem="3eN-GL-Dum" secondAttribute="bottom" id="OCh-vm-NOp"/>
                             <constraint firstItem="iwH-wD-RlS" firstAttribute="bottom" secondItem="JMV-By-EJg" secondAttribute="bottom" id="XBq-1U-Vuq"/>
                             <constraint firstItem="1Q9-Bb-V25" firstAttribute="top" secondItem="iwH-wD-RlS" secondAttribute="top" constant="48" id="Ymb-ub-75F"/>
                             <constraint firstItem="3eN-GL-Dum" firstAttribute="top" secondItem="iwH-wD-RlS" secondAttribute="top" id="ZpS-Ne-A0c"/>
+                            <constraint firstItem="kp5-2Z-Nv0" firstAttribute="top" secondItem="iwH-wD-RlS" secondAttribute="top" constant="4" id="hPv-93-h79"/>
+                            <constraint firstItem="kp5-2Z-Nv0" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" constant="4" id="mae-zK-LWU"/>
                             <constraint firstItem="1Q9-Bb-V25" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" constant="54" id="nqg-gc-qpo"/>
                             <constraint firstItem="cdc-UJ-mlx" firstAttribute="top" secondItem="1Q9-Bb-V25" secondAttribute="bottom" constant="52" id="o8L-kv-uIF"/>
                             <constraint firstItem="iwH-wD-RlS" firstAttribute="trailing" secondItem="3eN-GL-Dum" secondAttribute="trailing" id="ofc-08-MTg"/>
-                            <constraint firstItem="iwH-wD-RlS" firstAttribute="bottom" secondItem="cdc-UJ-mlx" secondAttribute="bottom" constant="20" id="vV5-vS-0QO"/>
+                            <constraint firstItem="iwH-wD-RlS" firstAttribute="bottom" secondItem="cdc-UJ-mlx" secondAttribute="bottom" constant="54" id="vV5-vS-0QO"/>
                             <constraint firstItem="iwH-wD-RlS" firstAttribute="trailing" secondItem="JMV-By-EJg" secondAttribute="trailing" id="wvB-4Q-wK0"/>
                             <constraint firstItem="JMV-By-EJg" firstAttribute="top" secondItem="iwH-wD-RlS" secondAttribute="top" id="xeE-TQ-toP"/>
                         </constraints>
@@ -342,12 +355,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back" width="8" height="17"/>
         <image name="bottom" width="375" height="90"/>
         <image name="capture" width="62" height="62"/>
         <image name="capture_active" width="62" height="62"/>
-        <image name="restart" width="20" height="23"/>
-        <image name="save" width="66" height="66"/>
-        <image name="share" width="66" height="66"/>
+        <image name="restart" width="52" height="52"/>
+        <image name="restart_measure" width="20" height="23"/>
+        <image name="save" width="52" height="52"/>
+        <image name="share" width="52" height="52"/>
         <image name="splash_background" width="375" height="669"/>
         <image name="splash_giraffe" width="120" height="120"/>
         <image name="tips_giraffe" width="50" height="50"/>

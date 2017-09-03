@@ -111,15 +111,14 @@ class FocusHexagon: UIView {
         }
         hasFocused = true
         
-        let focusAnimation = CABasicAnimation.init(keyPath: "transform")
-        focusAnimation.duration = 2
-        focusAnimation.toValue = CATransform3DIdentity
-        self.layer.add(focusAnimation, forKey: nil)
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(0.8)
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseIn))
+        CATransaction.setCompletionBlock({
             self.layer.removeAnimation(forKey: "rotate")
         })
-        
+        self.layer.transform = CATransform3DIdentity
         for (i, piece) in trianglePieces.enumerated() {
             piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, 12, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(6)-CGFloat.pi/CGFloat(3)*CGFloat(i), 0, 0, 1))
             piece.opacity = 1.0
@@ -129,6 +128,7 @@ class FocusHexagon: UIView {
             piece.opacity = 0.1
         }
         aimPoint.opacity = 1.0
+        CATransaction.commit()
     }
     
     func unfocus() {

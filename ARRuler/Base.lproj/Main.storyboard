@@ -134,11 +134,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29t-lU-nVs" userLabel="Restart Button">
-                                <rect key="frame" x="24" y="617" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="APw-Yk-Q8q"/>
-                                    <constraint firstAttribute="height" constant="30" id="q5V-kw-7Zb"/>
-                                </constraints>
+                                <rect key="frame" x="24" y="596" width="52" height="52"/>
                                 <state key="normal" image="restart_measure"/>
                                 <connections>
                                     <action selector="resetButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="E2D-qm-Mea"/>
@@ -171,7 +167,7 @@
                             <constraint firstItem="dIr-1q-qS9" firstAttribute="centerY" secondItem="9H0-6L-OC7" secondAttribute="centerY" id="stx-Gn-WZy"/>
                             <constraint firstItem="dYv-3b-FXE" firstAttribute="trailing" secondItem="9H0-6L-OC7" secondAttribute="trailing" id="t63-ci-kzz"/>
                             <constraint firstItem="BUv-V2-bPF" firstAttribute="top" secondItem="9H0-6L-OC7" secondAttribute="top" id="thV-cL-Z7t"/>
-                            <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="29t-lU-nVs" secondAttribute="bottom" constant="20" id="v61-aX-3RQ"/>
+                            <constraint firstItem="29t-lU-nVs" firstAttribute="centerY" secondItem="n4m-Ns-8pZ" secondAttribute="centerY" id="zfe-sq-5yJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9H0-6L-OC7"/>
                     </view>
@@ -349,7 +345,7 @@
         <image name="capture" width="62" height="62"/>
         <image name="capture_active" width="62" height="62"/>
         <image name="restart" width="52" height="52"/>
-        <image name="restart_measure" width="20" height="23"/>
+        <image name="restart_measure" width="52" height="52"/>
         <image name="save" width="52" height="52"/>
         <image name="share" width="52" height="52"/>
         <image name="splash_background" width="375" height="669"/>

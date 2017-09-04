@@ -34,7 +34,7 @@ class FocusHexagon: UIView {
         
         for i in 1...12 {
             let layer = Triangle.init(v1: CGPoint.init(x: 0, y: 6), v2: CGPoint.init(x: 6, y: 6), v3: CGPoint.init(x: 3, y: 0))
-            layer.bounds = CGRect.init(x: 0, y: 0, width: 6, height: 6)
+            layer.bounds = CGRect.init(x: 0, y: 0, width: 9, height: 8)
             layer.position = localCenter
             layer.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, unfocusRadius, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(6)*CGFloat(i-1), 0, 0, 1))
             layer.setNeedsDisplay()

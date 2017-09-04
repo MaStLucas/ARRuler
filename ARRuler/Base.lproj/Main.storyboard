@@ -213,17 +213,6 @@
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp5-2Z-Nv0">
-                                <rect key="frame" x="4" y="24" width="44" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="0nu-Tb-ulq"/>
-                                    <constraint firstAttribute="width" constant="44" id="G0g-JB-sJT"/>
-                                </constraints>
-                                <state key="normal" image="back"/>
-                                <connections>
-                                    <action selector="restartButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="VrV-RE-ASF"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Q9-Bb-V25">
                                 <rect key="frame" x="54" y="68" width="267" height="415.5"/>
                             </imageView>
@@ -299,8 +288,6 @@
                             <constraint firstItem="iwH-wD-RlS" firstAttribute="bottom" secondItem="JMV-By-EJg" secondAttribute="bottom" id="XBq-1U-Vuq"/>
                             <constraint firstItem="1Q9-Bb-V25" firstAttribute="top" secondItem="iwH-wD-RlS" secondAttribute="top" constant="48" id="Ymb-ub-75F"/>
                             <constraint firstItem="3eN-GL-Dum" firstAttribute="top" secondItem="iwH-wD-RlS" secondAttribute="top" id="ZpS-Ne-A0c"/>
-                            <constraint firstItem="kp5-2Z-Nv0" firstAttribute="top" secondItem="iwH-wD-RlS" secondAttribute="top" constant="4" id="hPv-93-h79"/>
-                            <constraint firstItem="kp5-2Z-Nv0" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" constant="4" id="mae-zK-LWU"/>
                             <constraint firstItem="1Q9-Bb-V25" firstAttribute="leading" secondItem="iwH-wD-RlS" secondAttribute="leading" constant="54" id="nqg-gc-qpo"/>
                             <constraint firstItem="cdc-UJ-mlx" firstAttribute="top" secondItem="1Q9-Bb-V25" secondAttribute="bottom" constant="52" id="o8L-kv-uIF"/>
                             <constraint firstItem="iwH-wD-RlS" firstAttribute="trailing" secondItem="3eN-GL-Dum" secondAttribute="trailing" id="ofc-08-MTg"/>
@@ -358,7 +345,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="8" height="17"/>
         <image name="bottom" width="375" height="90"/>
         <image name="capture" width="62" height="62"/>
         <image name="capture_active" width="62" height="62"/>

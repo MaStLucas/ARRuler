@@ -31,7 +31,6 @@
 		BCA406C31F4C956D0024F950 /* PhotoAlbumUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA406C21F4C956D0024F950 /* PhotoAlbumUtil.swift */; };
 		BCC82D671F28EEAC00965A3E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC82D661F28EEAC00965A3E /* ShareViewController.swift */; };
 		BCDCB35E1F5C78BE006323DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCDCB3601F5C78BE006323DF /* InfoPlist.strings */; };
-		BCDCB3671F5C7A90006323DF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCDCB3661F5C7A90006323DF /* Info.plist */; };
 		BCE9167B1F151CBD00C4F67D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE9167A1F151CBD00C4F67D /* AppDelegate.swift */; };
 		BCE9167D1F151CBD00C4F67D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BCE9167C1F151CBD00C4F67D /* art.scnassets */; };
 		BCE9167F1F151CBD00C4F67D /* ARRulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE9167E1F151CBD00C4F67D /* ARRulerViewController.swift */; };
@@ -347,7 +346,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCDCB3671F5C7A90006323DF /* Info.plist in Resources */,
 				BC8295DE1F4DD34F00BB1572 /* Colors.xcassets in Resources */,
 				BCDCB35E1F5C78BE006323DF /* InfoPlist.strings in Resources */,
 				BC5630301F5C6EE700290ADF /* Localizable.strings in Resources */,

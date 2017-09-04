@@ -77,15 +77,15 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.82" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVZ-XS-Uws">
-                                <rect key="frame" x="157.5" y="40" width="60.5" height="39.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <rect key="frame" x="161" y="40" width="53" height="34.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" name="GiraffeYellow"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvo-1b-gY0" customClass="DropDownButton" customModule="ARRuler" customModuleProvider="target">
-                                <rect key="frame" x="299" y="42" width="60" height="36"/>
+                                <rect key="frame" x="299" y="39.5" width="60" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Jmw-YH-rh8"/>
                                 </constraints>
@@ -105,8 +105,11 @@
                                     <constraint firstAttribute="width" constant="170" id="yFj-zJ-lEo"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-O7-hFY" customClass="Tip" customModule="ARRuler" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-O7-hFY" customClass="Tip" customModule="ARRuler" customModuleProvider="target">
                                 <rect key="frame" x="166" y="546.5" width="42" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20.5" id="QON-2L-IfI"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>

@@ -32,11 +32,11 @@ class FocusHexagon: UIView {
         aimPoint.backgroundColor = UIColor(named: "GiraffeYellow")!.cgColor
         self.layer.addSublayer(aimPoint)
         
-        for i in 1...6 {
+        for i in 1...12 {
             let layer = Triangle.init(v1: CGPoint.init(x: 0, y: 6), v2: CGPoint.init(x: 6, y: 6), v3: CGPoint.init(x: 3, y: 0))
             layer.bounds = CGRect.init(x: 0, y: 0, width: 6, height: 6)
             layer.position = localCenter
-            layer.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, unfocusRadius, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i-1), 0, 0, 1))
+            layer.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, unfocusRadius, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(6)*CGFloat(i-1), 0, 0, 1))
             layer.setNeedsDisplay()
             self.layer.addSublayer(layer)
             self.trianglePieces.append(layer)
@@ -96,7 +96,7 @@ class FocusHexagon: UIView {
     func rotate() {
         
         let rotateAnimation = CAKeyframeAnimation.init(keyPath: "transform")
-        rotateAnimation.duration = 3
+        rotateAnimation.duration = 2.5
         
         rotateAnimation.values = [
             CATransform3DMakeRotation(CGFloat.pi/CGFloat(3)*CGFloat(0), 0, 0, 1),
@@ -121,15 +121,19 @@ class FocusHexagon: UIView {
         
         
         CATransaction.begin()
-        CATransaction.setAnimationDuration(0.8)
+        CATransaction.setAnimationDuration(0.3)
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseIn))
         CATransaction.setCompletionBlock({
             self.layer.removeAnimation(forKey: "rotate")
         })
         self.layer.transform = CATransform3DIdentity
         for (i, piece) in trianglePieces.enumerated() {
-            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, focusRadius, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i), 0, 0, 1))
-            piece.opacity = 0.2
+            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, focusRadius, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(6)*CGFloat(i), 0, 0, 1))
+            if i%2 == 0 {
+                piece.opacity = 0.3
+            } else {
+                piece.opacity = 0
+            }
         }
 //        for (i, piece) in trianglePieces.enumerated() {
 //            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, 12, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(6)-CGFloat.pi/CGFloat(3)*CGFloat(i), 0, 0, 1))
@@ -153,10 +157,10 @@ class FocusHexagon: UIView {
         rotate()
         
         CATransaction.begin()
-        CATransaction.setAnimationDuration(0.8)
+        CATransaction.setAnimationDuration(0.4)
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseIn))
         for (i, piece) in trianglePieces.enumerated() {
-            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, unfocusRadius, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(3)*CGFloat(i), 0, 0, 1))
+            piece.transform = CATransform3DConcat(CATransform3DMakeTranslation(0, unfocusRadius, 0), CATransform3DMakeRotation(-CGFloat.pi/CGFloat(6)*CGFloat(i), 0, 0, 1))
             piece.opacity = 1.0
         }
 //        for (i, piece) in trianglePieces.enumerated() {

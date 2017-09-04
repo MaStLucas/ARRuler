@@ -75,6 +75,7 @@ class ARRulerViewController: UIViewController {
         super.viewDidAppear(animated)
         
         focusHexagon.unfocus()
+        dismissPopover()
     }
     
     override func didReceiveMemoryWarning() {
@@ -131,6 +132,10 @@ class ARRulerViewController: UIViewController {
             popover.backgroundColor = UIColor(named: "GiraffePurple")!
         }
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    fileprivate func dismissPopover() {
+        self.presentedViewController?.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -517,6 +522,8 @@ extension ARRulerViewController {
         restartButton.isHidden = true
         
         sceneView.isUserInteractionEnabled = false
+        
+        self.dismissPopover()
         
         tipsGiraffe.isHidden = false
         tipsGiraffeBottomMargin.constant = -20

@@ -78,7 +78,6 @@
 		BC55608C1F24C8B900BEDD91 /* PlaneDebugVisualization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneDebugVisualization.swift; sourceTree = "<group>"; };
 		BC55608E1F24CCFA00BEDD91 /* Ruler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ruler.swift; sourceTree = "<group>"; };
 		BC56302E1F5C6ED400290ADF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		BC56302F1F5C6ED400290ADF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		BC5630381F5C76CD00290ADF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		BC8295DD1F4DD34F00BB1572 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BC8295DF1F4DE83700BB1572 /* HexagonPiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonPiece.swift; sourceTree = "<group>"; };
@@ -92,14 +91,13 @@
 		BCDCB3631F5C78D8006323DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BCDCB3661F5C7A90006323DF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCDCB3691F5C7C46006323DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		BCDCB36B1F5C7D72006323DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BCDCB36C1F5D98AB006323DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCE916771F151CBD00C4F67D /* ARRuler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARRuler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE9167A1F151CBD00C4F67D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCE9167C1F151CBD00C4F67D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		BCE9167E1F151CBD00C4F67D /* ARRulerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARRulerViewController.swift; sourceTree = "<group>"; };
 		BCE916811F151CBD00C4F67D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCE916831F151CBD00C4F67D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BCE916861F151CBD00C4F67D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCE9168D1F151CBE00C4F67D /* ARRulerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARRulerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE916911F151CBE00C4F67D /* ARRulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARRulerTests.swift; sourceTree = "<group>"; };
 		BCE916931F151CBE00C4F67D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -472,9 +470,7 @@
 		BCE916851F151CBD00C4F67D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BCE916861F151CBD00C4F67D /* Base */,
-				BC56302F1F5C6ED400290ADF /* zh-Hans */,
-				BCDCB36B1F5C7D72006323DF /* en */,
+				BCDCB36C1F5D98AB006323DF /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

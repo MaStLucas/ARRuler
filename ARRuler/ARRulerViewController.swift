@@ -510,7 +510,7 @@ extension ARRulerViewController {
     
     fileprivate func initMeasureStage() {
         tipsLabel.text = NSLocalizedString("Environment Identifying，please move your phone around", comment: "")
-        tipsLabel.isHidden = false
+        tipsLabel.isHidden = true
         distanceLabel.text = NSLocalizedString("ARuler", comment: "")
         
         isMeasureEnd = false
@@ -531,7 +531,11 @@ extension ARRulerViewController {
         tipsGiraffeBottomMargin.constant = 0
         UIView.animate(withDuration: 0.2, delay: 0.4, options: [.curveEaseInOut, .beginFromCurrentState], animations: {
             self.view.layoutIfNeeded()
-        }, completion: nil)
+        }, completion: { finished in
+            if finished {
+                self.tipsLabel.isHidden = false
+            }
+        })
     }
     
     fileprivate func startMeasureStage() {

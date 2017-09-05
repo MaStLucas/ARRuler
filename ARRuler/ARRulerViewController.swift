@@ -527,7 +527,9 @@ extension ARRulerViewController {
         
         tipsGiraffe.isHidden = false
         tipsGiraffeBottomMargin.constant = -20
-        UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {
+        self.view.layoutIfNeeded()
+        tipsGiraffeBottomMargin.constant = 0
+        UIView.animate(withDuration: 0.2, delay: 0.4, options: [.curveEaseInOut, .beginFromCurrentState], animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
@@ -541,10 +543,10 @@ extension ARRulerViewController {
         
         sceneView.isUserInteractionEnabled = true
         
-        tipsGiraffeBottomMargin.constant = 0
-        UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
+//        tipsGiraffeBottomMargin.constant = 0
+//        UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {
+//            self.view.layoutIfNeeded()
+//        }, completion: nil)
     }
     
     fileprivate func moveStage() {

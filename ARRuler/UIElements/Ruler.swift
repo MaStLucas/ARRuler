@@ -30,7 +30,9 @@ class Ruler {
     func update(_ endPoint: SCNVector3) {
         self.endPoint = endPoint
         
-        self.rulerNode.geometry = SCNGeometry.trianglesFrom(vector: startPoint, toVector: endPoint)
+        if !((self.endPoint-self.startPoint).length().isNaN) {
+            self.rulerNode.geometry = SCNGeometry.trianglesFrom(vector: startPoint, toVector: endPoint)
+        }
         
 //        let width = CGFloat((startPoint-endPoint).length())
 //        self.rulerGeometry.width = width

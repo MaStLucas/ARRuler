@@ -26,8 +26,6 @@ class ARRulerViewController: UIViewController {
     var arSession: ARSession!
     
     var firstTap = true
-    var startVector: SCNVector3?
-    var endVector: SCNVector3?
     var startNode: SCNNode?
     var endNode: SCNNode?
     var cameraPosition: SCNVector3 = SCNVector3.init()
@@ -85,7 +83,7 @@ class ARRulerViewController: UIViewController {
     
     @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
         
-        if startVector == nil {
+        if startNode == nil {
             isMeasuring = true
             hitTestWithScreenCenter()
         } else {
@@ -190,7 +188,7 @@ extension ARRulerViewController: ARSessionDelegate {
             frame.camera.transform.columns.3.y,
             frame.camera.transform.columns.3.z
         )
-        if startVector != nil {
+        if startNode != nil {
             hitTestWithScreenCenter()
         }
         if !isMeasureEnd {
@@ -428,7 +426,7 @@ extension ARRulerViewController {
         }
         
         if let worldPos = focusSquare?.lastPosition {
-            if startVector == nil {
+            if startNode == nil {
                 addStartNode(worldPos)
             } else {
                 
@@ -437,7 +435,7 @@ extension ARRulerViewController {
                 //                let scale = Float(result.distance) / (cameraPosition-endVector!).length()
                 //                let distance = (startVector!-endVector!).length()*scale
                 
-                distance.value = (startVector!-endVector!).length()
+                distance.value = (startNode!.position-endNode!.position).length()
                 distanceLabel.text = distance.displayString
                 
                 if distance.value > 0.05 {
@@ -446,7 +444,7 @@ extension ARRulerViewController {
                     moveStage()
                 }
                 
-                drawRuler(startVector: startVector!, endVector: endVector!, distance: CGFloat(distance.value))
+                drawRuler(startVector: startNode!.position, endVector: endNode!.position, distance: CGFloat(distance.value))
             }
         }
     }
@@ -468,8 +466,6 @@ extension ARRulerViewController {
         endNode = nil
         ruler?.rulerNode.removeFromParentNode()
         ruler = nil
-        startVector = nil
-        endVector = nil
     }
     
     fileprivate func addStartNode(_ position: SCNVector3) {
@@ -481,9 +477,8 @@ extension ARRulerViewController {
         self.sceneView.scene.rootNode.addChildNode(node)
         
         startNode = node
-        startVector = position
         
-        distanceFromCameraToStartNode = (startVector!-cameraPosition).length()
+        distanceFromCameraToStartNode = (startNode!.position-cameraPosition).length()
     }
     
     fileprivate func updateEndNode(_ position: SCNVector3) {
@@ -500,8 +495,6 @@ extension ARRulerViewController {
             
             endNode = node
         }
-        
-        endVector = position
     }
 }
 

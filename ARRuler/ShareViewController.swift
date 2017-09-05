@@ -38,9 +38,9 @@ class ShareViewController: UIViewController {
     @IBAction func shareButtonPressed(_ sender: UIButton) {
         
         let shareString = NSMutableAttributedString()
-        shareString.append(NSAttributedString.init(string: "让ARuler帮助您随时随地精准测量\n在"))
-        shareString.append(NSAttributedString.init(string: "此处", attributes: [NSAttributedStringKey.link : URL.init(string: "www.baidu.com")!]))
-        shareString.append(NSAttributedString.init(string: "下载"))
+        shareString.append(NSAttributedString.init(string: NSLocalizedString("ARuler - the most interesting AR measure tool", comment: "")))
+//        shareString.append(NSAttributedString.init(string: "此处", attributes: [NSAttributedStringKey.link : URL.init(string: "www.baidu.com")!]))
+//        shareString.append(NSAttributedString.init(string: "下载"))
         
         let activityVC = UIActivityViewController.init(activityItems: [shareString, screenShot.image!], applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
@@ -68,12 +68,12 @@ class ShareViewController: UIViewController {
         PhotoAlbumUtil.saveImageInAlbum(image: screenShot.image!, albumName: "ARuler") { result in
             switch result {
             case .success:
-                self.showAlert(title: "Save success", message: "")
+                self.showAlert(title: NSLocalizedString("Save success", comment: ""), message: "")
             case .error:
-                self.showAlert(title: "Save Error", message: "")
+                self.showAlert(title: NSLocalizedString("Save error", comment: ""), message: "")
             case .denied:
-                let title = "Photos access denied"
-                let message = "Please enable Photos access for this application in Settings > Privacy to allow saving screenshots."
+                let title = NSLocalizedString("Photos access denied", comment: "")
+                let message = NSLocalizedString("Please enable Photos access for this application in Settings > Privacy to allow saving screenshots.", comment: "")
                 self.showAlert(title: title, message: message)
             }
         }

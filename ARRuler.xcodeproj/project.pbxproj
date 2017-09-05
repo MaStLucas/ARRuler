@@ -84,10 +84,11 @@
 		BCA406C01F4C91090024F950 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		BCA406C21F4C956D0024F950 /* PhotoAlbumUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumUtil.swift; sourceTree = "<group>"; };
 		BCC82D661F28EEAC00965A3E /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		BCCB90681F5F080200A0DFB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BCCB90691F5F081100A0DFB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BCDCB35F1F5C78BE006323DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BCDCB3611F5C78BF006323DF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		BCDCB3621F5C78D3006323DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BCDCB3631F5C78D8006323DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BCDCB3661F5C7A90006323DF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCDCB3691F5C7C46006323DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		BCDCB36C1F5D98AB006323DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -441,7 +442,7 @@
 			children = (
 				BC5630381F5C76CD00290ADF /* zh-Hans */,
 				BCDCB3621F5C78D3006323DF /* en */,
-				BCDCB3631F5C78D8006323DF /* Base */,
+				BCCB90681F5F080200A0DFB2 /* Base */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -451,6 +452,7 @@
 			children = (
 				BCDCB35F1F5C78BE006323DF /* en */,
 				BCDCB3611F5C78BF006323DF /* zh-Hans */,
+				BCCB90691F5F081100A0DFB2 /* Base */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

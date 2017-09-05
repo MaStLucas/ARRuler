@@ -88,33 +88,58 @@ extension SCNGeometry {
     
     class func trianglesFrom(vector vector1: SCNVector3, toVector vector2: SCNVector3) -> SCNGeometry {
         
-        let slice: Float = 0.01
+        let slice: Float = 0.01+0.005*2
         let direction = (vector2-vector1).normalized()
         let distance = (vector2-vector1).length()
         
         var vertices: [SCNVector3] = []
         var indices: [Int32] = []
         
-        let count = Int(ceil(distance/slice))
-        guard count > 3 else {
+        let count = Int(floor((distance-0.01*2)/slice))
+        guard count > 1 else {
             return lineFrom(vector:vector1, toVector:vector2)
         }
-        for i in 0...count-3 {
-            if i > 2 {
-                indices.append(Int32(i-2))
-                indices.append(Int32(i-1))
-            }
-            indices.append(Int32(i))
+        for i in 0...count-1 {
+            indices.append(Int32(i*6))
+            indices.append(Int32(i*6+1))
+            indices.append(Int32(i*6+2))
+            indices.append(Int32(i*6+3))
+            indices.append(Int32(i*6+4))
+            indices.append(Int32(i*6+5))
         }
         
         var vector = SCNVector3Zero
         for index in 0...count-1 {
-            vector.x = vector1.x + Float(index)*slice*direction.x
-            vector.y = vector1.y + Float(index)*slice*direction.y
-            vector.z = vector1.z + Float(index)*slice*direction.z
+            vector.x = vector1.x + 0.01*direction.x + Float(index)*slice*direction.x + 0.005*direction.x
+            vector.y = vector1.y + 0.01*direction.y + Float(index)*slice*direction.y + 0.005*direction.y + 0.005
+            vector.z = vector1.z + 0.01*direction.z + Float(index)*slice*direction.z + 0.005*direction.z
+            vertices.append(vector)
+            
+            vector.x = vector1.x + 0.01*direction.x + Float(index)*slice*direction.x + 0.005*direction.x
+            vector.y = vector1.y + 0.01*direction.y + Float(index)*slice*direction.y + 0.005*direction.y - 0.005
+            vector.z = vector1.z + 0.01*direction.z + Float(index)*slice*direction.z + 0.005*direction.z
+            vertices.append(vector)
+            
+            vector.x = vector1.x + 0.01*direction.x + Float(index)*slice*direction.x + 0.005*direction.x + 0.01*direction.x
+            vector.y = vector1.y + 0.01*direction.y + Float(index)*slice*direction.y + 0.005*direction.y + 0.005 + 0.01*direction.y
+            vector.z = vector1.z + 0.01*direction.z + Float(index)*slice*direction.z + 0.005*direction.z + 0.01*direction.z
+            vertices.append(vector)
+            
+            vector.x = vector1.x + 0.01*direction.x + Float(index)*slice*direction.x + 0.005*direction.x + 0.005*direction.x
+            vector.y = vector1.y + 0.01*direction.y + Float(index)*slice*direction.y + 0.005*direction.y - 0.005 + 0.005*direction.y
+            vector.z = vector1.z + 0.01*direction.z + Float(index)*slice*direction.z + 0.005*direction.z + 0.005*direction.z
+            vertices.append(vector)
+            
+            vector.x = vector1.x + 0.01*direction.x + Float(index)*slice*direction.x + 0.005*direction.x + 0.01*direction.x + 0.005*direction.x
+            vector.y = vector1.y + 0.01*direction.y + Float(index)*slice*direction.y + 0.005*direction.y + 0.005 + 0.01*direction.y + 0.005*direction.y
+            vector.z = vector1.z + 0.01*direction.z + Float(index)*slice*direction.z + 0.005*direction.z + 0.01*direction.z + 0.005*direction.z
+            vertices.append(vector)
+            
+            vector.x = vector1.x + 0.01*direction.x + Float(index)*slice*direction.x + 0.005*direction.x + 0.01*direction.x + 0.005*direction.x
+            vector.y = vector1.y + 0.01*direction.y + Float(index)*slice*direction.y + 0.005*direction.y - 0.005 + 0.01*direction.y + 0.005*direction.y
+            vector.z = vector1.z + 0.01*direction.z + Float(index)*slice*direction.z + 0.005*direction.z + 0.01*direction.z + 0.005*direction.z
             vertices.append(vector)
         }
-        vertices.append(vector2)
         
         let source = SCNGeometrySource(vertices: vertices)
         let element = SCNGeometryElement(indices: indices, primitiveType: .triangles)

@@ -30,6 +30,7 @@
 		BCA406C11F4C91090024F950 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA406C01F4C91090024F950 /* UIViewController+Alert.swift */; };
 		BCA406C31F4C956D0024F950 /* PhotoAlbumUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA406C21F4C956D0024F950 /* PhotoAlbumUtil.swift */; };
 		BCC82D671F28EEAC00965A3E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC82D661F28EEAC00965A3E /* ShareViewController.swift */; };
+		BCCB906B1F5F170A00A0DFB2 /* MeasureNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCB906A1F5F170A00A0DFB2 /* MeasureNode.swift */; };
 		BCDCB35E1F5C78BE006323DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCDCB3601F5C78BE006323DF /* InfoPlist.strings */; };
 		BCE9167B1F151CBD00C4F67D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE9167A1F151CBD00C4F67D /* AppDelegate.swift */; };
 		BCE9167D1F151CBD00C4F67D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BCE9167C1F151CBD00C4F67D /* art.scnassets */; };
@@ -86,6 +87,7 @@
 		BCC82D661F28EEAC00965A3E /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		BCCB90681F5F080200A0DFB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BCCB90691F5F081100A0DFB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BCCB906A1F5F170A00A0DFB2 /* MeasureNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureNode.swift; sourceTree = "<group>"; };
 		BCDCB35F1F5C78BE006323DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BCDCB3611F5C78BF006323DF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		BCDCB3621F5C78D3006323DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				BC183FA41F30D3210062DBF2 /* FocusSquare.swift */,
 				BC16E3161F49ED2F00BAC063 /* DropDownTableViewController.swift */,
 				BC16E3181F4A618E00BAC063 /* DropDownButton.swift */,
+				BCCB906A1F5F170A00A0DFB2 /* MeasureNode.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				BCC82D671F28EEAC00965A3E /* ShareViewController.swift in Sources */,
 				BCE9167B1F151CBD00C4F67D /* AppDelegate.swift in Sources */,
 				BC4AEAF11F27A43E00EB129E /* Triangle.swift in Sources */,
+				BCCB906B1F5F170A00A0DFB2 /* MeasureNode.swift in Sources */,
 				BC16E3191F4A618E00BAC063 /* DropDownButton.swift in Sources */,
 				BCA406C31F4C956D0024F950 /* PhotoAlbumUtil.swift in Sources */,
 				BC55608B1F24C77800BEDD91 /* Plane.swift in Sources */,

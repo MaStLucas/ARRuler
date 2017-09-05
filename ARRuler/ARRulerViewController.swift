@@ -26,8 +26,8 @@ class ARRulerViewController: UIViewController {
     var arSession: ARSession!
     
     var firstTap = true
-    var startNode: SCNNode?
-    var endNode: SCNNode?
+    var startNode: MeasureNode?
+    var endNode: MeasureNode?
     var cameraPosition: SCNVector3 = SCNVector3.init()
     var distance = Distance()
     
@@ -188,8 +188,12 @@ extension ARRulerViewController: ARSessionDelegate {
             frame.camera.transform.columns.3.y,
             frame.camera.transform.columns.3.z
         )
-        if startNode != nil {
+        if let startNode = startNode {
             hitTestWithScreenCenter()
+            startNode.updateScale(cameraPosition: cameraPosition)
+        }
+        if let endNode = endNode {
+            endNode.updateScale(cameraPosition: cameraPosition)
         }
         if !isMeasureEnd {
             if let rawFeaturePoints = frame.rawFeaturePoints {
@@ -469,9 +473,7 @@ extension ARRulerViewController {
     }
     
     fileprivate func addStartNode(_ position: SCNVector3) {
-        let geometry = SCNSphere.init(radius: 0.005)
-        geometry.firstMaterial?.diffuse.contents = UIColor(named: "GiraffeYellow")!
-        let node = SCNNode.init(geometry: geometry)
+        let node = MeasureNode()
         node.position = position
         
         self.sceneView.scene.rootNode.addChildNode(node)
@@ -486,9 +488,7 @@ extension ARRulerViewController {
         if let endNode = endNode{
             endNode.position = position
         } else {
-            let geometry = SCNSphere.init(radius: 0.005)
-            geometry.firstMaterial?.diffuse.contents = UIColor(named: "GiraffeYellow")!
-            let node = SCNNode.init(geometry: geometry)
+            let node = MeasureNode()
             node.position = position
             
             self.sceneView.scene.rootNode.addChildNode(node)

@@ -28,9 +28,9 @@ class MeasureNode: SCNNode {
             let distanceInCm = CGFloat(distance)*CGFloat(100)
             let radius: CGFloat
             if distance < 0.1 {
-                radius = (0.025*distanceInCm+0.5)/CGFloat(100)
+                radius = (0.01*distanceInCm+0.4)/CGFloat(100)
             } else if distance > 0.5 {
-                radius = (0.025*distanceInCm-0.75)/CGFloat(100)
+                radius = (0.01*distanceInCm)/CGFloat(100)
             } else {
                 radius = 0.5/CGFloat(100)
             }

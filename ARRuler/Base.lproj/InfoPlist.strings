@@ -6,6 +6,8 @@
   Copyright © 2017年 Stephen Ma. All rights reserved.
 */
 
+"CFBundleDisplayName" = "ARuler";
+
 "NSCameraUsageDescription" = "This application will use the camera for Augmented Reality.";
 
 "NSPhotoLibraryUsageDescription" = "This application will use the photo to store measure results.";

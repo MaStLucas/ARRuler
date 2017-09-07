@@ -6,6 +6,8 @@
   Copyright © 2017年 Stephen Ma. All rights reserved.
 */
 
+"CFBundleDisplayName" = "爱鹿测量";
+
 "NSCameraUsageDescription" = "此应用程序将使用相机进入AR环境";
 
 "NSPhotoLibraryUsageDescription" = "此应用程序将使用相册来存储测量结果";

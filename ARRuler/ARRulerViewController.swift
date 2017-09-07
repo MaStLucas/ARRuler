@@ -312,11 +312,8 @@ extension ARRulerViewController {
     func updateFocusSquare() {
         let screenCenter = self.sceneView.bounds.mid
         
-        if true {
-            focusSquare?.hide()
-        } else {
-            focusSquare?.unhide()
-        }
+        focusSquare?.hide()
+        
         let (worldPos, planeAnchor, _) = worldPositionFromScreenPosition(screenCenter, objectPos: focusSquare?.position)
         if let worldPos = worldPos {
             focusSquare?.update(for: worldPos, planeAnchor: planeAnchor, camera: self.arSession.currentFrame?.camera)

@@ -14,7 +14,6 @@
 		BC2741461F466C0F00E533ED /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2741451F466C0F00E533ED /* Distance.swift */; };
 		BC27CE991F2A4274009ECAF1 /* ShotButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC27CE981F2A4274009ECAF1 /* ShotButton.swift */; };
 		BC27CE9B1F2E3738009ECAF1 /* ScreenShotUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC27CE9A1F2E3738009ECAF1 /* ScreenShotUtil.swift */; };
-		BC27CE9D1F2E4A87009ECAF1 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC27CE9C1F2E4A87009ECAF1 /* Tip.swift */; };
 		BC3250871F248BF300B4BBD0 /* ARCameraTrackingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3250861F248BF300B4BBD0 /* ARCameraTrackingState.swift */; };
 		BC39F3361F52B591005E5A9A /* UIImage+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39F3351F52B591005E5A9A /* UIImage+Border.swift */; };
 		BC4AEAEC1F27948000EB129E /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4AEAEB1F27948000EB129E /* SplashScreenViewController.swift */; };
@@ -31,6 +30,7 @@
 		BCA406C31F4C956D0024F950 /* PhotoAlbumUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA406C21F4C956D0024F950 /* PhotoAlbumUtil.swift */; };
 		BCC82D671F28EEAC00965A3E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC82D661F28EEAC00965A3E /* ShareViewController.swift */; };
 		BCCB906B1F5F170A00A0DFB2 /* MeasureNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCB906A1F5F170A00A0DFB2 /* MeasureNode.swift */; };
+		BCD4E6E61F61A6F00084F702 /* TipText.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD4E6E51F61A6F00084F702 /* TipText.swift */; };
 		BCDCB35E1F5C78BE006323DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BCDCB3601F5C78BE006323DF /* InfoPlist.strings */; };
 		BCE9167B1F151CBD00C4F67D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE9167A1F151CBD00C4F67D /* AppDelegate.swift */; };
 		BCE9167D1F151CBD00C4F67D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BCE9167C1F151CBD00C4F67D /* art.scnassets */; };
@@ -68,7 +68,6 @@
 		BC2741451F466C0F00E533ED /* Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distance.swift; sourceTree = "<group>"; };
 		BC27CE981F2A4274009ECAF1 /* ShotButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotButton.swift; sourceTree = "<group>"; };
 		BC27CE9A1F2E3738009ECAF1 /* ScreenShotUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotUtil.swift; sourceTree = "<group>"; };
-		BC27CE9C1F2E4A87009ECAF1 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		BC3250861F248BF300B4BBD0 /* ARCameraTrackingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCameraTrackingState.swift; sourceTree = "<group>"; };
 		BC39F3351F52B591005E5A9A /* UIImage+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Border.swift"; sourceTree = "<group>"; };
 		BC4AEAEB1F27948000EB129E /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		BCCB90681F5F080200A0DFB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BCCB90691F5F081100A0DFB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BCCB906A1F5F170A00A0DFB2 /* MeasureNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureNode.swift; sourceTree = "<group>"; };
+		BCD4E6E51F61A6F00084F702 /* TipText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipText.swift; sourceTree = "<group>"; };
 		BCDCB35F1F5C78BE006323DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BCDCB3611F5C78BF006323DF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		BCDCB3621F5C78D3006323DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -162,9 +162,9 @@
 				BC4AEAEE1F27A09300EB129E /* Giraffe.swift */,
 				BC4AEAF01F27A43E00EB129E /* Triangle.swift */,
 				BC27CE981F2A4274009ECAF1 /* ShotButton.swift */,
-				BC27CE9C1F2E4A87009ECAF1 /* Tip.swift */,
 				BC8DE19A1F3760C400CA9765 /* FocusHexagon.swift */,
 				BC8295DF1F4DE83700BB1572 /* HexagonPiece.swift */,
+				BCD4E6E51F61A6F00084F702 /* TipText.swift */,
 			);
 			path = Giraffe;
 			sourceTree = "<group>";
@@ -401,10 +401,10 @@
 				BCA406C31F4C956D0024F950 /* PhotoAlbumUtil.swift in Sources */,
 				BC55608B1F24C77800BEDD91 /* Plane.swift in Sources */,
 				BC55608D1F24C8B900BEDD91 /* PlaneDebugVisualization.swift in Sources */,
-				BC27CE9D1F2E4A87009ECAF1 /* Tip.swift in Sources */,
 				BC183FA51F30D3210062DBF2 /* FocusSquare.swift in Sources */,
 				BC27CE991F2A4274009ECAF1 /* ShotButton.swift in Sources */,
 				BC218B411F2382A900DE4048 /* ARSessionConfigUtil.swift in Sources */,
+				BCD4E6E61F61A6F00084F702 /* TipText.swift in Sources */,
 				BC8DE19B1F3760C400CA9765 /* FocusHexagon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

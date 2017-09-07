@@ -16,7 +16,7 @@ class ARRulerViewController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var distanceUnitButton: DropDownButton!
     @IBOutlet weak var shotButton: UIButton!
-    @IBOutlet weak var tipsLabel: Tip!
+    @IBOutlet weak var tipsLabel: TipText!
     @IBOutlet weak var focusHexagon: FocusHexagon!
     @IBOutlet weak var restartButton: UIButton!
     

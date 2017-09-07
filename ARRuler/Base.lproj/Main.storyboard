@@ -106,15 +106,13 @@
                                     <constraint firstAttribute="width" constant="170" id="yFj-zJ-lEo"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-O7-hFY" customClass="Tip" customModule="ARRuler" customModuleProvider="target">
-                                <rect key="frame" x="166" y="546.5" width="42" height="20.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20.5" id="QON-2L-IfI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoX-as-VTT" customClass="TipText" customModule="ARRuler" customModuleProvider="target">
+                                <rect key="frame" x="182" y="530.5" width="10" height="36.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4m-Ns-8pZ">
                                 <rect key="frame" x="156" y="591" width="62" height="62"/>
                                 <constraints>
@@ -149,7 +147,6 @@
                             <constraint firstItem="jVZ-XS-Uws" firstAttribute="top" secondItem="9H0-6L-OC7" secondAttribute="top" constant="20" id="9vq-FX-Lb7"/>
                             <constraint firstItem="BUv-V2-bPF" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" id="JLK-Oy-O4S"/>
                             <constraint firstItem="jVZ-XS-Uws" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="MkA-oZ-vgJ"/>
-                            <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="f8B-O7-hFY" secondAttribute="bottom" constant="100" id="S44-z1-FQ6"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="nA4-AQ-hMb" secondAttribute="bottom" constant="-20" id="Y0v-Ri-eXI"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="HmB-J8-ADd" secondAttribute="bottom" id="Yba-Yj-ut6"/>
                             <constraint firstItem="n4m-Ns-8pZ" firstAttribute="centerX" secondItem="dYv-3b-FXE" secondAttribute="centerX" id="aIt-fb-2VV"/>
@@ -157,12 +154,13 @@
                             <constraint firstItem="nA4-AQ-hMb" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="e0e-Sg-6bW"/>
                             <constraint firstItem="29t-lU-nVs" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" constant="24" id="eJY-uc-DdZ"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="dYv-3b-FXE" secondAttribute="bottom" id="eYr-Z6-ydl"/>
+                            <constraint firstItem="aoX-as-VTT" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="fzE-Bm-Fmz"/>
                             <constraint firstItem="n4m-Ns-8pZ" firstAttribute="centerY" secondItem="dYv-3b-FXE" secondAttribute="centerY" id="g3R-gm-eJ4"/>
-                            <constraint firstItem="f8B-O7-hFY" firstAttribute="width" relation="lessThanOrEqual" secondItem="7lS-ul-ncO" secondAttribute="width" constant="-40" id="iIH-kk-kWu"/>
+                            <constraint firstItem="aoX-as-VTT" firstAttribute="width" relation="lessThanOrEqual" secondItem="7lS-ul-ncO" secondAttribute="width" constant="-40" id="gBs-Vg-TXa"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="trailing" secondItem="HmB-J8-ADd" secondAttribute="trailing" id="iv0-dh-ddw"/>
+                            <constraint firstItem="9H0-6L-OC7" firstAttribute="bottom" secondItem="aoX-as-VTT" secondAttribute="bottom" constant="100" id="jEh-S0-6H3"/>
                             <constraint firstItem="HmB-J8-ADd" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" id="jZP-zC-jwe"/>
                             <constraint firstItem="HmB-J8-ADd" firstAttribute="top" secondItem="9H0-6L-OC7" secondAttribute="top" id="jqF-Pd-QAJ"/>
-                            <constraint firstItem="f8B-O7-hFY" firstAttribute="centerX" secondItem="9H0-6L-OC7" secondAttribute="centerX" id="mLX-eh-O4M"/>
                             <constraint firstItem="dYv-3b-FXE" firstAttribute="leading" secondItem="9H0-6L-OC7" secondAttribute="leading" id="pI3-Rb-JPZ"/>
                             <constraint firstItem="9H0-6L-OC7" firstAttribute="trailing" secondItem="bvo-1b-gY0" secondAttribute="trailing" constant="16" id="rTU-6h-SCz"/>
                             <constraint firstItem="dIr-1q-qS9" firstAttribute="centerY" secondItem="9H0-6L-OC7" secondAttribute="centerY" id="stx-Gn-WZy"/>
@@ -184,7 +182,7 @@
                         <outlet property="shotButton" destination="n4m-Ns-8pZ" id="pFo-jV-U2C"/>
                         <outlet property="tipsGiraffe" destination="nA4-AQ-hMb" id="jop-xe-gcF"/>
                         <outlet property="tipsGiraffeBottomMargin" destination="Y0v-Ri-eXI" id="coZ-If-QVL"/>
-                        <outlet property="tipsLabel" destination="f8B-O7-hFY" id="Drt-2Q-rne"/>
+                        <outlet property="tipsLabel" destination="aoX-as-VTT" id="ANP-zd-hey"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

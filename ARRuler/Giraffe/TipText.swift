@@ -1,30 +1,33 @@
 //
-//  Tip.swift
+//  TipText.swift
 //  ARRuler
 //
-//  Created by StephenMa on 2017/7/31.
+//  Created by StephenMa on 2017/9/8.
 //  Copyright © 2017年 Stephen Ma. All rights reserved.
 //
 
 import UIKit
 
-class Tip: UILabel {
+class TipText: UITextView {
 
-    private let horizontalInset:CGFloat = 15
-    private let verticalInset:CGFloat = 10
     private let cornerLength:CGFloat = 4
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(frame: CGRect, textContainer: NSTextContainer?) {
+        super.init(frame: frame, textContainer: textContainer)
+        
+        self.textContainerInset = UIEdgeInsetsMake(10, 15, 10, 15)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        self.textContainerInset = UIEdgeInsetsMake(10, 15, 10, 15)
     }
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
+        // Drawing code
         
         if let ctx = UIGraphicsGetCurrentContext() {
             ctx.setFillColor(UIColor(named: "GiraffeYellow")!.cgColor)
@@ -34,17 +37,6 @@ class Tip: UILabel {
             ctx.addLines(between: [CGPoint.init(x: rect.width, y: rect.height), CGPoint.init(x: rect.width-cornerLength, y: rect.height), CGPoint.init(x: rect.width, y: rect.height-cornerLength)])
             ctx.closePath()
             ctx.fillPath()
-        }
-        
-        super.drawText(in: rect.insetBy(dx: horizontalInset, dy: verticalInset))
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        get {
-            var size = super.intrinsicContentSize
-            size.width += 2*horizontalInset
-            size.height += 2*verticalInset
-            return size
         }
     }
     

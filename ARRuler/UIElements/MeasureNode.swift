@@ -25,11 +25,12 @@ class MeasureNode: SCNNode {
     func updateScale(cameraPosition: SCNVector3) {
         let distance = (cameraPosition-self.position).length()
         if !distance.isNaN {
+            let distanceInCm = CGFloat(distance)*CGFloat(100)
             let radius: CGFloat
             if distance < 0.1 {
-                radius = (0.025*CGFloat(distance)+0.5)/CGFloat(100)
+                radius = (0.025*distanceInCm+0.5)/CGFloat(100)
             } else if distance > 0.5 {
-                radius = (0.025*CGFloat(distance)-0.75)/CGFloat(100)
+                radius = (0.025*distanceInCm-0.75)/CGFloat(100)
             } else {
                 radius = 0.5/CGFloat(100)
             }

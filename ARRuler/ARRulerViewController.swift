@@ -195,7 +195,7 @@ extension ARRulerViewController: ARSessionDelegate {
         if let endNode = endNode {
             endNode.updateScale(cameraPosition: cameraPosition)
         }
-        if !isMeasureEnd {
+        if !isMeasureEnd, startNode == nil {
             if let rawFeaturePoints = frame.rawFeaturePoints {
                 if rawFeaturePoints.__count > 50 {
                     startMeasureStage()

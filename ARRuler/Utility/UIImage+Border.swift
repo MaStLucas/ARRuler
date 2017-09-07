@@ -24,9 +24,9 @@ extension UIImage {
             self.draw(in: CGRect(x: borderWidth, y: borderWidth, width: self.size.width, height: self.size.height))
             
             let text = NSLocalizedString("Measured by ARuler", comment: "") as NSString
-            let textSize = text.size(withAttributes: [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 9)])
+            let textSize = text.size(withAttributes: [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 12)])
             text.draw(in: CGRect.init(origin: CGPoint.init(x: (imageSize.width-textSize.width)/CGFloat(2), y: imageSize.height-textSize.height-CGFloat(20)), size: size), withAttributes: [
-                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 9),
+                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 12),
                 NSAttributedStringKey.foregroundColor : UIColor.init(white: 0xffffff, alpha: 0.5)
                 ])
             

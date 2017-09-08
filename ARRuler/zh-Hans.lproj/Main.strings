@@ -1,6 +1,4 @@
 
-///* Class = "UILabel"; text = "ARuler"; ObjectID = "pdJ-gn-yl9"; */
-//"pdJ-gn-yl9.text" = "爱鹿测量";
 
 /* Class = "UILabel"; text = "Restart"; ObjectID = "EXt-fQ-ujB"; */
 "EXt-fQ-ujB.text" = "再次测量";
@@ -11,5 +9,3 @@
 /* Class = "UILabel"; text = "Share"; ObjectID = "czH-dR-vEc"; */
 "czH-dR-vEc.text" = "分享";
 
-/* Class = "UIButton"; normalTitle = "m"; ObjectID = "bvo-1b-gY0"; */
-"bvo-1b-gY0.normalTitle" = "米";

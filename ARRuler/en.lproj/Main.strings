@@ -5,17 +5,5 @@
 /* Class = "UILabel"; text = "Save"; ObjectID = "IHH-nn-mqL"; */
 "IHH-nn-mqL.text" = "Save";
 
-/* Class = "UILabel"; text = "Title"; ObjectID = "a7t-O2-eyy"; */
-"a7t-O2-eyy.text" = "Title";
-
-/* Class = "UIButton"; normalTitle = "m"; ObjectID = "bvo-1b-gY0"; */
-"bvo-1b-gY0.normalTitle" = "m";
-
 /* Class = "UILabel"; text = "Share"; ObjectID = "czH-dR-vEc"; */
 "czH-dR-vEc.text" = "Share";
-
-/* Class = "UILabel"; text = "1.82"; ObjectID = "jVZ-XS-Uws"; */
-"jVZ-XS-Uws.text" = "1.82";
-
-/* Class = "UILabel"; text = "ARuler"; ObjectID = "pdJ-gn-yl9"; */
-"pdJ-gn-yl9.text" = "ARuler";

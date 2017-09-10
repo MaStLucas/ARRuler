@@ -30,7 +30,7 @@ class MeasureNode: SCNNode {
             if distance < 0.1 {
                 radius = (0.01*distanceInCm+0.4)/CGFloat(100)
             } else if distance > 0.5 {
-                radius = (0.01*distanceInCm)/CGFloat(100)
+                radius = (0.005*distanceInCm+0.25)/CGFloat(100)
             } else {
                 radius = 0.5/CGFloat(100)
             }

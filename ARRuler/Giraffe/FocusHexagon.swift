@@ -29,7 +29,7 @@ class FocusHexagon: UIView {
         aimPoint.bounds = CGRect.init(x: 0, y: 0, width: 4, height: 4)
         aimPoint.position = localCenter
         aimPoint.cornerRadius = 2
-        aimPoint.backgroundColor = UIColor(named: "GiraffeYellow")!.cgColor
+        aimPoint.backgroundColor = UIColor.white.cgColor
         self.layer.addSublayer(aimPoint)
         
         for i in 1...12 {

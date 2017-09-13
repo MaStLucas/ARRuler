@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tVa-uU-29f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tVa-uU-29f">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -20,9 +20,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_background" translatesAutoresizingMaskIntoConstraints="NO" id="ty6-h0-pbP">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_background_ruler" translatesAutoresizingMaskIntoConstraints="NO" id="kds-X6-tfB">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARuler" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdJ-gn-yl9">
@@ -43,13 +40,9 @@
                         <constraints>
                             <constraint firstItem="qOJ-sM-hzh" firstAttribute="bottom" secondItem="ty6-h0-pbP" secondAttribute="bottom" id="CYF-f1-1Gw"/>
                             <constraint firstItem="ty6-h0-pbP" firstAttribute="leading" secondItem="qOJ-sM-hzh" secondAttribute="leading" id="Gz3-WW-UNu"/>
-                            <constraint firstItem="kds-X6-tfB" firstAttribute="top" secondItem="qOJ-sM-hzh" secondAttribute="top" id="WBb-54-6uL"/>
-                            <constraint firstItem="kds-X6-tfB" firstAttribute="leading" secondItem="qOJ-sM-hzh" secondAttribute="leading" id="XBt-Yp-GYm"/>
                             <constraint firstItem="ty6-h0-pbP" firstAttribute="top" secondItem="qOJ-sM-hzh" secondAttribute="top" id="XL4-zJ-JMx"/>
                             <constraint firstItem="YtC-Dw-3ng" firstAttribute="centerX" secondItem="qOJ-sM-hzh" secondAttribute="centerX" id="XmD-5b-coM"/>
-                            <constraint firstItem="qOJ-sM-hzh" firstAttribute="bottom" secondItem="kds-X6-tfB" secondAttribute="bottom" id="b9n-6v-hKG"/>
                             <constraint firstItem="qOJ-sM-hzh" firstAttribute="trailing" secondItem="ty6-h0-pbP" secondAttribute="trailing" id="euD-do-zKr"/>
-                            <constraint firstItem="qOJ-sM-hzh" firstAttribute="trailing" secondItem="kds-X6-tfB" secondAttribute="trailing" id="qE3-2k-MTS"/>
                             <constraint firstItem="qOJ-sM-hzh" firstAttribute="bottom" secondItem="pdJ-gn-yl9" secondAttribute="bottom" constant="64" id="sZW-vO-lOz"/>
                             <constraint firstItem="pdJ-gn-yl9" firstAttribute="centerX" secondItem="qOJ-sM-hzh" secondAttribute="centerX" id="wll-lj-1HS"/>
                             <constraint firstItem="YtC-Dw-3ng" firstAttribute="centerY" secondItem="qOJ-sM-hzh" secondAttribute="centerY" constant="-40" id="yXf-d9-Ir9"/>
@@ -355,7 +348,6 @@
         <image name="save" width="52" height="52"/>
         <image name="share" width="52" height="52"/>
         <image name="splash_background" width="375" height="669"/>
-        <image name="splash_background_ruler" width="512" height="512"/>
         <image name="splash_giraffe" width="120" height="120"/>
         <image name="tips_giraffe" width="50" height="50"/>
         <image name="top" width="375" height="90"/>

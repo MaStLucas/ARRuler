@@ -22,7 +22,7 @@ class Ruler {
         self.startPoint = startPoint
         self.endPoint = endPoint
         
-        self.rulerNode = SCNNode(geometry: SCNGeometry.trianglesFrom(vector: startPoint, toVector: endPoint))
+        self.rulerNode = SCNNode(geometry: SCNGeometry.lineFrom(vector: startPoint, toVector: endPoint))
         
         parentNode.addChildNode(rulerNode)
     }
@@ -31,7 +31,7 @@ class Ruler {
         self.endPoint = endPoint
         
         if !((self.endPoint-self.startPoint).length().isNaN) {
-            self.rulerNode.geometry = SCNGeometry.trianglesFrom(vector: startPoint, toVector: endPoint)
+            self.rulerNode.geometry = SCNGeometry.lineFrom(vector: startPoint, toVector: endPoint)
         }
         
 //        let width = CGFloat((startPoint-endPoint).length())
@@ -82,7 +82,7 @@ extension SCNGeometry {
         let element = SCNGeometryElement(indices: indices, primitiveType: .line)
         
         let geometry = SCNGeometry(sources: [source], elements: [element])
-        geometry.firstMaterial?.diffuse.contents = UIColor.white
+        geometry.firstMaterial?.diffuse.contents = UIColor(named: "GiraffeYellow")!
         geometry.firstMaterial?.isDoubleSided = true
         
         return geometry

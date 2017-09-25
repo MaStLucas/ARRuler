@@ -39,8 +39,8 @@ class ShareViewController: UIViewController {
         
         let shareString = NSMutableAttributedString()
         shareString.append(NSAttributedString.init(string: NSLocalizedString("ARuler - the most interesting AR measure tool", comment: "")))
-//        shareString.append(NSAttributedString.init(string: "此处", attributes: [NSAttributedStringKey.link : URL.init(string: "www.baidu.com")!]))
-//        shareString.append(NSAttributedString.init(string: "下载"))
+        shareString.append(NSAttributedString.init(string: "\n"))
+        shareString.append(NSAttributedString.init(string: NSLocalizedString("Download here", comment: ""), attributes: [NSAttributedStringKey.link : URL.init(string: "https://itunes.apple.com/us/app/aruler-ar-measuring-tool/id1281344946")!]))
         
         let activityVC = UIActivityViewController.init(activityItems: [shareString, screenShot.image!], applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)

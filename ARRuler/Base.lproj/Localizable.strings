@@ -1,0 +1,40 @@
+/*
+ Localizable.strings
+ ARRuler
+ 
+ Created by StephenMa on 2017/8/27.
+ Copyright © 2017年 Stephen Ma. All rights reserved.
+ */
+
+"ARuler" = "ARuler";
+
+"m" = "m";
+
+"cm" = "cm";
+
+"inch" = "inch";
+
+"OK" = "OK";
+
+"Measured by ARuler" = "Measured by ARuler";
+
+"Environment Identifying，please move your phone around" = "Environment Identifying，please move your phone around";
+
+"Tap to set a start point" = "Tap to set a start point";
+
+"Move your phone to measure" = "Move your phone to measure";
+
+"Tap to set an end point" = "Tap to set an end point";
+
+"Capture your image" = "Capture your image";
+
+"Save success" = "The picture is saved to Photos > ARuler";
+
+"Save error" = "Save error";
+
+"Photos access denied" = "Photos access denied";
+
+"Please enable Photos access for this application in Settings > Privacy to allow saving screenshots." = "Please enable Photos access for this application in Settings > Privacy to allow saving screenshots.";
+
+"ARuler - the most interesting AR measure tool" = "ARuler - the most interesting AR measure tool";
+

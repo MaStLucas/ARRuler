@@ -1,0 +1,33 @@
+/*
+ Localizable.strings
+ ARRuler
+ 
+ Created by StephenMa on 2017/8/27.
+ Copyright © 2017年 Stephen Ma. All rights reserved.
+ */
+
+"ARuler" = "ARuler";
+
+"OK" = "确定";
+
+"Measured by ARuler" = "爱鹿测量";
+
+"Environment Identifying，please move your phone around" = "环境识别中，请轻移您的手机";
+
+"Tap to set a start point" = "点击屏幕任意位置设置测量起点";
+
+"Move your phone to measure" = "移动您的手机进行测量";
+
+"Tap to set an end point" = "点击屏幕任意位置设置测量终点";
+
+"Capture your image" = "拍摄保存本次测量记录";
+
+"Save success" = "图片已被保存至照片 > ARuler";
+
+"Save error" = "保存错误";
+
+"Photos access denied" = "照片访问被拒绝";
+
+"Please enable Photos access for this application in Settings > Privacy to allow saving screenshots." = "请在“设置”>“隐私”中启用此应用程序的照片访问权限，以保存测量记录。";
+
+"ARuler - the most interesting AR measure tool" = "ARuler-最好玩的AR测量工具";

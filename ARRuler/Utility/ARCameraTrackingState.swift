@@ -24,6 +24,8 @@ extension ARCamera.TrackingState {
                 return "TRACKING LIMITED: Not enough surface detail"
             case .initializing:
                 return "TRACKING LIMITED: Initializing"
+            case .relocalizing:
+                return "TRACKING LIMITED: Relocalizing"
             }
         }
     }

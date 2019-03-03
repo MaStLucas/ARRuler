@@ -26,8 +26,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARuler" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdJ-gn-yl9">
-                                <rect key="frame" x="162" y="582" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="156" y="540.5" width="63.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -46,7 +46,7 @@
                             <constraint firstItem="ty6-h0-pbP" firstAttribute="top" secondItem="X3M-Du-du8" secondAttribute="top" id="XL4-zJ-JMx"/>
                             <constraint firstItem="YtC-Dw-3ng" firstAttribute="centerX" secondItem="X3M-Du-du8" secondAttribute="centerX" id="XmD-5b-coM"/>
                             <constraint firstAttribute="trailing" secondItem="ty6-h0-pbP" secondAttribute="trailing" id="euD-do-zKr"/>
-                            <constraint firstItem="cUf-TU-gPD" firstAttribute="top" secondItem="pdJ-gn-yl9" secondAttribute="bottom" constant="64" id="sZW-vO-lOz"/>
+                            <constraint firstItem="cUf-TU-gPD" firstAttribute="top" secondItem="pdJ-gn-yl9" secondAttribute="bottom" constant="100" id="sZW-vO-lOz"/>
                             <constraint firstItem="pdJ-gn-yl9" firstAttribute="centerX" secondItem="X3M-Du-du8" secondAttribute="centerX" id="wll-lj-1HS"/>
                             <constraint firstItem="YtC-Dw-3ng" firstAttribute="centerY" secondItem="X3M-Du-du8" secondAttribute="centerY" constant="-40" id="yXf-d9-Ir9"/>
                         </constraints>
@@ -84,14 +84,15 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.82" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVZ-XS-Uws">
-                                <rect key="frame" x="161" y="40" width="53" height="33.5"/>
+                                <rect key="frame" x="161" y="40" width="53" height="34.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" name="GiraffeYellow"/>
                                 <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                                <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvo-1b-gY0" customClass="DropDownButton" customModule="ARRuler" customModuleProvider="target">
-                                <rect key="frame" x="299" y="39" width="60" height="36"/>
+                                <rect key="frame" x="299" y="39.5" width="60" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Jmw-YH-rh8"/>
                                 </constraints>
@@ -124,6 +125,7 @@
                                     <constraint firstAttribute="width" constant="62" id="dyn-by-Akv"/>
                                     <constraint firstAttribute="height" constant="62" id="fHQ-Tg-fis"/>
                                 </constraints>
+                                <color key="tintColor" name="GiraffeYellow"/>
                                 <state key="normal" image="capture"/>
                                 <state key="highlighted" image="capture_active"/>
                                 <connections>
@@ -230,6 +232,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksj-Ab-Mu1">
                                                         <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
+                                                        <color key="tintColor" name="GiraffeYellow"/>
                                                         <state key="normal" image="restart"/>
                                                         <connections>
                                                             <action selector="restartButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="1wf-DY-Mgq"/>
@@ -248,6 +251,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkG-hQ-gy6">
                                                         <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
+                                                        <color key="tintColor" name="GiraffeYellow"/>
                                                         <state key="normal" image="save"/>
                                                         <connections>
                                                             <action selector="galleryButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="zQV-iq-MNt"/>
@@ -266,6 +270,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrp-tI-XHI">
                                                         <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
+                                                        <color key="tintColor" name="GiraffeYellow"/>
                                                         <state key="normal" image="share"/>
                                                         <connections>
                                                             <action selector="shareButtonPressed:" destination="RPH-4j-TpX" eventType="touchUpInside" id="FCp-gN-jvY"/>
